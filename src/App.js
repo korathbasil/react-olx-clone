@@ -1,16 +1,20 @@
-import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 
 /**
  * ?  =====Import Components=====
  */
 import Home from './Pages/Home';
+import Login from './Pages/Login';
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <Router>
+      <div>
+        <Route path="/" component={Home} exact />
+        <Route path="/login" component={Login} />
+      </div>
+    </Router>
   );
 }
 
