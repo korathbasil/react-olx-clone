@@ -14,7 +14,7 @@ export default function Signup() {
     password: ""
   });
   
-  const inputChangeHandler = (e) => {
+  const inputFieldModifier = (e) => {
     setSignupInput({
       ...signupInput,
       [e.target.name]: e.target.value
@@ -59,7 +59,7 @@ export default function Signup() {
             type="text"
             name="name"
             value={signupInput.name}
-            onChange={(e) => inputChangeHandler(e)}
+            onChange={(e) => inputFieldModifier(e)}
           />
           <br />
           <label htmlFor="fname">Email</label>
@@ -69,7 +69,7 @@ export default function Signup() {
             type="email"
             name="email"
             value={signupInput.email}
-            onChange={(e) => inputChangeHandler(e)}
+            onChange={(e) => inputFieldModifier(e)}
           />
           <br />
           <label htmlFor="lname">Phone</label>
@@ -79,7 +79,7 @@ export default function Signup() {
             type="number"
             name="phone"
             value={signupInput.phone}
-            onChange={(e) => inputChangeHandler(e)}
+            onChange={(e) => inputFieldModifier(e)}
           />
           <br />
           <label htmlFor="lname">Password</label>
@@ -89,7 +89,7 @@ export default function Signup() {
             type="password"
             name="password"
             value={signupInput.password}
-            onChange={(e) => inputChangeHandler(e)}
+            onChange={(e) => inputFieldModifier(e)}
           />
           <br />
           <br />

@@ -1,11 +1,37 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import {auth} from '../../firebase';
 
 import Logo from '../../olx-logo.png';
 import './Login.css';
 
 function Login() {
+  const history = useHistory();
+  const [loginInput, setLoginInput] = useState({
+    email: "",
+    password: ""
+  })
+
+  const inputFieldModifier = (e) => {
+    setLoginInput({
+      ...loginInput,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const doLogin = (e) => {
+    e.preventDefault();
+    auth.signInWithEmailAndPassword(loginInput.email, loginInput.password)
+    .then((user) => {
+      setLoginInput({
+        email: "",
+        password: ""
+      });
+      history.push('/')
+    })
+    .catch(e => console.log(e))
+  }
+
   return (
     <div>
       <div className="loginParentDiv">
@@ -16,9 +42,9 @@ function Login() {
           <input
             className="input"
             type="email"
-            id="fname"
             name="email"
-            defaultValue="John"
+            value={loginInput.email}
+            onChange={(e) => inputFieldModifier(e)}
           />
           <br />
           <label htmlFor="lname">Password</label>
@@ -26,13 +52,13 @@ function Login() {
           <input
             className="input"
             type="password"
-            id="lname"
             name="password"
-            defaultValue="Doe"
+            value={loginInput.password}
+            onChange={(e) => inputFieldModifier(e)}
           />
           <br />
           <br />
-          <button>Login</button>
+          <button onClick={doLogin}>Login</button>
         </form>
         <Link to="/signup">
         <a>Signup</a>
