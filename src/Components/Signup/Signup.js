@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {auth} from '../../firebase';
+import {auth, db} from '../../firebase';
 
 import Logo from '../../olx-logo.png';
 import './Signup.css';
 
 export default function Signup() {
   const history = useHistory();
-  const [signupInput, setsignupInput] = useState({
+  const [signupInput, setSignupInput] = useState({
     name: "",
     email: "",
     phone: "",
@@ -15,7 +15,7 @@ export default function Signup() {
   });
   
   const inputChangeHandler = (e) => {
-    setsignupInput({
+    setSignupInput({
       ...signupInput,
       [e.target.name]: e.target.value
     })
@@ -26,19 +26,24 @@ export default function Signup() {
     auth.createUserWithEmailAndPassword(signupInput.email, signupInput.password)
     .then((result) => {
       result.user.updateProfile({displayName: signupInput.name})
-      .then(user => console.log(user))
-      return
-    })
-    .then(() => {
-      
-      setsignupInput({
-        name: "",
-        email: "",
-        phone: "",
-        password: ""
-      });
-      // history.push('/')
-      alert("done")
+      .then(() => {
+        return db.collection("users").add({
+          uid: result.user.uid,
+          name: signupInput.name,
+          phone: signupInput.phone,
+        })
+      })
+      .then((res) => {
+        console.log(res)
+        setSignupInput({
+          name: "",
+          email: "",
+          phone: "",
+          password: ""
+        });
+        history.push('/');
+      })
+      .catch((e) => console.log(e))
     })
     .catch((e) => console.log(e))
 }
