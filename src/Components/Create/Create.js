@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react';
-import './Create.css';
-import Header from '../Header/Header';
+import { useState } from "react";
+import { storage } from "../../firebase";
+import "./Create.css";
+import Header from "../Header/Header";
 
 const Create = () => {
+  const [image, setImage] = useState(null);
   return (
-    <Fragment>
+    <>
       <Header />
       <card>
         <div className="centerDiv">
@@ -35,16 +37,21 @@ const Create = () => {
             <br />
           </form>
           <br />
-          <img alt="Posts" width="200px" height="200px" src=""></img>
+          <img
+            alt="Posts"
+            width="200px"
+            height="200px"
+            src={image ? URL.createObjectURL(image) : ""}
+          ></img>
           <form>
             <br />
-            <input type="file" />
+            <input onChange={(e) => setImage(e.target.files[0])} type="file" />
             <br />
             <button className="uploadBtn">upload and Submit</button>
           </form>
         </div>
       </card>
-    </Fragment>
+    </>
   );
 };
 
