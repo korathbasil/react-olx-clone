@@ -1,0 +1,16 @@
+.minHeader {
+  height: 70px;
+  background-color: var(--light-bg);
+  display: flex;
+  align-items: center;
+}
+.minHeaderChild {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.backArrow {
+  height: 25px;
+  margin-right: 20px;
+}

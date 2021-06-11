@@ -1,8 +1,10 @@
-import Header from "../../Components/Header/Header";
+import MinimalHeader from "../../Components/MinimalHeader/MinimalHeader";
+import CreatePost from '../../Components/CreatePost/CreatePost';
 
 const Sell = () => (
   <>
-    <Header />
+    <MinimalHeader />
+    <CreatePost />
   </>
 );
 
