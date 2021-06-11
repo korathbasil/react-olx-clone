@@ -41,7 +41,7 @@ const Create = () => {
             alt="Posts"
             width="200px"
             height="200px"
-            src={image ? URL.createObjectURL(image) : ""}
+            src={image ? URL.createObjectURL(image) : null}
           ></img>
           <form>
             <br />
