@@ -6,11 +6,8 @@ import CreatePost from "../../Components/CreatePost/CreatePost";
 import useGlobalStore from "../../store/GlobalStore";
 
 const Sell = () => {
-  const [{name}] = useGlobalStore();
 
-  useEffect(() => {
-    console.log(name)
-  }, [])
+
 
   return (
     <>

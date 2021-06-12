@@ -1,36 +1,50 @@
-import {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {auth} from '../../firebase';
+import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
-import Logo from '../../olx-logo.png';
-import './Login.css';
+import { auth } from "../../firebase";
+import useGlobalStore from "../../store/GlobalStore";
+
+import Logo from "../../olx-logo.png";
+import "./Login.css";
 
 function Login() {
   const history = useHistory();
+
+  const [{}, dispatch] = useGlobalStore();
+
   const [loginInput, setLoginInput] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
   const inputFieldModifier = (e) => {
     setLoginInput({
       ...loginInput,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const doLogin = (e) => {
     e.preventDefault();
-    auth.signInWithEmailAndPassword(loginInput.email, loginInput.password)
-    .then((user) => {
-      setLoginInput({
-        email: "",
-        password: ""
-      });
-      history.push('/')
-    })
-    .catch(e => console.log(e))
-  }
+    auth
+      .signInWithEmailAndPassword(loginInput.email, loginInput.password)
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: {
+            displayName: result.user.displayName,
+            email: result.user.email,
+          },
+        });
+
+        setLoginInput({
+          email: "",
+          password: "",
+        });
+        history.push("/");
+      })
+      .catch((e) => console.log(e));
+  };
 
   return (
     <div>
@@ -61,7 +75,7 @@ function Login() {
           <button onClick={doLogin}>Login</button>
         </form>
         <Link to="/signup">
-        <a>Signup</a>
+          <a>Signup</a>
         </Link>
       </div>
     </div>

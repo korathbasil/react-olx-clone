@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import useGlobalStore from "../../store/GlobalStore";
+
 import "./Header.css";
 import OlxLogo from "../../assets/OlxLogo";
 import Search from "../../assets/Search";
@@ -8,6 +10,7 @@ import Arrow from "../../assets/Arrow";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
 function Header() {
+  const [{ user }] = useGlobalStore();
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -34,12 +37,15 @@ function Header() {
           <span> ENGLISH </span>
           <Arrow></Arrow>
         </div>
-        <div className="loginPage">
-          <Link to="/login">
-            <span>Login</span>
-          </Link>
-          <hr />
-        </div>
+        {user?.displayName && <p>{user.displayName}</p>}
+        {!user && (
+          <div className="loginPage">
+            <Link to="/login">
+              <span>Login</span>
+            </Link>
+            <hr />
+          </div>
+        )}
         <Link to="/sell">
           <div className="sellMenu">
             <SellButton></SellButton>
