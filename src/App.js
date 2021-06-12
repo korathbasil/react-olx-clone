@@ -1,15 +1,31 @@
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import './App.css';
+import { useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { auth } from "./firebase";
+import useGlobalStore from "./store/GlobalStore";
 
-/**
- * ?  =====Import Components=====
- */
-import Home from './Pages/Home';
-import Login from './Pages/Login';
-import Signup from './Pages/Signup';
-import Sell from './Pages/Sell/Sell';
+import "./App.css";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
+import Sell from "./Pages/Sell/Sell";
 
 function App() {
+  const [{}, dispatch] = useGlobalStore();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch({
+          type: "SET_USER",
+          user: {
+            displayName: user.displayName,
+            email: user.email,
+          },
+        });
+      }
+    });
+  }, []);
+
   return (
     <Router>
       <div>
