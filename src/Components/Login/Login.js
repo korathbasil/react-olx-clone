@@ -32,11 +32,12 @@ function Login() {
         dispatch({
           type: "SET_USER",
           user: {
+            uid: result.user.uid,
             displayName: result.user.displayName,
             email: result.user.email,
           },
         });
-
+        console.log(result.user);
         setLoginInput({
           email: "",
           password: "",

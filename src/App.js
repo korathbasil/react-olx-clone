@@ -18,6 +18,7 @@ function App() {
         dispatch({
           type: "SET_USER",
           user: {
+            uid: user.uid,
             displayName: user.displayName,
             email: user.email,
           },
