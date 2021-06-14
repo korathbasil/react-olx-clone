@@ -1,16 +1,22 @@
 import { useState } from "react";
-import {storage} from '../../firebase';
+import { storage } from "../../firebase";
 import styles from "./CreatePost.module.css";
 
 const CreatePost = () => {
-    const [itemImage, setItemImage] = useState(null);
+  const [itemImage, setItemImage] = useState(null);
 
-    const uploadImage = () => {
-        storage.ref(`/products/${itemImage.name}`).put(itemImage)
-        .then(snapshot => {
-            console.log(snapshot)
-        })
-    }
+  const uploadImage = (e) => {
+    e.preventDefault();
+    storage
+      .ref(`/products/${itemImage.name}`)
+      .put(itemImage)
+      .then((snapshot) => {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log(url);
+      });
+  };
 
   return (
     <div className={styles.createPost}>
@@ -35,8 +41,15 @@ const CreatePost = () => {
           </div>
           <h2>UPLOAD IMAGE</h2>
           <div className={styles.formInputWrapper}>
-            {itemImage && <img className={styles.productImage} src={itemImage} alt="" />}
-            <input onChange={(e) => setItemImage(URL.createObjectURL(e.target.files[0]))} type="file" />
+            {itemImage && (
+              <img className={styles.productImage} src={itemImage} alt="" />
+            )}
+            <input
+              onChange={(e) =>
+                setItemImage(URL.createObjectURL(e.target.files[0]))
+              }
+              type="file"
+            />
           </div>
           <div className={styles.formInputWrapper}>
             <button onClick={uploadImage}>Post now</button>
