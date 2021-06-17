@@ -13,6 +13,7 @@ const CreatePost = () => {
     price: "",
   });
   const [itemImage, setItemImage] = useState(null);
+  const [itemImageUrl, setItemImageUrl] = useState(null);
 
   const productDetailsStateModifier = (e) => {
     setProductDetails({
@@ -84,12 +85,13 @@ const CreatePost = () => {
           <h2>UPLOAD IMAGE</h2>
           <div className={styles.formInputWrapper}>
             {itemImage && (
-              <img className={styles.productImage} src={itemImage} alt="" />
+              <img className={styles.productImage} src={itemImageUrl} alt="" />
             )}
             <input
-              onChange={(e) =>
-                setItemImage(URL.createObjectURL(e.target.files[0]))
-              }
+              onChange={(e) => {
+                setItemImageUrl(URL.createObjectURL(e.target.files[0]));
+                setItemImage(e.target.files[0]);
+              }}
               type="file"
             />
           </div>
