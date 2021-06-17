@@ -12,3 +12,7 @@ body {
   --light-bg: #002f3408;
   --light-border: lightgrey;
 }
+.app {
+  width: 100vw;
+  height: 100vh;
+}

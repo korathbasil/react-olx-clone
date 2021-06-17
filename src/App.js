@@ -30,7 +30,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className="app">
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

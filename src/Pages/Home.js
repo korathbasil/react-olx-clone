@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import Header from '../Components/Header/Header';
-import Banner from '../Components/Banner/Banner';
+import Header from "../Components/Header/Header";
+import Banner from "../Components/Banner/Banner";
 
-import './Home.css';
-import Posts from '../Components/Posts/Posts';
-import Footer from '../Components/Footer/Footer';
+import "./Home.css";
+import Posts from "../Components/Posts/Posts";
+import Footer from "../Components/Footer/Footer";
 
 function Home(props) {
   return (
@@ -19,4 +19,3 @@ function Home(props) {
 }
 
 export default Home;
- 

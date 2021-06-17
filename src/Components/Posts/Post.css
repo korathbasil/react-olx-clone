@@ -1,4 +1,9 @@
+.postParentDiv {
+  width: 100%;
+  background-color: brown;
+}
 .moreView {
+  width: calc(100% - 48px);
   margin: 16px 16px 24px;
   padding: 16px 16px 32px;
   background-color: #ebeeef;

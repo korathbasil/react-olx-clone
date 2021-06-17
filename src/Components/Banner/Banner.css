@@ -1,5 +1,6 @@
 .bannerParentDiv {
   padding-top: 4em;
+  width: 90%;
 }
 .bannerParentDiv .bannerChildDiv {
 }
@@ -24,10 +25,13 @@
 
 .bannerChildDiv .banner {
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
-.bannerChildDiv .banner img{
-  width: 100vw;
+.bannerChildDiv .banner {
+  width: 100%;
+}
+.banner > img {
+  width: 100%;
 }
 
 @media only screen and (max-width: 700px) {
