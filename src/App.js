@@ -8,6 +8,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Sell from "./Pages/Sell/Sell";
+import ViewPost from "./Pages/ViewPost";
 
 function App() {
   const [{}, dispatch] = useGlobalStore();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/sell" component={Sell} />
+        <Route path="/view" component={ViewPost} />
       </div>
     </Router>
   );

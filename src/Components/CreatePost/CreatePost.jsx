@@ -34,7 +34,7 @@ const CreatePost = () => {
           title: productdetails.title,
           description: productdetails.description,
           imageUrl: url,
-          price: parseFloat(productdetails.price),
+          price: parseInt(productdetails.price),
           createdAt: new Date().toDateString(),
           userId: user.uid,
         });
