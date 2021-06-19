@@ -1,0 +1,11 @@
+import firebase from "firebase";
+
+// Paste your firebaseConfig file here
+
+const app = firebase.initializeApp(firebaseConfig);
+
+const auth = app.auth();
+const db = app.firestore();
+const storage = app.storage();
+
+export { auth, db, storage };

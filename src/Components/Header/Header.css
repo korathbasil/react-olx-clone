@@ -15,7 +15,7 @@
 }
 
 .placeSearch {
-  width: 16em;
+  width: 25%;
   height: 48px;
   display: flex;
   align-items: center;
@@ -30,9 +30,12 @@
   outline-color: #23e5db;
 }
 
-.placeSearch input {
-  border-color: transparent;
-  outline-color: transparent;
+.placeSearch > input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0 10px;
 }
 
 .productSearch {
