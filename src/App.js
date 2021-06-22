@@ -35,7 +35,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/sell" component={Sell} />
-        <Route path="/view" component={ViewPost} />
+        <Route path="/view/:adId" component={ViewPost} />
       </div>
     </Router>
   );

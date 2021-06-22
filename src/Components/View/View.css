@@ -1,6 +1,8 @@
 .viewParentDiv {
+  width: 100%;
   padding-top: 4em;
   display: flex;
+  background-color: aqua;
 }
 .viewParentDiv .imageShowDiv {
   padding: 16px;
@@ -15,6 +17,7 @@
   padding: 16px;
   margin-top: 3em;
   width: 30vw;
+  /* background-color: aqua; */
 }
 
 .viewParentDiv .rightSection .productDetails :first-child {

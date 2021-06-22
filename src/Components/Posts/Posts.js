@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { db } from "../../firebase";
 import Heart from "../../assets/Heart";
@@ -32,22 +33,24 @@ function Posts() {
         <div className="cards">
           {posts.map((post) => {
             return (
-              <div className="card">
-                <div className="favorite">
-                  <Heart></Heart>
+              <Link to={`/view/${post.uid}`}>
+                <div className="card">
+                  <div className="favorite">
+                    <Heart></Heart>
+                  </div>
+                  <div className="image">
+                    <img src={post.imageUrl} alt="" />
+                  </div>
+                  <div className="content">
+                    <p className="rate">&#x20B9; {post.price}</p>
+                    <span className="kilometer">Two Wheeler</span>
+                    <p className="name">{post.title}</p>
+                  </div>
+                  <div className="date">
+                    <span>Tue May 04 2021</span>
+                  </div>
                 </div>
-                <div className="image">
-                  <img src={post.imageUrl} alt="" />
-                </div>
-                <div className="content">
-                  <p className="rate">&#x20B9; {post.price}</p>
-                  <span className="kilometer">Two Wheeler</span>
-                  <p className="name">{post.title}</p>
-                </div>
-                <div className="date">
-                  <span>Tue May 04 2021</span>
-                </div>
-              </div>
+              </Link>
             );
           })}
         </div>
