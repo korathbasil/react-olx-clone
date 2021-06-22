@@ -1,12 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 import useGlobalStore from "../../store/GlobalStore";
-
 import "./Header.css";
 import OlxLogo from "../../assets/OlxLogo";
 import Search from "../../assets/Search";
 import Arrow from "../../assets/Arrow";
+import AdsIcon from "../../assets/AdsIcon";
+import LogoutIcon from "../../assets/LogoutIcon";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
 
@@ -30,11 +30,41 @@ function Header() {
             <Search color="#ffffff"></Search>
           </div>
         </div>
-        <div className="language">
+        {/* <div className="language">
           <span> ENGLISH </span>
           <Arrow></Arrow>
-        </div>
+        </div> */}
         {user?.displayName && <p>{user.displayName}</p>}
+        <div className="userProfile">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
+            alt=""
+          />
+          <Arrow />
+          <div className="userMenu">
+            <div className="userMenuTop">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
+                alt=""
+              />
+              <div className="userMenuTopRight">
+                <p>Hello</p>
+                <h2>SABRINA</h2>
+                {/* <p>View and edit profile</p> */}
+              </div>
+            </div>
+            <div className="userMenuOptions">
+              <div>
+                <AdsIcon />
+                <p>My Ads</p>
+              </div>
+              <div>
+                <LogoutIcon />
+                <p>Logout</p>
+              </div>
+            </div>
+          </div>
+        </div>
         {!user && (
           <div className="loginPage">
             <Link to="/login">

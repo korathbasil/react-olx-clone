@@ -19,29 +19,10 @@ function View() {
 
   return (
     <div className={styles.viewParentDiv}>
-      {/* <div className="imageShowDiv">
-        <img
-          src="../../../Images/R15V3.jpg"
-          alt=""
-        />
-      </div>
-      <div className="rightSection">
-        <div className="productDetails">
-          <p>&#x20B9; 250000 </p>
-          <span>YAMAHA R15V3</span>
-          <p>Two Wheeler</p>
-          <span>Tue May 04 2021</span>
-        </div>
-        <div className="contactDetails">
-          <p>Seller details</p>
-          <p>No name</p>
-          <p>1234567890</p>
-        </div>
-      </div> */}
       <div className={styles.viewChildDiv}>
         <div className={styles.left}>
           <div className={styles.imageView}>
-            <img src="https://picsum.photos/200" alt="" />
+            <img src={ad?.imageUrl} alt="" />
           </div>
           <div className={styles.imageSelector}></div>
           <div className={styles.infoContainer}>

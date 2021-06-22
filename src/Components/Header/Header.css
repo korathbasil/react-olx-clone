@@ -113,7 +113,55 @@
 .loginPage a {
   text-decoration: none;
 }
-
+/* User Accout */
+.userProfile {
+  background-color: white;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  position: relative;
+}
+.userProfile > img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin: 4px;
+  border-radius: 999px;
+}
+.userMenu {
+  width: 300px;
+  background-color: white;
+  position: absolute;
+  top: 50px;
+  transform: translateX(-50%);
+  box-shadow: 2px 2px 2px lightgrey, -2px -2px 2px lightgrey;
+}
+.userMenuTop {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+.userMenuTop > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.userMenuOptions {
+  border-top: 1px solid lightgrey;
+}
+.userMenuOptions > div {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.userMenuOptions > div > p {
+  margin-left: 10px;
+  font-size: 14px;
+}
 .sellMenu {
   position: relative;
   cursor: pointer;
