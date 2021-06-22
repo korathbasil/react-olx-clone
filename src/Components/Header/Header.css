@@ -9,6 +9,7 @@
 .headerChildDiv {
   margin: 0 auto;
   width: 95%;
+  max-width: 1300px;
   display: flex;
   justify-content: space-between;
   align-items: center;

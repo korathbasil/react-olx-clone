@@ -9,8 +9,10 @@ import Search from "../../assets/Search";
 import Arrow from "../../assets/Arrow";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
+
 function Header() {
   const [{ user }] = useGlobalStore();
+
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
