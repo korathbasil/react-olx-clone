@@ -1,0 +1,16 @@
+.loginParent {
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000085;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+}
+.login {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  border-radius: 3px;
+}

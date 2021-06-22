@@ -1,4 +1,5 @@
 .minHeader {
+  width: 100%;
   height: 70px;
   background-color: var(--light-bg);
   display: flex;

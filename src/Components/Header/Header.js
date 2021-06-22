@@ -14,10 +14,17 @@ import SellButtonPlus from "../../assets/SellButtonPlus";
 import { Disposer } from "bluebird";
 
 function Header() {
-  const [{ user }, dispatch] = useGlobalStore();
+  const [{ user, showLoginOverlay }, dispatch] = useGlobalStore();
   const [showMenu, setShowMenu] = useState(false);
 
   const accountArrow = useRef();
+
+  const loginOverlayOpeningHandler = () => {
+    dispatch({
+      type: "SET_LOGIN_OVERLAY",
+      status: !showLoginOverlay,
+    });
+  };
 
   const menuOpeningHandler = () => {
     if (showMenu) {
@@ -101,9 +108,9 @@ function Header() {
         )}
         {!user && (
           <div className="loginPage">
-            <Link to="/login">
-              <span>Login</span>
-            </Link>
+            {/* <Link to="/login"> */}
+            <span onClick={loginOverlayOpeningHandler}>Login</span>
+            {/* </Link> */}
             <hr />
           </div>
         )}

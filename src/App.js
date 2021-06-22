@@ -5,13 +5,14 @@ import useGlobalStore from "./store/GlobalStore";
 
 import "./App.css";
 import Home from "./Pages/Home";
-import Login from "./Pages/Login";
+// import Login from "./Pages/Login";
+import Login from "./Components/Login/Login";
 import Signup from "./Pages/Signup";
 import Sell from "./Pages/Sell/Sell";
 import ViewPost from "./Pages/ViewPost";
 
 function App() {
-  const [{}, dispatch] = useGlobalStore();
+  const [{ showLoginOverlay }, dispatch] = useGlobalStore();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -31,6 +32,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        {showLoginOverlay && <Login />}
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

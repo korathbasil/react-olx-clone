@@ -1,5 +1,6 @@
 export const initialState = {
   user: null,
+  showLoginOverlay: false,
 };
 
 export const reducer = (state, action) => {
@@ -8,6 +9,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case "SET_LOGIN_OVERLAY":
+      return {
+        ...state,
+        showLoginOverlay: action.status,
       };
   }
 };

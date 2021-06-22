@@ -1,5 +1,5 @@
 .postParentDiv {
-  width: 100%;
+  width: calc(100% - 32px);
 }
 .moreView {
   width: calc(100% - 32px);
@@ -28,10 +28,13 @@
 .recommendations .cards {
   display: flex;
 }
-
+.cards {
+  width: calc(100% - 32px);
+  background-color: lightpink;
+}
 .moreView .cards {
   white-space: nowrap;
-  overflow-x: scroll;
+  /* overflow: scroll; */
   overflow-y: hidden;
 }
 
@@ -43,6 +46,7 @@
   height: 270px;
   display: inline-block;
   cursor: pointer;
+  background-color: white;
 }
 
 .card .favorite {
