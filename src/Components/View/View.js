@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { db } from "../../firebase";
@@ -6,8 +6,16 @@ import styles from "./View.module.css";
 
 function View() {
   const { adId } = useParams();
+  const [ad, setAd] = useState(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    db.collection("products")
+      .doc(adId)
+      .get()
+      .then((doc) => {
+        setAd(doc.data());
+      });
+  }, []);
 
   return (
     <div className={styles.viewParentDiv}>
@@ -42,8 +50,8 @@ function View() {
         </div>
         <div className={styles.right}>
           <div className={styles.productInfo}>
-            <h4>2000000</h4>
-            <h4>Title goesw here</h4>
+            <h4>{ad?.price}</h4>
+            <h4>{ad?.title}</h4>
             <p>Location is here</p>
           </div>
           <div className={styles.sellerInfo}>
