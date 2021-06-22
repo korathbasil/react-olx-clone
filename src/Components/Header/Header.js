@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { auth } from "../../firebase";
@@ -17,7 +17,16 @@ function Header() {
   const [{ user }, dispatch] = useGlobalStore();
   const [showMenu, setShowMenu] = useState(false);
 
+  const accountArrow = useRef();
+
   const menuOpeningHandler = () => {
+    if (showMenu) {
+      accountArrow.current.style.transform = "rotateZ(0deg)";
+      // accountArrow.current.style.transform = "translateY(-5px)";
+    } else {
+      accountArrow.current.style.transform = "rotateZ(180deg)";
+      // accountArrow.current.style.transform = "translateY(0px)";
+    }
     setShowMenu(!showMenu);
   };
 
@@ -51,6 +60,7 @@ function Header() {
           <span> ENGLISH </span>
           <Arrow></Arrow>
         </div>
+        <div className="userOptions"></div>
         {user && (
           <div className="userProfile">
             <div className="userProfileBubble" onClick={menuOpeningHandler}>
@@ -58,7 +68,9 @@ function Header() {
                 src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
                 alt=""
               />
-              <Arrow />
+              <div ref={accountArrow} className="userProfileArrowContainer">
+                <Arrow />
+              </div>
             </div>
             {showMenu && (
               <div className="userMenu">
@@ -69,7 +81,7 @@ function Header() {
                   />
                   <div className="userMenuTopRight">
                     <p>Hello</p>
-                    <h2>SABRINA</h2>
+                    <h2>{user.displayName}</h2>
                     {/* <p>View and edit profile</p> */}
                   </div>
                 </div>

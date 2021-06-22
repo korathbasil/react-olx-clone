@@ -132,6 +132,10 @@
   margin: 4px;
   border-radius: 999px;
 }
+.userProfileArrowContainer {
+  transition: transform 0.2s ease-in;
+  padding-top: 5px;
+}
 .userMenu {
   width: 300px;
   background-color: white;
@@ -152,6 +156,11 @@
   object-fit: cover;
   margin-right: 10px;
 }
+.userMenuTop > div > p {
+  font-size: 14px;
+  font-weight: 500;
+  color: grey;
+}
 .userMenuOptions {
   border-top: 1px solid lightgrey;
 }
@@ -160,10 +169,15 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
 }
 .userMenuOptions > div > p {
   margin-left: 10px;
   font-size: 14px;
+}
+.userMenuOptions > div:hover {
+  background-color: rgba(211, 211, 211, 0.296);
 }
 .sellMenu {
   position: relative;
