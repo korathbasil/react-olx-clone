@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { auth } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 import "./Header.css";
 import OlxLogo from "../../assets/OlxLogo";
@@ -9,9 +11,24 @@ import AdsIcon from "../../assets/AdsIcon";
 import LogoutIcon from "../../assets/LogoutIcon";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
+import { Disposer } from "bluebird";
 
 function Header() {
-  const [{ user }] = useGlobalStore();
+  const [{ user }, dispatch] = useGlobalStore();
+  const [showMenu, setShowMenu] = useState(false);
+
+  const menuOpeningHandler = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const logoutHandler = () => {
+    auth.signOut().then(() => {
+      dispatch({
+        type: "SET_USER",
+        user: null,
+      });
+    });
+  };
 
   return (
     <div className="headerParentDiv">
@@ -30,41 +47,46 @@ function Header() {
             <Search color="#ffffff"></Search>
           </div>
         </div>
-        {/* <div className="language">
+        <div className="language">
           <span> ENGLISH </span>
           <Arrow></Arrow>
-        </div> */}
-        {user?.displayName && <p>{user.displayName}</p>}
-        <div className="userProfile">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
-            alt=""
-          />
-          <Arrow />
-          <div className="userMenu">
-            <div className="userMenuTop">
+        </div>
+        {user && (
+          <div className="userProfile">
+            <div className="userProfileBubble" onClick={menuOpeningHandler}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
                 alt=""
               />
-              <div className="userMenuTopRight">
-                <p>Hello</p>
-                <h2>SABRINA</h2>
-                {/* <p>View and edit profile</p> */}
-              </div>
+              <Arrow />
             </div>
-            <div className="userMenuOptions">
-              <div>
-                <AdsIcon />
-                <p>My Ads</p>
+            {showMenu && (
+              <div className="userMenu">
+                <div className="userMenuTop">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
+                    alt=""
+                  />
+                  <div className="userMenuTopRight">
+                    <p>Hello</p>
+                    <h2>SABRINA</h2>
+                    {/* <p>View and edit profile</p> */}
+                  </div>
+                </div>
+                <div className="userMenuOptions">
+                  <div>
+                    <AdsIcon />
+                    <p>My Ads</p>
+                  </div>
+                  <div onClick={logoutHandler}>
+                    <LogoutIcon />
+                    <p>Logout</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <LogoutIcon />
-                <p>Logout</p>
-              </div>
-            </div>
+            )}
           </div>
-        </div>
+        )}
         {!user && (
           <div className="loginPage">
             <Link to="/login">

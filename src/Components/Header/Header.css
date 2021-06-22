@@ -117,12 +117,15 @@
 .userProfile {
   background-color: white;
   border-radius: 99px;
+  position: relative;
+}
+.userProfileBubble {
   display: flex;
   align-items: center;
   padding-right: 5px;
-  position: relative;
+  cursor: pointer;
 }
-.userProfile > img {
+.userProfileBubble > img {
   width: 30px;
   height: 30px;
   object-fit: cover;
@@ -134,7 +137,7 @@
   background-color: white;
   position: absolute;
   top: 50px;
-  transform: translateX(-50%);
+  transform: translateX(-70%);
   box-shadow: 2px 2px 2px lightgrey, -2px -2px 2px lightgrey;
 }
 .userMenuTop {
