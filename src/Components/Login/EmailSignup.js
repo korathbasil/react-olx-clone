@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { auth, db } from "../../firebase";
+import { useHistory } from "react-router-dom";
 
+import { auth, db } from "../../firebase";
+import useGlobalStore from "../../store/GlobalStore";
 import styles from "./Login.module.css";
 import OlxLogo from "../../assets/OlxLogo";
 
 const EmailSignup = () => {
   const history = useHistory();
+
+  const [{ user }, dispatch] = useGlobalStore();
   const [signupInput, setSignupInput] = useState({
     name: "",
     email: "",
@@ -28,20 +31,30 @@ const EmailSignup = () => {
       .then((result) => {
         result.user
           .updateProfile({ displayName: signupInput.name })
-          .then(() => {
+          .then((res) => {
             return db.collection("users").add({
               uid: result.user.uid,
-              name: signupInput.name,
               phone: signupInput.phone,
             });
           })
-          .then((res) => {
-            console.log(res);
+          .then((result) => {
+            dispatch({
+              type: "SET_USER",
+              user: {
+                uid: result.uid,
+                displayName: signupInput.name,
+                email: result.email,
+              },
+            });
             setSignupInput({
               name: "",
               email: "",
               phone: "",
               password: "",
+            });
+            dispatch({
+              type: "SET_LOGIN_OVERLAY",
+              status: false,
             });
             history.push("/");
           })
@@ -53,7 +66,7 @@ const EmailSignup = () => {
     <div className={styles.emailSignupContainer}>
       <OlxLogo />
       <h3>Enter your details</h3>
-      <div className={styles.emailSignupForm}>
+      <form className={styles.emailSignupForm} onSubmit={doSignup}>
         <input
           type="text"
           name="name"
@@ -68,10 +81,22 @@ const EmailSignup = () => {
           value={signupInput.email}
           onChange={(e) => inputFieldModifier(e)}
         />
-        <input type="tel" name="phone" placeholder="Phone number" />
-        <input type="Password" name="password" placeholder="Password" />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone number"
+          value={signupInput.phone}
+          onChange={(e) => inputFieldModifier(e)}
+        />
+        <input
+          type="Password"
+          name="password"
+          placeholder="Password"
+          value={signupInput.password}
+          onChange={(e) => inputFieldModifier(e)}
+        />
         <button type="submit">Signup</button>
-      </div>
+      </form>
       <p>
         We won't reveal your details to anyone else nor use it to send you spam
       </p>

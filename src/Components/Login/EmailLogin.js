@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { auth } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -10,7 +10,6 @@ const EmailLogin = () => {
   const history = useHistory();
 
   const [{}, dispatch] = useGlobalStore();
-
   const [loginInput, setLoginInput] = useState({
     email: "",
     password: "",
