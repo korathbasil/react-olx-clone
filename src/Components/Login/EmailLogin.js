@@ -36,6 +36,10 @@ const EmailLogin = () => {
             email: result.user.email,
           },
         });
+        dispatch({
+          type: "SET_LOGIN_OVERLAY",
+          status: false,
+        });
         console.log(result.user);
         setLoginInput({
           email: "",
@@ -52,12 +56,14 @@ const EmailLogin = () => {
       <form className={styles.emailLoginForm} onSubmit={doLogin}>
         <input
           type="email"
+          name="email"
           placeholder="E-mail"
           value={loginInput.email}
           onChange={(e) => inputFieldModifier(e)}
         />
         <input
           type="Password"
+          name="password"
           placeholder="Password"
           value={loginInput.password}
           onChange={(e) => inputFieldModifier(e)}
