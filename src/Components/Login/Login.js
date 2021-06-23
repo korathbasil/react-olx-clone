@@ -1,19 +1,34 @@
 import { useState } from "react";
 
+import useGlobalStore from "../../store/GlobalStore";
 import styles from "./Login.module.css";
+import CloseIcon from "../../assets/CloseIcon";
 import EmailLogin from "./EmailLogin";
 import EmailSignup from "./EmailSignup";
 import GoogleIcon from "../../assets/GoogleIcon";
 import FacebookIcon from "../../assets/FacebookIcon";
 
 const Login = () => {
+  const [{}, dispatch] = useGlobalStore();
   const [openedPage, setOpenedPage] = useState("");
+
   const openedPageHandler = (page) => {
     setOpenedPage(page);
   };
+
+  const closeLoginOverlay = () => {
+    dispatch({
+      type: "SET_LOGIN_OVERLAY",
+      status: false,
+    });
+  };
+
   return (
     <div className={styles.loginParent}>
       <div className={styles.login}>
+        <div className={styles.closeIconContainer} onClick={closeLoginOverlay}>
+          <CloseIcon />
+        </div>
         {openedPage === "" && (
           <div className={styles.loginHome}>
             <div className={styles.linksContainer}>

@@ -14,6 +14,7 @@
   background-color: white;
   border-radius: 3px;
   padding: 20px;
+  position: relative;
 }
 .linksContainer > button {
   width: 100%;
@@ -39,10 +40,18 @@
 }
 
 /* Top Icons */
+.closeIconContainer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 999;
+}
 .arrowContainer {
   position: absolute;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 
 /* EmailLogin */
