@@ -11,6 +11,8 @@ body {
   /* Colors */
   --light-bg: #002f3408;
   --light-border: lightgrey;
+  --black: #002f34;
+  --blue: red;
 }
 .app {
   width: 100vw;
@@ -18,4 +20,7 @@ body {
 }
 a {
   color: black;
+}
+svg {
+  fill: var(--black);
 }
