@@ -35,8 +35,12 @@ const Login = () => {
             </div>
           </div>
         )}
-        {openedPage === "login" && <EmailLogin />}
-        {openedPage === "signup" && <EmailSignup />}
+        {openedPage === "login" && (
+          <EmailLogin pageHandler={openedPageHandler} />
+        )}
+        {openedPage === "signup" && (
+          <EmailSignup pageHandler={openedPageHandler} />
+        )}
       </div>
     </div>
   );

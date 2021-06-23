@@ -5,8 +5,9 @@ import { auth } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 import styles from "./Login.module.css";
 import OlxLogo from "../../assets/OlxLogo";
+import BackArrow from "../../assets/BackArrow";
 
-const EmailLogin = () => {
+const EmailLogin = ({ pageHandler }) => {
   const history = useHistory();
 
   const [{}, dispatch] = useGlobalStore();
@@ -50,6 +51,9 @@ const EmailLogin = () => {
   };
   return (
     <div className={styles.emailLoginContainer}>
+      <div className={styles.arrowContainer} onClick={() => pageHandler("")}>
+        <BackArrow />
+      </div>
       <OlxLogo />
       <h3>Enter your Email and Password</h3>
       <form className={styles.emailLoginForm} onSubmit={doLogin}>
