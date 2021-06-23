@@ -1,5 +1,6 @@
 import styles from "./Login.module.css";
 import EmailLogin from "./EmailLogin";
+import EmailSignup from "./EmailSignup";
 import GoogleIcon from "../../assets/GoogleIcon";
 import FacebookIcon from "../../assets/FacebookIcon";
 
@@ -20,7 +21,8 @@ const Login = () => {
           <h4>OR</h4>
           <button>Signup with Email</button>
         </div> */}
-        <EmailLogin />
+        {/* <EmailLogin /> */}
+        <EmailSignup />
       </div>
     </div>
   );

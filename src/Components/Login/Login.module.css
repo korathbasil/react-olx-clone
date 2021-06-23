@@ -77,3 +77,37 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+/* Email Signup */
+.emailSignupContainer {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.emailSignupContainer > h3 {
+  margin: 15px 0;
+}
+.emailSignupContainer > p {
+  color: grey;
+  font-size: 12px;
+  margin: 20px;
+}
+.emailSignupForm > input {
+  padding: 10px;
+  border: 2px solid var(--black);
+  font-size: 16px;
+  width: 100%;
+  margin: 5px 0;
+}
+.emailSignupForm > button {
+  border: none;
+  background-color: var(--black);
+  color: white;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 50px;
+}
