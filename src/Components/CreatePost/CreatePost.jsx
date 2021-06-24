@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+
 import { db, storage } from "../../firebase";
-import styles from "./CreatePost.module.css";
 import useGlobalStore from "../../store/GlobalStore";
+import styles from "./CreatePost.module.css";
 
 const CreatePost = () => {
   const history = useHistory();
+
   const [{ user }] = useGlobalStore();
   const [productdetails, setProductDetails] = useState({
     title: "",
