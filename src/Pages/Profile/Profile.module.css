@@ -2,6 +2,16 @@
 }
 .profileChild {
   padding-top: 72px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+}
+.left {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .iamgeContainer {
   width: 200px;
