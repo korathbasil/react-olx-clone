@@ -1,9 +1,10 @@
 import styles from "./Profile.module.css";
+import Header from "../../Components/Header/Header";
 
 const Profile = () => {
   return (
     <div className={styles.profileParent}>
-      <p>Iam Profile</p>
+      <Header />
     </div>
   );
 };
