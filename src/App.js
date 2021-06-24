@@ -11,6 +11,7 @@ import Signup from "./Pages/Signup";
 import Sell from "./Pages/Sell/Sell";
 import ViewPost from "./Pages/ViewPost";
 import Profile from "./Pages/Profile/Profile";
+import EditProfile from "./Pages/EditProfile/EditProfile";
 
 function App() {
   const [{ showLoginOverlay }, dispatch] = useGlobalStore();
@@ -40,6 +41,7 @@ function App() {
         <Route path="/sell" component={Sell} />
         <Route path="/view/:adId" component={ViewPost} />
         <Route path="/profile" component={Profile} />
+        <Route path="/editProfile" component={EditProfile} />
       </div>
     </Router>
   );

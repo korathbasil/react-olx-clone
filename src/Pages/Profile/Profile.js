@@ -18,10 +18,16 @@ const Profile = () => {
               <EditIcon />
             </div>
           </div>
+          .
         </div>
-        <div className={styles.right}></div>
+        <div className={styles.right}>
+          <div className={styles.rightTop}>
+            <h1>ALEX JAMES</h1>
+            <button>Edit Profile</button>
+          </div>
+        </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
