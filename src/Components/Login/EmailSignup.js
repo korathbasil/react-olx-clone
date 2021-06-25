@@ -44,6 +44,7 @@ const EmailSignup = ({ pageHandler }) => {
               user: {
                 uid: result.uid,
                 displayName: signupInput.name,
+                phone: result.phone,
                 email: result.email,
               },
             });

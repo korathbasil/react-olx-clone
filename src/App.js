@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { auth } from "./firebase";
-import useGlobalStore from "./store/GlobalStore";
 
+import { auth, db } from "./firebase";
+import useGlobalStore from "./store/GlobalStore";
 import "./App.css";
 import Home from "./Pages/Home";
 // import Login from "./Pages/Login";
@@ -17,14 +17,25 @@ function App() {
   const [{ showLoginOverlay }, dispatch] = useGlobalStore();
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
+        let userPhone;
+        await db
+          .collection("users")
+          .where("uid", "==", user.uid)
+          .get()
+          .then((snapshot) => {
+            snapshot.forEach((doc) => {
+              userPhone = doc.data().phone;
+            });
+          });
         dispatch({
           type: "SET_USER",
           user: {
             uid: user.uid,
             displayName: user.displayName,
             email: user.email,
+            phone: userPhone,
           },
         });
       }
