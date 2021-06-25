@@ -72,6 +72,9 @@
 }
 .rightMiddle > hr {
   margin: 20px 0;
+  background-color: lightgrey;
+  border: none;
+  height: 1px;
 }
 
 .rightBottom {

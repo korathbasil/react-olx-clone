@@ -106,7 +106,10 @@ const EditProfile = () => {
               </form>
             </Route>
             <Route path="/editProfile/picture">
-              <h2>Profile Picture</h2>
+              <div className={styles.rightTop}>
+                <h3>Profile Picture</h3>
+              </div>
+              <div className={styles.pictureRightBottom}></div>
             </Route>
           </Switch>
         </div>

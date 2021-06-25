@@ -43,6 +43,7 @@ function Header() {
         type: "SET_USER",
         user: null,
       });
+      setShowMenu(false);
     });
   };
 
@@ -89,7 +90,9 @@ function Header() {
                   <div className="userMenuTopRight">
                     <p>Hello</p>
                     <h2>{user.displayName}</h2>
-                    {/* <p>View and edit profile</p> */}
+                    <Link to="/editProfile/info">
+                      <p>View and edit profile</p>
+                    </Link>
                   </div>
                 </div>
                 <div className="userMenuOptions">
