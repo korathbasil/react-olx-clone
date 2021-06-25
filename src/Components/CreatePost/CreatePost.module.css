@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   /* background-color: red; */
+  color: var(--black);
 }
 .createPostChild > h2 {
   margin: 20px 0;
