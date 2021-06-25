@@ -19,14 +19,16 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        let userPhone;
+        let phone, description, userId;
         await db
           .collection("users")
           .where("uid", "==", user.uid)
           .get()
           .then((snapshot) => {
             snapshot.forEach((doc) => {
-              userPhone = doc.data().phone;
+              phone = doc.data().phone;
+              description = doc.data().description;
+              userId = doc.id;
             });
           });
         dispatch({
@@ -35,7 +37,9 @@ function App() {
             uid: user.uid,
             displayName: user.displayName,
             email: user.email,
-            phone: userPhone,
+            phone: phone,
+            description: description,
+            userId: userId,
           },
         });
       }

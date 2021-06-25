@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 import styles from "./Login.module.css";
 import OlxLogo from "../../assets/OlxLogo";
@@ -27,13 +27,28 @@ const EmailLogin = ({ pageHandler }) => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(loginInput.email, loginInput.password)
-      .then((result) => {
+      .then(async (result) => {
+        let phone, description, userId;
+        await db
+          .collection("users")
+          .where("uid", "==", result.user.uid)
+          .get()
+          .then((snapshot) => {
+            snapshot.forEach((doc) => {
+              phone = doc.data().phone;
+              description = doc.data().description;
+              userId = doc.id;
+            });
+          });
         dispatch({
           type: "SET_USER",
           user: {
             uid: result.user.uid,
             displayName: result.user.displayName,
             email: result.user.email,
+            phone: phone,
+            description: description,
+            userId: userId,
           },
         });
         dispatch({

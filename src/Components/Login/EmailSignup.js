@@ -29,12 +29,12 @@ const EmailSignup = ({ pageHandler }) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(signupInput.email, signupInput.password)
-      .then((result) => {
-        result.user
+      .then((res) => {
+        res.user
           .updateProfile({ displayName: signupInput.name })
-          .then((res) => {
+          .then(() => {
             return db.collection("users").add({
-              uid: result.user.uid,
+              uid: res.user.uid,
               phone: signupInput.phone,
               description: "",
             });
@@ -43,10 +43,12 @@ const EmailSignup = ({ pageHandler }) => {
             dispatch({
               type: "SET_USER",
               user: {
-                uid: result.uid,
-                displayName: signupInput.name,
+                uid: res.user.uid,
+                userId: result.id,
+                displayName: res.user.displayName,
                 phone: result.phone,
                 email: result.email,
+                description: result.description,
               },
             });
             setSignupInput({

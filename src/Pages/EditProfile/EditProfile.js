@@ -1,6 +1,7 @@
+import { useRef } from "react";
 import { Route, Switch, Link } from "react-router-dom";
 
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 import styles from "./EditProfile.module.css";
 import Header from "../../Components/Header/Header";
@@ -8,8 +9,25 @@ import Header from "../../Components/Header/Header";
 const EditProfile = () => {
   const [{ user }, dispatch] = useGlobalStore();
 
+  const displayNameInput = useRef();
+  const descriptionInput = useRef();
+  const phoneInput = useRef();
+  const emailInput = useRef();
+
   const updateProfile = (e) => {
     e.preventDefault();
+
+    const displayName = displayNameInput.current.value;
+    const description = descriptionInput.current.value;
+    const phone = phoneInput.current.value;
+    const email = emailInput.current.value;
+
+    if (user.displayName !== displayName) {
+      auth.current.user
+        .updateProfile({ displayName: displayName })
+        .then(() => {});
+    }
+    db.collection("users");
   };
 
   return (
@@ -36,14 +54,19 @@ const EditProfile = () => {
                   <p>Basic information</p>
                   <input
                     type="text"
-                    name="name"
+                    name="displayName"
                     placeholder="name"
-                    value={user?.displayName}
+                    defaultValue={user?.displayName}
+                    ref={displayNameInput}
+                    required
                   />
                   <input
                     type="text"
                     placeholder="About me (Optional)"
                     name="description"
+                    defaultValue={user?.description}
+                    ref={descriptionInput}
+                    required
                   />
                   <hr />
                   <p>Contact information</p>
@@ -51,13 +74,17 @@ const EditProfile = () => {
                     type="tel"
                     placeholder="Phone"
                     name="phone"
-                    value={user?.phone}
+                    defaultValue={user?.phone}
+                    ref={phoneInput}
+                    required
                   />
                   <input
                     type="email"
                     placeholder="Email"
                     name="email"
-                    value={user?.email}
+                    defaultValue={user?.email}
+                    ref={emailInput}
+                    required
                   />
                 </div>
                 <div className={styles.rightBottom}>
