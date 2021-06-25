@@ -23,11 +23,23 @@ const EditProfile = () => {
     const email = emailInput.current.value;
 
     if (user.displayName !== displayName) {
-      auth.current.user
+      auth.currentUser
         .updateProfile({ displayName: displayName })
+        .then(() => {
+          return db.collection("users").doc(user.userId).update({
+            phone: phone,
+            email: email,
+            description: description,
+          });
+        })
         .then(() => {});
+    } else {
+      db.collection("users").doc(user.userId).update({
+        phone: phone,
+        email: email,
+        description: description,
+      });
     }
-    db.collection("users");
   };
 
   return (
