@@ -36,6 +36,7 @@ const EmailSignup = ({ pageHandler }) => {
             return db.collection("users").add({
               uid: result.user.uid,
               phone: signupInput.phone,
+              description: "",
             });
           })
           .then((result) => {
