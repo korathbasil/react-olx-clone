@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import useGlobalStore from "../../store/GlobalStore";
 import styles from "./Login.module.css";
+import BCarousel from "../BCarousel/BCarousel";
 import CloseIcon from "../../assets/CloseIcon";
 import EmailLogin from "./EmailLogin";
 import EmailSignup from "./EmailSignup";
@@ -31,6 +32,7 @@ const Login = () => {
         </div>
         {openedPage === "" && (
           <div className={styles.loginHome}>
+            <BCarousel />
             <div className={styles.linksContainer}>
               <button onClick={() => openedPageHandler("login")}>
                 Login with Email
