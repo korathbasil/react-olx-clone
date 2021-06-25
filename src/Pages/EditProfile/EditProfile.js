@@ -20,7 +20,28 @@ const EditProfile = () => {
         <div className={styles.right}>
           <Switch>
             <Route path="/editProfile/info">
-              <h2>Profile</h2>
+              <div className={styles.rightTop}>
+                <h3>Edit Profile</h3>
+              </div>
+              <form>
+                <div className={styles.rightMiddle}>
+                  <p>Basic information</p>
+                  <input type="text" name="name" placeholder="name" />
+                  <input
+                    type="text"
+                    placeholder="About me (Optional)"
+                    name="description"
+                  />
+                  <hr />
+                  <p>Contact information</p>
+                  <input type="tel" placeholder="Phone" name="phone" />
+                  <input type="email" placeholder="Email" name="email" />
+                </div>
+                <div className={styles.rightBottom}>
+                  <p>Discard</p>
+                  <button type="submit">Save Changes</button>
+                </div>
+              </form>
             </Route>
             <Route path="/editProfile/picture">
               <h2>Profile Picture</h2>
