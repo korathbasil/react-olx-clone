@@ -1,5 +1,7 @@
 .createPost {
   width: 100%;
+  padding-top: 100px;
+  z-index: -999;
 }
 .createPostChild {
   width: 70%;
@@ -11,16 +13,32 @@
   color: var(--black);
 }
 .createPostChild > h2 {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 .createPostForm {
   width: 100%;
   border: 1px solid var(--light-border);
   border-radius: 5px;
-  padding: 40px 40px 10px 40px;
+  /* padding: 40px 40px 10px 40px; */
+  /* background-color: red; */
 }
-.createPostForm > h2 {
-  margin-bottom: 30px;
+.formHeader {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.formDetailsInput,
+.formPriceInput,
+.formImagesInput {
+  border-bottom: 1px solid lightgrey;
+  padding: 30px;
+  padding-bottom: 0;
+}
+.formDetailsInput > h2,
+.formPriceInput > h2,
+.formImagesInput > h2 {
+  margin-bottom: 20px;
 }
 .formInputWrapper {
   margin-bottom: 30px;
@@ -35,11 +53,24 @@
 }
 .formInputWrapper > input {
   width: 60%;
-  height: 50px;
+  height: 45px;
   margin-bottom: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid var(--black);
+  border-radius: 3px;
 }
 .productImage {
   width: 60%;
+}
+.formSubmit {
+  padding: 30px;
+}
+.formSubmit > button {
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  background-color: var(--black);
+  border: none;
+  border-radius: 3px;
 }

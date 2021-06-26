@@ -53,51 +53,62 @@ const CreatePost = () => {
       <div className={styles.createPostChild}>
         <h2>POST YOUR AD</h2>
         <form className={styles.createPostForm}>
-          <h2>INCLUDE SOME DETAILS</h2>
-          <div className={styles.formInputWrapper}>
-            <p>Ad title</p>
-            <input
-              type="text"
-              name="title"
-              value={productdetails.title}
-              onChange={(e) => productDetailsStateModifier(e)}
-            />
-            <p>Mention the key features of your item</p>
+          {/* <div className={styles.formHeader}></div> */}
+          <div className={styles.formDetailsInput}>
+            <h2>INCLUDE SOME DETAILS</h2>
+            <div className={styles.formInputWrapper}>
+              <p>Ad title</p>
+              <input
+                type="text"
+                name="title"
+                value={productdetails.title}
+                onChange={(e) => productDetailsStateModifier(e)}
+              />
+              <p>Mention the key features of your item</p>
+            </div>
+            <div className={styles.formInputWrapper}>
+              <p>Description</p>
+              <input
+                type="text"
+                name="description"
+                value={productdetails.description}
+                onChange={(e) => productDetailsStateModifier(e)}
+              />
+              <p>Include condition, features and reason of selling</p>
+            </div>
           </div>
-          <div className={styles.formInputWrapper}>
-            <p>Description</p>
-            <input
-              type="text"
-              name="description"
-              value={productdetails.description}
-              onChange={(e) => productDetailsStateModifier(e)}
-            />
-            <p>Include condition, features and reason of selling</p>
+          <div className={styles.formPriceInput}>
+            <h2>SET A PRICE</h2>
+            <div className={styles.formInputWrapper}>
+              <p>Price</p>
+              <input
+                type="number"
+                name="price"
+                value={productdetails.price}
+                onChange={(e) => productDetailsStateModifier(e)}
+              />
+            </div>
           </div>
-          <h2>SET A PRICE</h2>
-          <div className={styles.formInputWrapper}>
-            <p>Price</p>
-            <input
-              type="number"
-              name="price"
-              value={productdetails.price}
-              onChange={(e) => productDetailsStateModifier(e)}
-            />
+          <div className={styles.formImagesInput}>
+            <h2>UPLOAD IMAGE</h2>
+            <div className={styles.formInputWrapper}>
+              {itemImage && (
+                <img
+                  className={styles.productImage}
+                  src={itemImageUrl}
+                  alt=""
+                />
+              )}
+              <input
+                onChange={(e) => {
+                  setItemImageUrl(URL.createObjectURL(e.target.files[0]));
+                  setItemImage(e.target.files[0]);
+                }}
+                type="file"
+              />
+            </div>
           </div>
-          <h2>UPLOAD IMAGE</h2>
-          <div className={styles.formInputWrapper}>
-            {itemImage && (
-              <img className={styles.productImage} src={itemImageUrl} alt="" />
-            )}
-            <input
-              onChange={(e) => {
-                setItemImageUrl(URL.createObjectURL(e.target.files[0]));
-                setItemImage(e.target.files[0]);
-              }}
-              type="file"
-            />
-          </div>
-          <div className={styles.formInputWrapper}>
+          <div className={styles.formSubmit}>
             <button onClick={uploadImage}>Post now</button>
           </div>
         </form>

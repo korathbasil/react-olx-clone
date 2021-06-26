@@ -4,6 +4,8 @@
   background-color: var(--light-bg);
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
 }
 .minHeaderChild {
   width: 95%;
