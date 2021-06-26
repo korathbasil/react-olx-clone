@@ -1,5 +1,15 @@
 import CarsIcon from "./assets/categories/CarsIcon";
 import PropertyIcon from "./assets/categories/PropertyIcon";
+import MobileIcon from "./assets/categories/MobileIcon";
+import JobIcon from "./assets/categories/JobIcon";
+import BikeIcon from "./assets/categories/BikeIcon";
+import ElectronicsIcon from "./assets/categories/ElectronicsIcon";
+import CommercialIcon from "./assets/categories/CommercialIcon";
+import FurnitureIcon from "./assets/categories/FurnitureIcon";
+import FashionIcon from "./assets/categories/FashionIcon";
+import HobbiesIcon from "./assets/categories/HobbiesIcon";
+import PetsIcon from "./assets/categories/PetsIcon";
+import ServicesIcon from "./assets/categories/HobbiesIcon";
 
 export const categories = [
   {
@@ -37,6 +47,7 @@ export const categories = [
   },
   {
     name: "Mobiles",
+    Icon: MobileIcon,
     subs: [
       {
         name: "Mobile Phones",
@@ -51,6 +62,7 @@ export const categories = [
   },
   {
     name: "Jobs",
+    Icon: JobIcon,
     subs: [
       {
         name: "Data Entry & Back office",
@@ -101,6 +113,7 @@ export const categories = [
   },
   {
     name: "Bikes",
+    Icon: BikeIcon,
     subs: [
       {
         name: "Motorcycles",
@@ -118,6 +131,7 @@ export const categories = [
   },
   {
     name: "Electronics & Appliances",
+    Icon: ElectronicsIcon,
     subs: [
       {
         name: "TVs, Video - Audio",
@@ -153,6 +167,7 @@ export const categories = [
   },
   {
     name: "Commercial Vehicles & Spares",
+    Icon: CommercialIcon,
     subs: [
       {
         name: "Commercial & Other Vehicles",
@@ -164,6 +179,7 @@ export const categories = [
   },
   {
     name: "Furniture",
+    Icon: FurnitureIcon,
     subs: [
       {
         name: "Sofa & Dining",
@@ -184,6 +200,7 @@ export const categories = [
   },
   {
     name: "Fashion",
+    Icon: FashionIcon,
     subs: [
       {
         name: "Men",
@@ -198,6 +215,7 @@ export const categories = [
   },
   {
     name: "Books, Sports & Hobbies",
+    Icon: HobbiesIcon,
     subs: [
       {
         name: "Books",
@@ -218,6 +236,7 @@ export const categories = [
   },
   {
     name: "Pets",
+    Icon: PetsIcon,
     subs: [
       {
         name: "Fishes & Aquarium",
@@ -235,6 +254,7 @@ export const categories = [
   },
   {
     name: "Services",
+    Icon: ServicesIcon,
     subs: [
       {
         name: "Electonics & Computer",
