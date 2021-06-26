@@ -1,6 +1,11 @@
 export default categories = [
   {
-    name: "Cars",
+    name: "OLX Autos",
+    subs: [
+      {
+        name: "Cars"
+      }
+    ]
   },
   {
     name: "Properties",
