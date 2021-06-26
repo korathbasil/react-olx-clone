@@ -18,6 +18,16 @@ export const categories = [
     subs: [
       {
         name: "Cars",
+        attributes: [
+          {
+            name: "Brand",
+            type: "select",
+          },
+          {
+            name: "KM",
+            type: "input",
+          },
+        ],
       },
     ],
   },

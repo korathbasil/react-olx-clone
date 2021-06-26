@@ -11,9 +11,18 @@
   align-items: center;
   /* background-color: red; */
   color: var(--black);
+  /* background-color: lightsalmon; */
 }
 .createPostChild > h2 {
   margin-bottom: 20px;
+}
+.categoriesContainer {
+  width: 100%;
+  border: 1px solid var(--light-border);
+  border-radius: 5px;
+}
+.categoriesContainer > h2 {
+  margin: 20px;
 }
 .createPostForm {
   width: 100%;

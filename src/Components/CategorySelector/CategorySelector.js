@@ -4,7 +4,7 @@ import { categories } from "../../categories";
 import styles from "./CategorySelector.module.css";
 import Arrow from "../../assets/Arrow";
 
-const CategorySelector = () => {
+const CategorySelector = ({ setSelectedCategory }) => {
   const [activeMenu, setActiveMenu] = useState(null);
 
   const activeMenuHandler = (name, subs) => {
@@ -37,7 +37,10 @@ const CategorySelector = () => {
                 <div className={styles.subCategoryContainer}>
                   {subs.map((item) => {
                     return (
-                      <div className={styles.subCategory}>
+                      <div
+                        className={styles.subCategory}
+                        onClick={() => setSelectedCategory(item.attributes)}
+                      >
                         <p>{item.name}</p>
                       </div>
                     );
