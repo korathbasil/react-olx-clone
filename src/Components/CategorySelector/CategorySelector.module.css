@@ -1,0 +1,21 @@
+.category {
+  width: 400px;
+  border-right: var(--border);
+  border-bottom: var(--border);
+  color: grey;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.category > div {
+  display: flex;
+  align-items: center;
+}
+.category > div > p {
+  margin-left: 10px;
+}
+.arrowContainer {
+  transform: rotateZ(270deg);
+}

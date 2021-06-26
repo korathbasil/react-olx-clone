@@ -6,6 +6,9 @@ import useGlobalStore from "./store/GlobalStore";
 import "./App.css";
 import Home from "./Pages/Home";
 // import Login from "./Pages/Login";
+
+import CategorySelector from "./Components/CategorySelector/CategorySelector";
+
 import Login from "./Components/Login/Login";
 import Signup from "./Pages/Signup";
 import Sell from "./Pages/Sell/Sell";
@@ -57,6 +60,7 @@ function App() {
         <Route path="/view/:adId" component={ViewPost} />
         <Route path="/profile" component={Profile} />
         <Route path="/editProfile" component={EditProfile} />
+        <Route path="/abc" component={CategorySelector} />
       </div>
     </Router>
   );

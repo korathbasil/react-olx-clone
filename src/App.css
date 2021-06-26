@@ -13,6 +13,8 @@ body {
   --light-border: lightgrey;
   --black: #002f34;
   --blue: red;
+  /* Border */
+  --border: 1px solid lightgrey;
 }
 .app {
   width: 100vw;

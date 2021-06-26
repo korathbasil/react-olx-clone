@@ -1,252 +1,254 @@
-export default categories = [
+import CarsIcon from "./assets/categories/CarsIcon";
+
+export const categories = [
   {
     name: "OLX Autos",
+    Icon: CarsIcon,
     subs: [
       {
-        name: "Cars"
-      }
-    ]
+        name: "Cars",
+      },
+    ],
   },
   {
     name: "Properties",
     subs: [
-        {
-            name="For Sale: Houses & Appartments",
-        },
-        {
-            name="For Rent: Houses & Appartments",
-        },
-        {
-            name="Lands & Plosts",
-        },
-        {
-            name="For Rent: Shops & Offices",
-        },
-        {
-            name="For Sale: Shops & Offices",
-        },
-        {
-            name="PG & guest Houses",
-        },
+      {
+        name: "For Sale: Houses & Appartments",
+      },
+      {
+        name: "For Rent: Houses & Appartments",
+      },
+      {
+        name: "Lands & Plosts",
+      },
+      {
+        name: "For Rent: Shops & Offices",
+      },
+      {
+        name: "For Sale: Shops & Offices",
+      },
+      {
+        name: "PG & guest Houses",
+      },
     ],
   },
   {
     name: "Mobiles",
     subs: [
       {
-        name="Mobile Phones",
+        name: "Mobile Phones",
       },
       {
-        name="Accessories",
+        name: "Accessories",
       },
       {
-        name="Tablets",
+        name: "Tablets",
       },
-    ]
+    ],
   },
   {
     name: "Jobs",
     subs: [
       {
-        name="Data Entry & Back office",
+        name: "Data Entry & Back office",
       },
       {
-        name="Sales & Marketing",
+        name: "Sales & Marketing",
       },
       {
-        name="BPO & Telecaller",
+        name: "BPO & Telecaller",
       },
       {
-        name="Driver",
+        name: "Driver",
       },
       {
-        name="Office Assistant",
+        name: "Office Assistant",
       },
       {
-        name="Delivery & Collection",
+        name: "Delivery & Collection",
       },
       {
-        name="Teacher",
+        name: "Teacher",
       },
       {
-        name="Cook",
+        name: "Cook",
       },
       {
-        name="Receptionist & Front Office",
+        name: "Receptionist & Front Office",
       },
       {
-        name="Operator & Technician",
+        name: "Operator & Technician",
       },
       {
-        name="IT Engineer & Developer",
+        name: "IT Engineer & Developer",
       },
       {
-        name="Hotel & Travel Executive",
+        name: "Hotel & Travel Executive",
       },
       {
-        name="Accountant",
+        name: "Accountant",
       },
       {
-        name="Designer",
+        name: "Designer",
       },
       {
-        name="Other Jobs",
+        name: "Other Jobs",
       },
-    ]
+    ],
   },
   {
     name: "Bikes",
     subs: [
       {
-        name="Motorcycles",
+        name: "Motorcycles",
       },
       {
-        name="Scooters",
+        name: "Scooters",
       },
       {
-        name="Spare Parts",
+        name: "Spare Parts",
       },
       {
-        name="Bicycles",
+        name: "Bicycles",
       },
-    ]
+    ],
   },
   {
     name: "Electronics & Appliances",
     subs: [
       {
-        name="TVs, Video - Audio",
+        name: "TVs, Video - Audio",
       },
       {
-        name="Kitchen & Other Appliances",
+        name: "Kitchen & Other Appliances",
       },
       {
-        name="Computers & Laptops",
+        name: "Computers & Laptops",
       },
       {
-        name="Computer Accessories",
+        name: "Computer Accessories",
       },
       {
-        name="Hard Disks , Printers & Monitors",
+        name: "Hard Disks , Printers & Monitors",
       },
       {
-        name="Cameras & Lenses",
+        name: "Cameras & Lenses",
       },
       {
-        name="Games & Entertainment",
+        name: "Games & Entertainment",
       },
       {
-        name="Fridges",
+        name: "Fridges",
       },
       {
-        name="ACs",
+        name: "ACs",
       },
       {
-        name="Washing Machines",
+        name: "Washing Machines",
       },
-    ]
+    ],
   },
   {
     name: "Commercial Vehicles & Spares",
     subs: [
       {
-        name="Commercial & Other Vehicles",
+        name: "Commercial & Other Vehicles",
       },
       {
-        name="Spare Parts",
+        name: "Spare Parts",
       },
-    ]
+    ],
   },
   {
     name: "Furniture",
     subs: [
       {
-        name="Sofa & Dining",
+        name: "Sofa & Dining",
       },
       {
-        name="Beds & Wardrobs",
+        name: "Beds & Wardrobs",
       },
       {
-        name="Home Decor & Garden",
+        name: "Home Decor & Garden",
       },
       {
-        name="Kids Furniture",
+        name: "Kids Furniture",
       },
       {
-        name="Other Household Items",
+        name: "Other Household Items",
       },
-    ]
+    ],
   },
   {
     name: "Fashion",
     subs: [
       {
-        name="Men",
+        name: "Men",
       },
       {
-        name="Women",
+        name: "Women",
       },
       {
-        name="Kids",
+        name: "Kids",
       },
-
-    ]
+    ],
   },
   {
     name: "Books, Sports & Hobbies",
     subs: [
       {
-        name="Books",
+        name: "Books",
       },
       {
-        name="gym & Fitness",
+        name: "gym & Fitness",
       },
       {
-        name="Musical Instruments",
+        name: "Musical Instruments",
       },
       {
-        name="Sports Equipment",
+        name: "Sports Equipment",
       },
       {
-        name="Other Hobbies",
+        name: "Other Hobbies",
       },
-    ]
+    ],
   },
   {
     name: "Pets",
     subs: [
       {
-        name="Fishes & Aquarium",
+        name: "Fishes & Aquarium",
       },
       {
-        name="Pet Food & Accessories",
+        name: "Pet Food & Accessories",
       },
       {
-        name="Dogs",
+        name: "Dogs",
       },
       {
-        name="Other Pets",
+        name: "Other Pets",
       },
-    ]
+    ],
   },
   {
     name: "Services",
     subs: [
       {
-        name="Electonics & Computer",
+        name: "Electonics & Computer",
       },
       {
-        name="Education & Classes",
+        name: "Education & Classes",
       },
       {
-        name="Drivers & Taxi",
+        name: "Drivers & Taxi",
       },
       {
-        name="Health & Beauty",
+        name: "Health & Beauty",
       },
       {
-        name="Other Services",
+        name: "Other Services",
       },
-    ]
+    ],
   },
 ];
