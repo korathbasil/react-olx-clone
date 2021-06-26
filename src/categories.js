@@ -1,4 +1,5 @@
 import CarsIcon from "./assets/categories/CarsIcon";
+import PropertyIcon from "./assets/categories/PropertyIcon";
 
 export const categories = [
   {
@@ -12,6 +13,7 @@ export const categories = [
   },
   {
     name: "Properties",
+    Icon: PropertyIcon,
     subs: [
       {
         name: "For Sale: Houses & Appartments",
