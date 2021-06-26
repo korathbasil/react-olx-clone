@@ -7,13 +7,31 @@ import styles from "./View.module.css";
 function View() {
   const { adId } = useParams();
   const [ad, setAd] = useState(null);
+  const [moreDetails, setMoreDetails] = useState();
 
   useEffect(() => {
     db.collection("products")
       .doc(adId)
       .get()
       .then((doc) => {
+        const data = doc.data();
+        const dataArray = Object.entries(data);
+        const filteredArray = dataArray.filter((data) => {
+          if (
+            data[0] !== "title" &&
+            data[0] !== "description" &&
+            data[0] !== "price" &&
+            data[0] !== "createdAt" &&
+            data[0] !== "imageUrl" &&
+            data[0] !== "userId"
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        });
         setAd(doc.data());
+        setMoreDetails(filteredArray);
       });
   }, []);
 
@@ -27,6 +45,14 @@ function View() {
           <div className={styles.imageSelector}></div>
           <div className={styles.infoContainer}>
             <h2>Details</h2>
+            {moreDetails?.map((attribute) => {
+              return (
+                <p>
+                  {attribute[0]} : {attribute[1]}
+                </p>
+                // <p></p>
+              );
+            })}
           </div>
         </div>
         <div className={styles.right}>
