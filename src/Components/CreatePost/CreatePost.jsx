@@ -16,12 +16,19 @@ const CreatePost = () => {
     description: "",
     price: "",
   });
+  const [dynamicInputs, setDynamicInputs] = useState({});
   const [itemImage, setItemImage] = useState(null);
   const [itemImageUrl, setItemImageUrl] = useState(null);
 
   const productDetailsStateModifier = (e) => {
     setProductDetails({
       ...productdetails,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const dynamicinputModifier = (e) => {
+    setDynamicInputs({
+      ...dynamicInputs,
       [e.target.name]: e.target.value,
     });
   };
@@ -36,6 +43,7 @@ const CreatePost = () => {
       })
       .then((url) => {
         return db.collection("products").add({
+          ...dynamicInputs,
           title: productdetails.title,
           description: productdetails.description,
           imageUrl: url,
@@ -54,24 +62,25 @@ const CreatePost = () => {
     <div className={styles.createPost}>
       <div className={styles.createPostChild}>
         <h2>POST YOUR AD</h2>
-        <div className={styles.categoriesContainer}>
-          <h2>CHOOOSE A CATEGORY</h2>
-          <CategorySelector setSelectedCategory={setSelectedCategory} />
-        </div>
+        {!selectedCategory && (
+          <div className={styles.categoriesContainer}>
+            <h2>CHOOOSE A CATEGORY</h2>
+            <CategorySelector setSelectedCategory={setSelectedCategory} />
+          </div>
+        )}
         {selectedCategory && (
           <form className={styles.createPostForm}>
             {/* <div className={styles.formHeader}></div> */}
             <div className={styles.formDetailsInput}>
               <h2>INCLUDE SOME DETAILS</h2>
-              {selectedCategory.map((item) => {
+              {selectedCategory.attributes.map((item) => {
                 return (
                   <div className={styles.formInputWrapper}>
                     <p>{item.name}</p>
                     <input
                       type="text"
-                      name="title"
-                      value={productdetails.title}
-                      onChange={(e) => productDetailsStateModifier(e)}
+                      name={item.name}
+                      onChange={(e) => dynamicinputModifier(e)}
                     />
                     <p>Mention the key features of your item</p>
                   </div>

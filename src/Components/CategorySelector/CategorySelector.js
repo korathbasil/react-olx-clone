@@ -39,7 +39,13 @@ const CategorySelector = ({ setSelectedCategory }) => {
                     return (
                       <div
                         className={styles.subCategory}
-                        onClick={() => setSelectedCategory(item.attributes)}
+                        onClick={() =>
+                          setSelectedCategory({
+                            category: name,
+                            subcategory: item.name,
+                            attributes: item.attributes,
+                          })
+                        }
                       >
                         <p>{item.name}</p>
                       </div>
