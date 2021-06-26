@@ -1,8 +1,11 @@
+import { useState } from "react";
+
 import { categories } from "../../categories";
 import styles from "./CategorySelector.module.css";
 import Arrow from "../../assets/Arrow";
 
 const CategorySelector = () => {
+  const [activeMenu, setActiveMenu] = useState(null);
   return (
     <div className={styles.categories}>
       <div className={styles.left}>
