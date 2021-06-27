@@ -22,9 +22,24 @@ export const categories = [
           {
             name: "Brand",
             type: "select",
+            options: [
+              "BMW",
+              "Mercidez",
+              "VolksWagen",
+              "Maruti Suzuki",
+              "Hyundai",
+              "Tata",
+              "Mahindra",
+              "Toyota",
+              "Honda",
+            ],
           },
           {
-            name: "KM",
+            name: "Year",
+            type: "input",
+          },
+          {
+            name: "KM Driven",
             type: "input",
           },
         ],

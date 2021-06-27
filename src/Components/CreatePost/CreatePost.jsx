@@ -74,17 +74,34 @@ const CreatePost = () => {
             <div className={styles.formDetailsInput}>
               <h2>INCLUDE SOME DETAILS</h2>
               {selectedCategory.attributes.map((item) => {
-                return (
-                  <div className={styles.formInputWrapper}>
-                    <p>{item.name}</p>
-                    <input
-                      type="text"
-                      name={item.name}
-                      onChange={(e) => dynamicinputModifier(e)}
-                    />
-                    <p>Mention the key features of your item</p>
-                  </div>
-                );
+                if (item.type === "input") {
+                  return (
+                    <div className={styles.formInputWrapper}>
+                      <p>{item.name}</p>
+                      <input
+                        type="text"
+                        name={item.name}
+                        onChange={(e) => dynamicinputModifier(e)}
+                      />
+                      <p>Mention the key features of your item</p>
+                    </div>
+                  );
+                } else if (item.type === "select")
+                  return (
+                    <div className={styles.formInputWrapper}>
+                      <p>{item.name}</p>
+                      <select
+                        type="text"
+                        name={item.name}
+                        onChange={(e) => dynamicinputModifier(e)}
+                      >
+                        {item.options.map((option) => (
+                          <option value={option}>{option}</option>
+                        ))}
+                      </select>
+                      <p>Mention the key features of your item</p>
+                    </div>
+                  );
               })}
 
               <div className={styles.formInputWrapper}>
