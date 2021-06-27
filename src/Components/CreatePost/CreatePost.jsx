@@ -21,8 +21,6 @@ const CreatePost = () => {
   });
   const [dynamicInputs, setDynamicInputs] = useState({});
   const [images, setImages] = useState([]);
-  const [itemImage, setItemImage] = useState(null);
-  const [itemImageUrl, setItemImageUrl] = useState(null);
 
   const productDetailsStateModifier = (e) => {
     setProductDetails({
@@ -37,29 +35,40 @@ const CreatePost = () => {
     });
   };
 
-  const uploadImage = (e) => {
+  const uploadImagesAndPostDetails = (e) => {
     e.preventDefault();
-    storage
-      .ref(`/products/${itemImage.name}`)
-      .put(itemImage)
-      .then((snapshot) => {
-        return snapshot.ref.getDownloadURL();
-      })
-      .then((url) => {
-        return db.collection("products").add({
-          ...dynamicInputs,
-          title: productdetails.title,
-          description: productdetails.description,
-          imageUrl: url,
-          price: parseInt(productdetails.price),
-          createdAt: new Date().toDateString(),
-          userId: user.uid,
+    const uploadImage = (image) => {
+      return storage
+        .ref(`/posts/${image.name}`)
+        .put(image)
+        .then((snapshot) => {
+          return snapshot.ref.getDownloadURL();
         });
-      })
-      .then(() => {
-        history.push("/");
-      });
-    console.log(productdetails);
+    };
+    Promise.all(images.map((image) => uploadImage(image))).then((urls) => {
+      console.log(urls);
+    });
+    // storage
+    //   .ref(`/products/${itemImage.name}`)
+    //   .put(itemImage)
+    //   .then((snapshot) => {
+    //     return snapshot.ref.getDownloadURL();
+    //   })
+    //   .then((url) => {
+    //     return db.collection("products").add({
+    //       ...dynamicInputs,
+    //       title: productdetails.title,
+    //       description: productdetails.description,
+    //       imageUrl: url,
+    //       price: parseInt(productdetails.price),
+    //       createdAt: new Date().toDateString(),
+    //       userId: user.uid,
+    //     });
+    //   })
+    //   .then(() => {
+    //     history.push("/");
+    //   });
+    // console.log(productdetails);
   };
 
   const renderDynamicInputs = () => {
@@ -115,7 +124,10 @@ const CreatePost = () => {
           </div>
         )}
         {selectedCategory && (
-          <form className={styles.createPostForm}>
+          <form
+            className={styles.createPostForm}
+            onSubmit={uploadImagesAndPostDetails}
+          >
             {/* <div className={styles.formHeader}></div> */}
             <div className={styles.formDetailsInput}>
               <h2>INCLUDE SOME DETAILS</h2>
@@ -210,7 +222,7 @@ const CreatePost = () => {
               </div>
             </div>
             <div className={styles.formSubmit}>
-              <button onClick={uploadImage}>Post now</button>
+              <button>Post now</button>
             </div>
           </form>
         )}
