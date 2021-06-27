@@ -45,30 +45,21 @@ const CreatePost = () => {
           return snapshot.ref.getDownloadURL();
         });
     };
-    Promise.all(images.map((image) => uploadImage(image))).then((urls) => {
-      console.log(urls);
-    });
-    // storage
-    //   .ref(`/products/${itemImage.name}`)
-    //   .put(itemImage)
-    //   .then((snapshot) => {
-    //     return snapshot.ref.getDownloadURL();
-    //   })
-    //   .then((url) => {
-    //     return db.collection("products").add({
-    //       ...dynamicInputs,
-    //       title: productdetails.title,
-    //       description: productdetails.description,
-    //       imageUrl: url,
-    //       price: parseInt(productdetails.price),
-    //       createdAt: new Date().toDateString(),
-    //       userId: user.uid,
-    //     });
-    //   })
-    //   .then(() => {
-    //     history.push("/");
-    //   });
-    // console.log(productdetails);
+    Promise.all(images.map((image) => uploadImage(image)))
+      .then((urls) => {
+        return db.collection("products").add({
+          ...dynamicInputs,
+          title: productdetails.title,
+          description: productdetails.description,
+          imageUrl: urls,
+          price: parseInt(productdetails.price),
+          createdAt: new Date().toDateString(),
+          userId: user.uid,
+        });
+      })
+      .then(() => {
+        history.push("/");
+      });
   };
 
   const renderDynamicInputs = () => {
