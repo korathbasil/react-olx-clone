@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Route, Switch, Link, useHistory } from "react-router-dom";
 
 import { db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 import styles from "./CreatePost.module.css";
 import CategorySelector from "../CategorySelector/CategorySelector";
+import AddPhotoIcon from "../../assets/AddPhotoIcon";
+import { file } from "@babel/types";
 
 const CreatePost = () => {
   const history = useHistory();
+  const imagePicker = useRef();
 
   const [{ user }] = useGlobalStore();
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -17,6 +20,7 @@ const CreatePost = () => {
     price: "",
   });
   const [dynamicInputs, setDynamicInputs] = useState({});
+  const [images, setImages] = useState([]);
   const [itemImage, setItemImage] = useState(null);
   const [itemImageUrl, setItemImageUrl] = useState(null);
 
@@ -92,6 +96,14 @@ const CreatePost = () => {
     return dynamicInputs;
   };
 
+  const imagePickerHandler = (e) => {
+    if (images.length <= 3) {
+      const selectedImage = e.target.files[0];
+      setImages((images) => setImages([...images, selectedImage]));
+    }
+    imagePicker.current.value = null;
+  };
+
   return (
     <div className={styles.createPost}>
       <div className={styles.createPostChild}>
@@ -142,8 +154,50 @@ const CreatePost = () => {
               </div>
             </div>
             <div className={styles.formImagesInput}>
-              <h2>UPLOAD IMAGE</h2>
+              <h2>UPLOAD UPTO 4 PHOTOS</h2>
+
               <div className={styles.formInputWrapper}>
+                <div className={styles.photosContainer}>
+                  <div
+                    className={styles.singlePhoto}
+                    onClick={() => imagePicker.current.click()}
+                  >
+                    {images && images[0] ? (
+                      <img src={URL.createObjectURL(images[0])} alt="" />
+                    ) : (
+                      <AddPhotoIcon />
+                    )}
+                  </div>
+                  <div className={styles.singlePhoto}>
+                    {images && images[1] ? (
+                      <img src={URL.createObjectURL(images[1])} alt="" />
+                    ) : (
+                      <AddPhotoIcon />
+                    )}
+                  </div>
+                  <div className={styles.singlePhoto}>
+                    {images && images[2] ? (
+                      <img src={URL.createObjectURL(images[2])} alt="" />
+                    ) : (
+                      <AddPhotoIcon />
+                    )}
+                  </div>
+                  <div className={styles.singlePhoto}>
+                    {images && images[3] ? (
+                      <img src={URL.createObjectURL(images[3])} alt="" />
+                    ) : (
+                      <AddPhotoIcon />
+                    )}
+                  </div>
+                  <input
+                    type="file"
+                    name=""
+                    id=""
+                    hidden
+                    ref={imagePicker}
+                    onChange={imagePickerHandler}
+                  />
+                </div>
                 {itemImage && (
                   <img
                     className={styles.productImage}

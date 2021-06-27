@@ -70,6 +70,27 @@
 .productImage {
   width: 60%;
 }
+
+.photosContainer {
+  width: 100%;
+  display: flex;
+}
+.singlePhoto {
+  border: 1px solid grey;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  display: grid;
+  place-items: center;
+}
+.singlePhoto > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.singlePhoto > svg {
+  color: grey;
+}
 .formSubmit {
   padding: 30px;
 }
