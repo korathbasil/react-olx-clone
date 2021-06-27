@@ -58,6 +58,40 @@ const CreatePost = () => {
     console.log(productdetails);
   };
 
+  const renderDynamicInputs = () => {
+    const dynamicInputs = selectedCategory.attributes.map((item) => {
+      if (item.type === "input") {
+        return (
+          <div className={styles.formInputWrapper}>
+            <p>{item.name}</p>
+            <input
+              type="text"
+              name={item.name}
+              onChange={(e) => dynamicinputModifier(e)}
+            />
+            <p>Mention the key features of your item</p>
+          </div>
+        );
+      } else if (item.type === "select")
+        return (
+          <div className={styles.formInputWrapper}>
+            <p>{item.name}</p>
+            <select
+              type="text"
+              name={item.name}
+              onChange={(e) => dynamicinputModifier(e)}
+            >
+              {item.options.map((option) => (
+                <option value={option}>{option}</option>
+              ))}
+            </select>
+            <p>Mention the key features of your item</p>
+          </div>
+        );
+    });
+    return dynamicInputs;
+  };
+
   return (
     <div className={styles.createPost}>
       <div className={styles.createPostChild}>
@@ -73,37 +107,7 @@ const CreatePost = () => {
             {/* <div className={styles.formHeader}></div> */}
             <div className={styles.formDetailsInput}>
               <h2>INCLUDE SOME DETAILS</h2>
-              {selectedCategory.attributes.map((item) => {
-                if (item.type === "input") {
-                  return (
-                    <div className={styles.formInputWrapper}>
-                      <p>{item.name}</p>
-                      <input
-                        type="text"
-                        name={item.name}
-                        onChange={(e) => dynamicinputModifier(e)}
-                      />
-                      <p>Mention the key features of your item</p>
-                    </div>
-                  );
-                } else if (item.type === "select")
-                  return (
-                    <div className={styles.formInputWrapper}>
-                      <p>{item.name}</p>
-                      <select
-                        type="text"
-                        name={item.name}
-                        onChange={(e) => dynamicinputModifier(e)}
-                      >
-                        {item.options.map((option) => (
-                          <option value={option}>{option}</option>
-                        ))}
-                      </select>
-                      <p>Mention the key features of your item</p>
-                    </div>
-                  );
-              })}
-
+              {renderDynamicInputs()}
               <div className={styles.formInputWrapper}>
                 <p>Ad title</p>
                 <input
