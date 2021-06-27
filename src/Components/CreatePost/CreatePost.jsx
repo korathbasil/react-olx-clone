@@ -168,21 +168,30 @@ const CreatePost = () => {
                       <AddPhotoIcon />
                     )}
                   </div>
-                  <div className={styles.singlePhoto}>
+                  <div
+                    className={styles.singlePhoto}
+                    onClick={() => imagePicker.current.click()}
+                  >
                     {images && images[1] ? (
                       <img src={URL.createObjectURL(images[1])} alt="" />
                     ) : (
                       <AddPhotoIcon />
                     )}
                   </div>
-                  <div className={styles.singlePhoto}>
+                  <div
+                    className={styles.singlePhoto}
+                    onClick={() => imagePicker.current.click()}
+                  >
                     {images && images[2] ? (
                       <img src={URL.createObjectURL(images[2])} alt="" />
                     ) : (
                       <AddPhotoIcon />
                     )}
                   </div>
-                  <div className={styles.singlePhoto}>
+                  <div
+                    className={styles.singlePhoto}
+                    onClick={() => imagePicker.current.click()}
+                  >
                     {images && images[3] ? (
                       <img src={URL.createObjectURL(images[3])} alt="" />
                     ) : (
