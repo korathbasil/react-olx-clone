@@ -198,20 +198,6 @@ const CreatePost = () => {
                     onChange={imagePickerHandler}
                   />
                 </div>
-                {itemImage && (
-                  <img
-                    className={styles.productImage}
-                    src={itemImageUrl}
-                    alt=""
-                  />
-                )}
-                <input
-                  onChange={(e) => {
-                    setItemImageUrl(URL.createObjectURL(e.target.files[0]));
-                    setItemImage(e.target.files[0]);
-                  }}
-                  type="file"
-                />
               </div>
             </div>
             <div className={styles.formSubmit}>
