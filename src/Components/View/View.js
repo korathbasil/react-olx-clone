@@ -51,14 +51,20 @@ function View() {
           </div>
 
           <div className={styles.infoContainer}>
-            <h2>Details</h2>
-            {moreDetails?.map((attribute) => {
-              return (
-                <p>
-                  {attribute[0]} : {attribute[1]}
-                </p>
-              );
-            })}
+            <h3>Details</h3>
+            <div className={styles.detailsContainer}>
+              {moreDetails?.map((attribute) => {
+                return (
+                  <div className={styles.property}>
+                    <p>{attribute[0]}</p>
+                    <p>{attribute[1]}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <hr />
+            <h3>Description</h3>
+            <p>{ad?.description}</p>
           </div>
         </div>
         <div className={styles.right}>
