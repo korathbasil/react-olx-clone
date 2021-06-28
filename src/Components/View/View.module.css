@@ -22,9 +22,12 @@
   border: var(--border);
   overflow: hidden;
 }
+.imageViewTop {
+  height: 450px;
+  background-color: black;
+}
 .imageViewTop > img {
   width: 100%;
-  background-color: black;
   height: 450px;
   object-fit: contain;
 }

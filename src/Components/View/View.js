@@ -8,6 +8,7 @@ function View() {
   const { adId } = useParams();
   const [ad, setAd] = useState(null);
   const [moreDetails, setMoreDetails] = useState();
+  const [selectedImage, setSelectedImage] = useState("");
 
   useEffect(() => {
     db.collection("products")
@@ -32,6 +33,7 @@ function View() {
         });
         setAd(doc.data());
         setMoreDetails(filteredArray);
+        setSelectedImage(doc.data().imageUrl[0]);
       });
   }, []);
 
@@ -41,11 +43,20 @@ function View() {
         <div className={styles.left}>
           <div className={styles.imageView}>
             <div className={styles.imageViewTop}>
-              <img src={ad?.imageUrl[0]} alt="" />
+              {selectedImage && <img src={selectedImage} alt="" />}
             </div>
             <div className={styles.imageSelector}>
               {ad?.imageUrl.map((image) => (
-                <img src={image} />
+                <img
+                  src={image}
+                  style={{
+                    border:
+                      selectedImage === image
+                        ? "2px solid var(--black)"
+                        : "none",
+                  }}
+                  onClick={() => setSelectedImage(image)}
+                />
               ))}
             </div>
           </div>
