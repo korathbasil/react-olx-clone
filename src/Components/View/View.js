@@ -40,9 +40,16 @@ function View() {
       <div className={styles.viewChildDiv}>
         <div className={styles.left}>
           <div className={styles.imageView}>
-            <img src={ad?.imageUrl} alt="" />
+            <div className={styles.imageViewTop}>
+              <img src={ad?.imageUrl[0]} alt="" />
+            </div>
+            <div className={styles.imageSelector}>
+              {ad?.imageUrl.map((image) => (
+                <img src={image} />
+              ))}
+            </div>
           </div>
-          <div className={styles.imageSelector}></div>
+
           <div className={styles.infoContainer}>
             <h2>Details</h2>
             {moreDetails?.map((attribute) => {
@@ -50,7 +57,6 @@ function View() {
                 <p>
                   {attribute[0]} : {attribute[1]}
                 </p>
-                // <p></p>
               );
             })}
           </div>
