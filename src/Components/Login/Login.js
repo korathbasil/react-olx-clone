@@ -49,6 +49,11 @@ const Login = () => {
               <button onClick={() => openedPageHandler("signup")}>
                 Signup with Email
               </button>
+              <p>We won't share your personal details with anyone</p>
+              <p>
+                If you continue, you are accepting OLX Terms and Conditions and
+                Privacy Policy
+              </p>
             </div>
           </div>
         )}
