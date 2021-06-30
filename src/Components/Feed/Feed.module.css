@@ -4,5 +4,11 @@
 .feedChild {
   width: 90%;
   margin: 0 auto;
-  background-color: aqua;
+  /* background-color: aqua; */
+}
+.adsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 289px);
+  grid-gap: 20px;
+  /* background-color: blueviolet; */
 }

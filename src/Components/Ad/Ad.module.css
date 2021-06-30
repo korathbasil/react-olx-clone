@@ -1,0 +1,25 @@
+.ad {
+  /* width: 254px; */
+  width: 100%;
+  max-width: 289px;
+  /* background-color: aqua; */
+  height: 280px;
+  padding: 7px;
+  border-radius: 5px;
+  border: var(--border);
+}
+.adTop {
+  width: 100%;
+  height: 60%;
+  /* background-color: aqua; */
+}
+.adTop > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.adBottom {
+  width: 100%;
+  height: 40%;
+}

@@ -8,6 +8,10 @@ const Feed = () => {
         <h2>Iam Feed Components</h2>
         <div className={styles.adsContainer}>
           <Ad />
+          <Ad />
+          {/* <Ad />
+          <Ad />
+          <Ad /> */}
         </div>
       </div>
     </div>
