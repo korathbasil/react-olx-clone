@@ -1,6 +1,6 @@
 import styles from "./Ad.module.css";
 
-const Ad = () => {
+const Ad = ({ ad }) => {
   return (
     <div className={styles.ad}>
       <div className={styles.adTop}>
@@ -10,9 +10,9 @@ const Ad = () => {
         />
       </div>
       <div className={styles.adBottom}>
-        <h3>₹ 2000000</h3>
+        <h3>₹ {ad.price}</h3>
         <p>2010 - 1000 KM</p>
-        <p>Best Ca</p>
+        <p>{ad.description}</p>
         <div>
           <p>CHENNAI India</p>
           <p>$ days ago</p>
