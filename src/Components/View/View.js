@@ -80,9 +80,16 @@ function View() {
         </div>
         <div className={styles.right}>
           <div className={styles.productInfo}>
-            <h4>{ad?.price}</h4>
-            <h4>{ad?.title}</h4>
-            <p>Location is here</p>
+            <div className={styles.productInfoTop}>
+              <h3>₹ {ad?.price}</h3>
+              <div></div>
+            </div>
+            <p>2016 - 96 KM</p>
+            <p>{ad?.title}</p>
+            <div className={styles.productInfoBottom}>
+              <p>India</p>
+              <p>Jun 11</p>
+            </div>
           </div>
           <div className={styles.sellerInfo}>
             <h4>Name goes here</h4>
