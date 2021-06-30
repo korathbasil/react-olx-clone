@@ -1,5 +1,5 @@
 .postParentDiv {
-  width: calc(100% - 32px);
+  width: 100%;
 }
 .moreView {
   width: calc(100% - 32px);
@@ -29,8 +29,8 @@
   display: flex;
 }
 .cards {
-  width: calc(100% - 32px);
-  background-color: lightpink;
+  width: 100%;
+  /* background-color: lightpink; */
 }
 .moreView .cards {
   white-space: nowrap;
