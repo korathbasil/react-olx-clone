@@ -4,7 +4,8 @@ import Header from "../Components/Header/Header";
 import Banner from "../Components/Banner/Banner";
 
 import "./Home.css";
-import Posts from "../Components/Posts/Posts";
+import Feed from "../Components/Feed/Feed";
+// import Posts from "../Components/Posts/Posts";
 import Footer from "../Components/Footer/Footer";
 
 function Home(props) {
@@ -12,7 +13,8 @@ function Home(props) {
     <div className="homeParentDiv">
       <Header />
       <Banner />
-      <Posts />
+      {/* <Posts /> */}
+      <Feed />
       <Footer />
     </div>
   );

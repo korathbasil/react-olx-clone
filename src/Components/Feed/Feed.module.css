@@ -1,0 +1,8 @@
+.feedParent {
+  width: 100%;
+}
+.feedChild {
+  width: 90%;
+  margin: 0 auto;
+  background-color: aqua;
+}
