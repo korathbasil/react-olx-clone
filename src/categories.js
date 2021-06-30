@@ -142,9 +142,58 @@ export const categories = [
     subs: [
       {
         name: "Motorcycles",
+        attributes: [
+          {
+            name: "Brand",
+            type: "select",
+            options: [
+              "Bajaj",
+              "Hero",
+              "Hero Honda",
+              "Honda",
+              "KTM",
+              "Royal Enfield",
+              "Suzuki",
+              "TVS",
+              "Yamaha",
+              "Other Brands",
+            ],
+          },
+          {
+            name: "Year",
+            type: "input",
+          },
+          {
+            name: "KM driven",
+            type: "input",
+          },
+        ],
       },
       {
         name: "Scooters",
+        attributes: [
+          {
+            name: "Brand",
+            type: "select",
+            options: [
+              "Bajaj",
+              "Hero",
+              "Honda",
+              "Mahindra",
+              "Suzuki",
+              "TVS",
+              "Other Brands",
+            ],
+          },
+          {
+            name: "Year",
+            type: "input",
+          },
+          {
+            name: "KM driven",
+            type: "input",
+          },
+        ],
       },
       {
         name: "Spare Parts",
@@ -196,6 +245,32 @@ export const categories = [
     subs: [
       {
         name: "Commercial & Other Vehicles",
+        attributes: [
+          {
+            name: "Type",
+            type: "select",
+            options: [
+              "Auto-rickshaws & E-rickshaws",
+              "Buses",
+              "Trucks",
+              "Heavy Machinery",
+              "Modified Jeeps",
+              "Pickup vans / Pickup trucks",
+              "Scap Cars",
+              "Taxi Cabs",
+              "Tractors",
+              "Others",
+            ],
+          },
+          {
+            name: "Year",
+            type: "input",
+          },
+          {
+            name: "KM driven",
+            type: "input",
+          },
+        ],
       },
       {
         name: "Spare Parts",
