@@ -22,4 +22,35 @@
 .adBottom {
   width: 100%;
   height: 40%;
+  padding: 10px;
+  padding-bottom: 0;
+}
+.adBottom > h3 {
+  color: var(--black);
+  margin-bottom: 5px;
+}
+/* .description {
+  color: grey;
+  font-size: 30px;
+} */
+.adBottom > p {
+  color: var(--black);
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+.adBottom > p:nth-child(3) {
+  color: grey;
+  margin-bottom: 10px;
+  max-width: 100%;
+  overflow-x: hidden;
+  /* max-height: 16px; */
+}
+.adBottom > div {
+  display: flex;
+  justify-content: space-between;
+}
+.adBottom > div > p {
+  font-size: 10px;
+  color: grey;
+  text-transform: uppercase;
 }

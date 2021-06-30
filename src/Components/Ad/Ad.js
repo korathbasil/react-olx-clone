@@ -10,7 +10,13 @@ const Ad = () => {
         />
       </div>
       <div className={styles.adBottom}>
-        <p>kjbh</p>
+        <h3>₹ 2000000</h3>
+        <p>2010 - 1000 KM</p>
+        <p>Best Ca</p>
+        <div>
+          <p>CHENNAI India</p>
+          <p>$ days ago</p>
+        </div>
       </div>
     </div>
   );

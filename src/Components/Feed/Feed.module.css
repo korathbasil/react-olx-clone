@@ -1,10 +1,15 @@
 .feedParent {
   width: 100%;
+  margin: 30px 0;
 }
 .feedChild {
   width: 90%;
   margin: 0 auto;
   /* background-color: aqua; */
+}
+.feedChild > h2 {
+  color: var(--black);
+  margin-bottom: 20px;
 }
 .adsContainer {
   display: grid;

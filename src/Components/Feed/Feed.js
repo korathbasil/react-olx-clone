@@ -5,7 +5,7 @@ const Feed = () => {
   return (
     <div className={styles.feedParent}>
       <div className={styles.feedChild}>
-        <h2>Iam Feed Components</h2>
+        <h2>Fresh Recommendations</h2>
         <div className={styles.adsContainer}>
           <Ad />
           <Ad />
