@@ -1,6 +1,7 @@
 .viewParentDiv {
   width: 100%;
   padding-top: 90px;
+  margin-bottom: 20px;
 }
 .viewChildDiv {
   /* width: 95%; */
