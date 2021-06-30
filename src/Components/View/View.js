@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { db } from "../../firebase";
+
 import styles from "./View.module.css";
+import Arrow from "../../assets/Arrow";
 
 function View() {
   const { adId } = useParams();
@@ -92,7 +94,22 @@ function View() {
             </div>
           </div>
           <div className={styles.sellerInfo}>
-            <h4>Name goes here</h4>
+            <p>Seller description</p>
+            <div>
+              <img
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprestigeportraits.com%2Fwp-content%2Fthemes%2Fprestige%2Fassets%2Fbuild%2Fimages%2Fgalleries%2Fgallery-2%2Fgallery-image-3.jpg&f=1&nofb=1"
+                alt=""
+              />
+              <div className={styles.sellerInfoContainer}>
+                <h3>MY AUTO DEPT</h3>
+                <p>Member since 2019</p>
+              </div>
+              <div className={styles.arrowContainer}>
+                <Arrow />
+              </div>
+            </div>
+            <button>Chat with Seller</button>
+            <button>Make an Offer</button>
           </div>
         </div>
       </div>
