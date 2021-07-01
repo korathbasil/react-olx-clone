@@ -359,6 +359,33 @@ export const categories = [
       },
       {
         name: "PG & guest Houses",
+        attributes: [
+          {
+            name: "Subtype",
+            type: "radio",
+            options: ["Guest Houses", "PG", "Roommate"],
+          },
+          {
+            name: "Furnishing",
+            type: "radio",
+            options: ["Furnished", "Semi-Furnished", "Unfurnished"],
+          },
+          {
+            name: "Listed by",
+            type: "radio",
+            options: ["Builder", "Dealer", "Owner"],
+          },
+          {
+            name: "Car Parking",
+            type: "radio",
+            options: ["0", "1", "2", "3", "3+"],
+          },
+          {
+            name: "Meals Included",
+            type: "radio",
+            options: ["No", "Yes"],
+          },
+        ],
       },
     ],
   },
