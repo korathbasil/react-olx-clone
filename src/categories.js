@@ -126,7 +126,17 @@ export const categories = [
           },
           {
             name: "Facing",
-            type: "input",
+            type: "select",
+            options: [
+              "East",
+              "North",
+              "North-East",
+              "North-West",
+              "South",
+              "South-East",
+              "South-West",
+              "West",
+            ],
           },
           {
             name: "Project Name",
@@ -199,7 +209,17 @@ export const categories = [
           },
           {
             name: "Facing",
-            type: "input",
+            type: "select",
+            options: [
+              "East",
+              "North",
+              "North-East",
+              "North-West",
+              "South",
+              "South-East",
+              "South-West",
+              "West",
+            ],
           },
           {
             name: "Project Name",
@@ -209,6 +229,48 @@ export const categories = [
       },
       {
         name: "Lands & Plosts",
+        attributes: [
+          {
+            name: "Type",
+            type: "radio",
+            options: ["For Rent", "For Sale"],
+          },
+          {
+            name: "Listed by",
+            type: "radio",
+            options: ["Builder", "Dealer", "Owner"],
+          },
+          {
+            name: "Plot Area",
+            type: "input",
+          },
+          {
+            name: "Length",
+            type: "input",
+          },
+          {
+            name: "Breadth",
+            type: "input",
+          },
+          {
+            name: "Facing",
+            type: "select",
+            options: [
+              "East",
+              "North",
+              "North-East",
+              "North-West",
+              "South",
+              "South-East",
+              "South-West",
+              "West",
+            ],
+          },
+          {
+            name: "Project Name",
+            type: "input",
+          },
+        ],
       },
       {
         name: "For Rent: Shops & Offices",
