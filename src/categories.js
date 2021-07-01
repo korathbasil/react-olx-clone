@@ -274,6 +274,43 @@ export const categories = [
       },
       {
         name: "For Rent: Shops & Offices",
+        attributes: [
+          {
+            name: "Furnishing",
+            type: "radio",
+            options: ["Furnished", "Semi-Furnished", "Unfurnished"],
+          },
+          {
+            name: "Listed by",
+            type: "radio",
+            options: ["Builder", "Dealer", "Owner"],
+          },
+          {
+            name: "Super Builtup Area (ft)",
+            type: "input",
+          },
+          {
+            name: "Carpet Area (ft)",
+            type: "input",
+          },
+          {
+            name: "Miantenance (Monthly)",
+            type: "input",
+          },
+          {
+            name: "Car Parking",
+            type: "radio",
+            options: ["0", "1", "2", "3", "3+"],
+          },
+          {
+            name: "Washrooms",
+            type: "input",
+          },
+          {
+            name: "Project Name",
+            type: "input",
+          },
+        ],
       },
       {
         name: "For Sale: Shops & Offices",
