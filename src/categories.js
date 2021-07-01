@@ -68,6 +68,71 @@ export const categories = [
     subs: [
       {
         name: "For Sale: Houses & Appartments",
+        attributes: [
+          {
+            name: "Type",
+            type: "radio",
+            options: [
+              "Apartments",
+              "Builder Floors",
+              "Farm Houses",
+              "Houses & Villas",
+            ],
+          },
+          {
+            name: "Bedrooms",
+            type: "radio",
+            options: ["1", "2", "3", "4", "4+"],
+          },
+          {
+            name: "Bathrooms",
+            type: "radio",
+            options: ["1", "2", "3", "4", "4+"],
+          },
+          {
+            name: "Furnishing",
+            type: "radio",
+            options: ["Furnished", "Semi-Furnished", "Unfurnished"],
+          },
+          {
+            name: "Listed by",
+            type: "radio",
+            options: ["Builder", "Dealer", "Owner"],
+          },
+          {
+            name: "Super Builtup Area (ft)",
+            type: "input",
+          },
+          {
+            name: "Carpet Area (ft)",
+            type: "input",
+          },
+          {
+            name: "Miantenance (Monthly)",
+            type: "input",
+          },
+          {
+            name: "Total Floors",
+            type: "input",
+          },
+          {
+            name: "Floor No.",
+            type: "input",
+          },
+          {
+            name: "Car Parking",
+            type: "radio",
+            options: ["0", "1", "2", "3", "3+"],
+          },
+          {
+            name: "Facing",
+            type: "input",
+          },
+          {
+            name: "Project Name",
+            type: "input",
+          },
+        ],
       },
       {
         name: "For Rent: Houses & Appartments",
