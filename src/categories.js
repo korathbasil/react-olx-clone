@@ -38,9 +38,25 @@ export const categories = [
             name: "Year",
             type: "input",
           },
+
+          {
+            name: "Fuel",
+            type: "radio",
+            options: ["CNC & hybrids", "Diesel", "Electric", "LPG", "Petrol"],
+          },
+          {
+            name: "Transmission",
+            type: "radio",
+            options: ["Automatic", "Manual"],
+          },
           {
             name: "KM Driven",
             type: "input",
+          },
+          {
+            name: "No. of Owners",
+            type: "radio",
+            options: ["1st", "2nd", "3rd", "4th", "4+"],
           },
         ],
       },
