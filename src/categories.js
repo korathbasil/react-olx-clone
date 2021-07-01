@@ -314,6 +314,48 @@ export const categories = [
       },
       {
         name: "For Sale: Shops & Offices",
+        attributes: [
+          {
+            name: "Furnishing",
+            type: "radio",
+            options: ["Furnished", "Semi-Furnished", "Unfurnished"],
+          },
+          {
+            name: "Construction Status",
+            type: "radio",
+            options: ["New Launch", "Ready to Move", "Under Construction"],
+          },
+          {
+            name: "Listed by",
+            type: "radio",
+            options: ["Builder", "Dealer", "Owner"],
+          },
+          {
+            name: "Super Builtup Area (ft)",
+            type: "input",
+          },
+          {
+            name: "Carpet Area (ft)",
+            type: "input",
+          },
+          {
+            name: "Miantenance (Monthly)",
+            type: "input",
+          },
+          {
+            name: "Car Parking",
+            type: "radio",
+            options: ["0", "1", "2", "3", "3+"],
+          },
+          {
+            name: "Washrooms",
+            type: "input",
+          },
+          {
+            name: "Project Name",
+            type: "input",
+          },
+        ],
       },
       {
         name: "PG & guest Houses",
