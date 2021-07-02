@@ -459,19 +459,47 @@ export const categories = [
         name: "Data Entry & Back office",
         attributes: [
           {
-            name: "Type",
+            name: "Salary Period",
             type: "radio",
-            options: ["iPads", "Samsung", "Other Tablets"],
+            options: ["Hourly", "Monthly", "Weekly", "Yearly"],
           },
           {
-            name: "Type",
+            name: "Position Type",
             type: "radio",
-            options: ["iPads", "Samsung", "Other Tablets"],
+            options: ["Contract", "Full-Time", "Part-Time", "Temporary"],
+          },
+          {
+            name: "Salary From",
+            type: "input",
+          },
+          {
+            name: "Salary To",
+            type: "input",
           },
         ],
       },
       {
         name: "Sales & Marketing",
+        attributes: [
+          {
+            name: "Salary Period",
+            type: "radio",
+            options: ["Hourly", "Monthly", "Weekly", "Yearly"],
+          },
+          {
+            name: "Position Type",
+            type: "radio",
+            options: ["Contract", "Full-Time", "Part-Time", "Temporary"],
+          },
+          {
+            name: "Salary From",
+            type: "input",
+          },
+          {
+            name: "Salary To",
+            type: "input",
+          },
+        ],
       },
       {
         name: "BPO & Telecaller",
