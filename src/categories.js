@@ -457,6 +457,18 @@ export const categories = [
     subs: [
       {
         name: "Data Entry & Back office",
+        attributes: [
+          {
+            name: "Type",
+            type: "radio",
+            options: ["iPads", "Samsung", "Other Tablets"],
+          },
+          {
+            name: "Type",
+            type: "radio",
+            options: ["iPads", "Samsung", "Other Tablets"],
+          },
+        ],
       },
       {
         name: "Sales & Marketing",
