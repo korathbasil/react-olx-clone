@@ -95,25 +95,24 @@ const CreatePost = () => {
         return (
           <div className={styles.formInputWrapper}>
             <p>{item.name}</p>
-            {/* <select
-              type="text"
-              name={item.name}
-              onChange={(e) => dynamicinputModifier(e)}
-            >
-              {item.options.map((option) => (
-                <option value={option}>{option}</option>
-              ))}
-            </select> */}
             <div className={styles.radioButtonsWrapper}>
               {item.options.map((option) => (
-                <div>
-                  <p>{option}</p>
+                <div
+                  className="radioButton"
+                  onClick={() => {
+                    const selectedInput = document.getElementById(option);
+                    selectedInput.click();
+                  }}
+                >
                   <input
                     type="radio"
+                    id={option}
                     name={item.name}
                     value={option}
                     onChange={dynamicinputModifier}
+                    hidden
                   />
+                  <p>{option}</p>
                 </div>
               ))}
             </div>

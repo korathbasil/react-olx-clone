@@ -67,6 +67,14 @@
   border: 1px solid var(--black);
   border-radius: 3px;
 }
+
+.radioButtonsWrapper > div {
+  padding: 10px;
+}
+/* .radioButtonsWrapper > div > input {
+  display: none;
+} */
+
 .productImage {
   width: 60%;
 }
