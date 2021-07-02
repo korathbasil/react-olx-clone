@@ -431,6 +431,13 @@ export const categories = [
       },
       {
         name: "Accessories",
+        attributes: [
+          {
+            name: "Type",
+            type: "radio",
+            options: ["Mobile", "Tablets"],
+          },
+        ],
       },
       {
         name: "Tablets",
