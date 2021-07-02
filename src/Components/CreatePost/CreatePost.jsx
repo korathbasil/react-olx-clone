@@ -48,30 +48,30 @@ const CreatePost = () => {
 
   const uploadImagesAndPostDetails = (e) => {
     e.preventDefault();
-    // const uploadImage = (image) => {
-    //   return storage
-    //     .ref(`/posts/${image.name}`)
-    //     .put(image)
-    //     .then((snapshot) => {
-    //       return snapshot.ref.getDownloadURL();
-    //     });
-    // };
-    // Promise.all(images.map((image) => uploadImage(image)))
-    //   .then((urls) => {
-    //     return db.collection("products").add({
-    //       ...dynamicInputs,
-    //       title: productdetails.title,
-    //       description: productdetails.description,
-    //       imageUrl: urls,
-    //       price: parseInt(productdetails.price),
-    //       createdAt: new Date().toDateString(),
-    //       userId: user.uid,
-    //     });
-    //   })
-    //   .then(() => {
-    //     history.push("/");
-    //   });
-    console.log(dynamicInputs);
+    const uploadImage = (image) => {
+      return storage
+        .ref(`/posts/${image.name}`)
+        .put(image)
+        .then((snapshot) => {
+          return snapshot.ref.getDownloadURL();
+        });
+    };
+    Promise.all(images.map((image) => uploadImage(image)))
+      .then((urls) => {
+        return db.collection("products").add({
+          ...dynamicInputs,
+          title: productdetails.title,
+          description: productdetails.description,
+          imageUrl: urls,
+          price: parseInt(productdetails.price),
+          createdAt: new Date().toDateString(),
+          userId: user.uid,
+        });
+      })
+      .then(() => {
+        history.push("/");
+      });
+    // console.log(dynamicInputs);
   };
 
   const imagePickerHandler = (e) => {
@@ -109,7 +109,7 @@ const CreatePost = () => {
                         type="text"
                         name={item.name}
                         onChange={(e) => dynamicinputModifier(e)}
-                        // required
+                        required
                       />
                     </div>
                   );
@@ -121,7 +121,7 @@ const CreatePost = () => {
                         type="text"
                         name={item.name}
                         onChange={(e) => dynamicinputModifier(e)}
-                        // required
+                        required
                       >
                         <option></option>
                         {item.options.map((option) => (
@@ -157,7 +157,7 @@ const CreatePost = () => {
                               value={option}
                               onChange={dynamicinputModifier}
                               hidden
-                              // required
+                              required
                             />
                             <p>{option}</p>
                           </div>
@@ -183,6 +183,7 @@ const CreatePost = () => {
                   name="description"
                   value={productdetails.description}
                   onChange={(e) => productDetailsStateModifier(e)}
+                  required
                 />
                 <p>Include condition, features and reason of selling</p>
               </div>
@@ -196,6 +197,7 @@ const CreatePost = () => {
                   name="price"
                   value={productdetails.price}
                   onChange={(e) => productDetailsStateModifier(e)}
+                  required
                 />
               </div>
             </div>
