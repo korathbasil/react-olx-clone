@@ -566,6 +566,13 @@ export const categories = [
       },
       {
         name: "Bicycles",
+        attributes: [
+          {
+            name: "Brand",
+            type: "radio",
+            options: ["Hercules", "Hero", "Other Brands"],
+          },
+        ],
       },
     ],
   },
