@@ -647,6 +647,17 @@ export const categories = [
       },
       {
         name: "Spare Parts",
+        attributes: [
+          {
+            name: "Type",
+            type: "radio",
+            options: [
+              "Wheels & Tyres",
+              "Audio & Other Accessories",
+              "Other Spare Parts",
+            ],
+          },
+        ],
       },
     ],
   },
