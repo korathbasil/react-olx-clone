@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Route, Switch, Link, useHistory } from "react-router-dom";
 
 import { db, storage } from "../../firebase";
@@ -35,6 +35,17 @@ const CreatePost = () => {
     });
   };
 
+  // useEffect(() => {
+  //   if (selectedCategory) {
+  //     selectedCategory.attributes.forEach((item) => {
+  //       setDynamicInputs({
+  //         ...dynamicInputs,
+  //         [item.name]: "",
+  //       });
+  //     });
+  //   }
+  // }, [selectedCategory]);
+
   const uploadImagesAndPostDetails = (e) => {
     e.preventDefault();
     // const uploadImage = (image) => {
@@ -63,65 +74,6 @@ const CreatePost = () => {
     console.log(dynamicInputs);
   };
 
-  const renderDynamicInputs = () => {
-    const dynamicInputs = selectedCategory.attributes.map((item) => {
-      if (item.type === "input") {
-        return (
-          <div className={styles.formInputWrapper}>
-            <p>{item.name}</p>
-            <input
-              type="text"
-              name={item.name}
-              onChange={(e) => dynamicinputModifier(e)}
-            />
-          </div>
-        );
-      } else if (item.type === "select")
-        return (
-          <div className={styles.formInputWrapper}>
-            <p>{item.name}</p>
-            <select
-              type="text"
-              name={item.name}
-              onChange={(e) => dynamicinputModifier(e)}
-            >
-              {item.options.map((option) => (
-                <option value={option}>{option}</option>
-              ))}
-            </select>
-          </div>
-        );
-      else if (item.type === "radio")
-        return (
-          <div className={styles.formInputWrapper}>
-            <p>{item.name}</p>
-            <div className={styles.radioButtonsWrapper}>
-              {item.options.map((option) => (
-                <div
-                  className="radioButton"
-                  onClick={() => {
-                    const selectedInput = document.getElementById(option);
-                    selectedInput.click();
-                  }}
-                >
-                  <input
-                    type="radio"
-                    id={option}
-                    name={item.name}
-                    value={option}
-                    onChange={dynamicinputModifier}
-                    hidden
-                  />
-                  <p>{option}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-    });
-    return dynamicInputs;
-  };
-
   const imagePickerHandler = (e) => {
     if (images.length <= 3) {
       const selectedImage = e.target.files[0];
@@ -148,7 +100,72 @@ const CreatePost = () => {
             {/* <div className={styles.formHeader}></div> */}
             <div className={styles.formDetailsInput}>
               <h2>INCLUDE SOME DETAILS</h2>
-              {renderDynamicInputs()}
+              {selectedCategory.attributes.map((item) => {
+                if (item.type === "input") {
+                  return (
+                    <div className={styles.formInputWrapper}>
+                      <p>{item.name}</p>
+                      <input
+                        type="text"
+                        name={item.name}
+                        onChange={(e) => dynamicinputModifier(e)}
+                        // required
+                      />
+                    </div>
+                  );
+                } else if (item.type === "select")
+                  return (
+                    <div className={styles.formInputWrapper}>
+                      <p>{item.name}</p>
+                      <select
+                        type="text"
+                        name={item.name}
+                        onChange={(e) => dynamicinputModifier(e)}
+                        // required
+                      >
+                        <option></option>
+                        {item.options.map((option) => (
+                          <option value={option}>{option}</option>
+                        ))}
+                      </select>
+                    </div>
+                  );
+                else if (item.type === "radio")
+                  return (
+                    <div className={styles.formInputWrapper}>
+                      <p>{item.name}</p>
+                      <div className={styles.radioButtonsWrapper}>
+                        {item.options.map((option) => (
+                          <div
+                            style={{
+                              backgroundColor:
+                                dynamicInputs &&
+                                dynamicInputs[item.name] === option
+                                  ? "skyblue"
+                                  : "",
+                            }}
+                            onClick={() => {
+                              const selectedInput =
+                                document.getElementById(option);
+                              selectedInput.click();
+                            }}
+                          >
+                            <input
+                              type="radio"
+                              id={option}
+                              name={item.name}
+                              value={option}
+                              onChange={dynamicinputModifier}
+                              hidden
+                              // required
+                            />
+                            <p>{option}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+              })}
               <div className={styles.formInputWrapper}>
                 <p>Ad title</p>
                 <input
