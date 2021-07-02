@@ -37,29 +37,30 @@ const CreatePost = () => {
 
   const uploadImagesAndPostDetails = (e) => {
     e.preventDefault();
-    const uploadImage = (image) => {
-      return storage
-        .ref(`/posts/${image.name}`)
-        .put(image)
-        .then((snapshot) => {
-          return snapshot.ref.getDownloadURL();
-        });
-    };
-    Promise.all(images.map((image) => uploadImage(image)))
-      .then((urls) => {
-        return db.collection("products").add({
-          ...dynamicInputs,
-          title: productdetails.title,
-          description: productdetails.description,
-          imageUrl: urls,
-          price: parseInt(productdetails.price),
-          createdAt: new Date().toDateString(),
-          userId: user.uid,
-        });
-      })
-      .then(() => {
-        history.push("/");
-      });
+    // const uploadImage = (image) => {
+    //   return storage
+    //     .ref(`/posts/${image.name}`)
+    //     .put(image)
+    //     .then((snapshot) => {
+    //       return snapshot.ref.getDownloadURL();
+    //     });
+    // };
+    // Promise.all(images.map((image) => uploadImage(image)))
+    //   .then((urls) => {
+    //     return db.collection("products").add({
+    //       ...dynamicInputs,
+    //       title: productdetails.title,
+    //       description: productdetails.description,
+    //       imageUrl: urls,
+    //       price: parseInt(productdetails.price),
+    //       createdAt: new Date().toDateString(),
+    //       userId: user.uid,
+    //     });
+    //   })
+    //   .then(() => {
+    //     history.push("/");
+    //   });
+    console.log(dynamicInputs);
   };
 
   const renderDynamicInputs = () => {
@@ -73,7 +74,6 @@ const CreatePost = () => {
               name={item.name}
               onChange={(e) => dynamicinputModifier(e)}
             />
-            <p>Mention the key features of your item</p>
           </div>
         );
       } else if (item.type === "select")
@@ -89,7 +89,34 @@ const CreatePost = () => {
                 <option value={option}>{option}</option>
               ))}
             </select>
-            <p>Mention the key features of your item</p>
+          </div>
+        );
+      else if (item.type === "radio")
+        return (
+          <div className={styles.formInputWrapper}>
+            <p>{item.name}</p>
+            {/* <select
+              type="text"
+              name={item.name}
+              onChange={(e) => dynamicinputModifier(e)}
+            >
+              {item.options.map((option) => (
+                <option value={option}>{option}</option>
+              ))}
+            </select> */}
+            <div className={styles.radioButtonsWrapper}>
+              {item.options.map((option) => (
+                <div>
+                  <p>{option}</p>
+                  <input
+                    type="radio"
+                    name={item.name}
+                    value={option}
+                    onChange={dynamicinputModifier}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         );
     });
