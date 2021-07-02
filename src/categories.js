@@ -756,6 +756,26 @@ export const categories = [
       },
       {
         name: "Designer",
+        attributes: [
+          {
+            name: "Salary Period",
+            type: "radio",
+            options: ["Hourly", "Monthly", "Weekly", "Yearly"],
+          },
+          {
+            name: "Position Type",
+            type: "radio",
+            options: ["Contract", "Full-Time", "Part-Time", "Temporary"],
+          },
+          {
+            name: "Salary From",
+            type: "input",
+          },
+          {
+            name: "Salary To",
+            type: "input",
+          },
+        ],
       },
       {
         name: "Other Jobs",
