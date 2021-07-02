@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Route, Switch, Link, useHistory } from "react-router-dom";
 
 import { db, storage } from "../../firebase";
@@ -34,17 +34,6 @@ const CreatePost = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // useEffect(() => {
-  //   if (selectedCategory) {
-  //     selectedCategory.attributes.forEach((item) => {
-  //       setDynamicInputs({
-  //         ...dynamicInputs,
-  //         [item.name]: "",
-  //       });
-  //     });
-  //   }
-  // }, [selectedCategory]);
 
   const uploadImagesAndPostDetails = (e) => {
     e.preventDefault();
