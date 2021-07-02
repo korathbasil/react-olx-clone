@@ -441,6 +441,13 @@ export const categories = [
       },
       {
         name: "Tablets",
+        attributes: [
+          {
+            name: "Type",
+            type: "radio",
+            options: ["iPads", "Samsung", "Other Tablets"],
+          },
+        ],
       },
     ],
   },
