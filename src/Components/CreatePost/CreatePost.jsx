@@ -6,7 +6,6 @@ import useGlobalStore from "../../store/GlobalStore";
 import styles from "./CreatePost.module.css";
 import CategorySelector from "../CategorySelector/CategorySelector";
 import AddPhotoIcon from "../../assets/AddPhotoIcon";
-import { file } from "@babel/types";
 
 const CreatePost = () => {
   const history = useHistory();
@@ -134,14 +133,15 @@ const CreatePost = () => {
                                   : "",
                             }}
                             onClick={() => {
-                              const selectedInput =
-                                document.getElementById(option);
+                              const selectedInput = document.getElementById(
+                                `${item.name}${option}`
+                              );
                               selectedInput.click();
                             }}
                           >
                             <input
                               type="radio"
-                              id={option}
+                              id={`${item.name}${option}`}
                               name={item.name}
                               value={option}
                               onChange={dynamicinputModifier}
