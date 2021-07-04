@@ -19,6 +19,11 @@ const CreatePost = () => {
     price: "",
   });
   const [dynamicInputs, setDynamicInputs] = useState({});
+  const [address, setAddress] = useState({
+    State: "",
+    City: "",
+    Neighbourhood: "",
+  });
   const [images, setImages] = useState([]);
 
   const productDetailsStateModifier = (e) => {
@@ -30,6 +35,12 @@ const CreatePost = () => {
   const dynamicinputModifier = (e) => {
     setDynamicInputs({
       ...dynamicInputs,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const addressModifier = (e) => {
+    setAddress({
+      ...address,
       [e.target.name]: e.target.value,
     });
   };
@@ -48,12 +59,13 @@ const CreatePost = () => {
       .then((urls) => {
         return db.collection("products").add({
           ...dynamicInputs,
+          ...address,
           title: productdetails.title,
           description: productdetails.description,
           imageUrl: urls,
           price: parseInt(productdetails.price),
           createdAt: new Date().toDateString(),
-          userId: user.uid,
+          userId: user.userId,
         });
       })
       .then(() => {
@@ -244,6 +256,36 @@ const CreatePost = () => {
                     onChange={imagePickerHandler}
                   />
                 </div>
+              </div>
+            </div>
+            <div className={styles.formLocationInput}>
+              <h2>ENTER YOUR LOCATION</h2>
+              <div className={styles.formInputWrapper}>
+                <p>State</p>
+                <input
+                  type="text"
+                  name="State"
+                  value={address.State}
+                  onChange={addressModifier}
+                />
+              </div>
+              <div className={styles.formInputWrapper}>
+                <p>City</p>
+                <input
+                  type="text"
+                  name="City"
+                  value={address.City}
+                  onChange={addressModifier}
+                />
+              </div>
+              <div className={styles.formInputWrapper}>
+                <p>Neighbourhood</p>
+                <input
+                  type="text"
+                  name="Neighbourhood"
+                  value={address.Neighbourhood}
+                  onChange={addressModifier}
+                />
               </div>
             </div>
             <div className={styles.formSubmit}>

@@ -39,14 +39,16 @@
 
 .formDetailsInput,
 .formPriceInput,
-.formImagesInput {
+.formImagesInput,
+.formLocationInput {
   border-bottom: 1px solid lightgrey;
   padding: 30px;
   padding-bottom: 0;
 }
 .formDetailsInput > h2,
 .formPriceInput > h2,
-.formImagesInput > h2 {
+.formImagesInput > h2,
+.formLocationInput > h2 {
   margin-bottom: 20px;
 }
 .formInputWrapper {
