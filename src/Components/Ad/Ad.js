@@ -14,7 +14,9 @@ const Ad = ({ ad }) => {
         <p>2010 - 1000 KM</p>
         <p>{ad.title}</p>
         <div>
-          <p>CHENNAI India</p>
+          <p>
+            {ad.City} {ad.State}
+          </p>
           <p>$ days ago</p>
         </div>
       </div>
