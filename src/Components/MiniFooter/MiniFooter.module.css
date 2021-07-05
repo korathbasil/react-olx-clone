@@ -1,0 +1,28 @@
+.miniFooter {
+  width: 100%;
+  margin-top: 30px;
+  background-color: var(--black);
+  color: white;
+}
+.miniFooterChild {
+  width: 95%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.miniFooterChild > p {
+  font-size: 12px;
+}
+.miniFooterChild > div {
+  display: flex;
+  align-items: center;
+}
+.miniFooterChild > div > h4 {
+  font-size: 12px;
+  margin-right: 15px;
+}
+.miniFooterChild > div > p {
+  font-size: 12px;
+}

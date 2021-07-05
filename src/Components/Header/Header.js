@@ -87,10 +87,13 @@ function Header() {
             {showMenu && (
               <div className="userMenu">
                 <div className="userMenuTop">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
-                    alt=""
-                  />
+                  {(user?.profilePicture === "" ||
+                    user?.profilePicture == null) && (
+                    <ProfilePicture size={"100px"} />
+                  )}
+                  {user?.profilePicture && (
+                    <img src={user?.profilePicture} alt="" />
+                  )}
                   <div className="userMenuTopRight">
                     <p>Hello</p>
                     <h2>{user.displayName}</h2>

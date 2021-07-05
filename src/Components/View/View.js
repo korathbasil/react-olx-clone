@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
 
 import styles from "./View.module.css";
 import Arrow from "../../assets/Arrow";
@@ -11,6 +11,7 @@ function View() {
   const [ad, setAd] = useState(null);
   const [moreDetails, setMoreDetails] = useState();
   const [selectedImage, setSelectedImage] = useState("");
+  const [userDetails, setUserDeatils] = useState({});
 
   useEffect(() => {
     db.collection("products")
@@ -33,6 +34,14 @@ function View() {
             return false;
           }
         });
+        db.collection("users")
+          .doc(doc.data().userId)
+          .get()
+          .then((doc) => {
+            auth.getUser(doc.data().uid).then((user) => {
+              console.log(console.log(user));
+            });
+          });
         setAd(doc.data());
         setMoreDetails(filteredArray);
         setSelectedImage(doc.data().imageUrl[0]);
