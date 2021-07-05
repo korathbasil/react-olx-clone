@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Route, Switch, Link } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
@@ -6,17 +6,25 @@ import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./EditProfile.module.css";
 import Header from "../../Components/Header/Header";
+import ProfilePicture from "../../assets/ProfilePicture";
 import Footer from "../../Components/Footer/Footer";
 
 const EditProfile = () => {
   const [{ user }, dispatch] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("info");
+  const [profilePicture, setProfilePicture] = useState("");
 
   const displayNameInput = useRef();
   const descriptionInput = useRef();
   const phoneInput = useRef();
   const emailInput = useRef();
+
+  useEffect(() => {
+    if (user) {
+      setProfilePicture(user.profilePicture);
+    }
+  }, []);
 
   const updateProfile = (e) => {
     e.preventDefault();
@@ -117,6 +125,7 @@ const EditProfile = () => {
                     defaultValue={user?.email}
                     ref={emailInput}
                     required
+                    readOnly
                   />
                 </div>
                 <div className={styles.rightBottom}>
@@ -129,7 +138,32 @@ const EditProfile = () => {
               <div className={styles.rightTop}>
                 <h3>Profile Picture</h3>
               </div>
-              <div className={styles.pictureRightBottom}></div>
+              <div className={styles.pictureRightMiddle}>
+                <div className={styles.pictureDisplay}>
+                  {(user?.profilePicture === "" ||
+                    user?.profilePicture == null) && (
+                    <ProfilePicture size={"250px"} />
+                  )}
+                  {profilePicture && <img src={profilePicture} alt="" />}
+                </div>
+                <div>
+                  <p>
+                    Clear photos are an important way for buyers and sellers to
+                    learn about each other. Be sure doesn’t include any personal
+                    or sensitive info you’d rather not have others see.
+                  </p>
+                  <input
+                    type="file"
+                    onChange={(e) =>
+                      setProfilePicture(URL.createObjectURL(e.target.files[0]))
+                    }
+                  />
+                </div>
+              </div>
+              <div className={styles.rightBottom}>
+                <p>Discard</p>
+                <button type="submit">Save Changes</button>
+              </div>
             </Route>
           </Switch>
         </div>
