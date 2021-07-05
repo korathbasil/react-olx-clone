@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  /* border-top: 0.5px solid var(--black); */
+}
+.top {
+  width: 100%;
+  background-color: #ebeeef;
+  padding: 20px 0;
+}
+.bottom {
+  width: 100%;
+}
+.container {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 1300px;
+  display: flex;
+}
+.linkCoumns {
+  width: 20%;
+}
+.linkCoumns > h4 {
+  font-size: 14px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.linkCoumns > p {
+  font-size: 12px;
+  color: grey;
+  margin-bottom: 7px;
+}
