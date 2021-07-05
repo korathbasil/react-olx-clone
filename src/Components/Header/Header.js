@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 import { auth } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
+
 import "./Header.css";
 import OlxLogo from "../../assets/OlxLogo";
 import Search from "../../assets/Search";
 import Arrow from "../../assets/Arrow";
 import AdsIcon from "../../assets/AdsIcon";
+import ProfilePicture from "../../assets/ProfilePicture";
 import LogoutIcon from "../../assets/LogoutIcon";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
-import { Disposer } from "bluebird";
 
 function Header() {
   const [{ user, showLoginOverlay }, dispatch] = useGlobalStore();
@@ -72,10 +73,13 @@ function Header() {
         {user && (
           <div className="userProfile">
             <div className="userProfileBubble" onClick={menuOpeningHandler}>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sabrina_Carpenter_2019.jpg"
-                alt=""
-              />
+              {(user?.profilePicture === "" ||
+                user?.profilePicture == null) && (
+                <ProfilePicture size={"30px"} />
+              )}
+              {user?.profilePicture && (
+                <img src={user?.profilePicture} alt="" />
+              )}
               <div ref={accountArrow} className="userProfileArrowContainer">
                 <Arrow />
               </div>
