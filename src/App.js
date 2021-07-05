@@ -43,6 +43,7 @@ function App() {
             phone: phone,
             description: description,
             userId: userId,
+            profilePicture: user.photoURL,
           },
         });
       }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Route, Switch, Link } from "react-router-dom";
 
-import { auth, db } from "../../firebase";
+import { auth, db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./EditProfile.module.css";
@@ -13,7 +13,8 @@ const EditProfile = () => {
   const [{ user }, dispatch] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("info");
-  const [profilePicture, setProfilePicture] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [profilePictureUrl, setProfilePictureUrl] = useState("");
 
   const displayNameInput = useRef();
   const descriptionInput = useRef();
@@ -22,9 +23,9 @@ const EditProfile = () => {
 
   useEffect(() => {
     if (user) {
-      setProfilePicture(user.profilePicture);
+      setProfilePictureUrl(user.profilePicture);
     }
-  }, []);
+  }, [user]);
 
   const updateProfile = (e) => {
     e.preventDefault();
@@ -51,6 +52,22 @@ const EditProfile = () => {
         email: email,
         description: description,
       });
+    }
+  };
+
+  const uploadNewProfilePicture = () => {
+    if (user.profilePicture !== profilePicture) {
+      // Upload new Profile Picture
+      storage
+        .ref(`/profiles/${profilePicture.name}`)
+        .put(profilePicture)
+        .then((snapshot) => {
+          return snapshot.ref.getDownloadURL();
+        })
+        .then((url) => {
+          auth.currentUser.updateProfile({ photoURL: url }).then(() => {});
+        });
+    } else {
     }
   };
 
@@ -142,9 +159,9 @@ const EditProfile = () => {
                 <div className={styles.pictureDisplay}>
                   {(user?.profilePicture === "" ||
                     user?.profilePicture == null) && (
-                    <ProfilePicture size={"250px"} />
+                    <ProfilePicture size={"200px"} />
                   )}
-                  {profilePicture && <img src={profilePicture} alt="" />}
+                  {profilePictureUrl && <img src={profilePictureUrl} alt="" />}
                 </div>
                 <div>
                   <p>
@@ -154,15 +171,20 @@ const EditProfile = () => {
                   </p>
                   <input
                     type="file"
-                    onChange={(e) =>
-                      setProfilePicture(URL.createObjectURL(e.target.files[0]))
-                    }
+                    onChange={(e) => {
+                      setProfilePicture(e.target.files[0]);
+                      setProfilePictureUrl(
+                        URL.createObjectURL(e.target.files[0])
+                      );
+                    }}
                   />
                 </div>
               </div>
               <div className={styles.rightBottom}>
                 <p>Discard</p>
-                <button type="submit">Save Changes</button>
+                <button type="submit" onClick={uploadNewProfilePicture}>
+                  Upload
+                </button>
               </div>
             </Route>
           </Switch>
