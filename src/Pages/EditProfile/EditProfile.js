@@ -1,13 +1,17 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { Route, Switch, Link } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
+
 import styles from "./EditProfile.module.css";
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 const EditProfile = () => {
   const [{ user }, dispatch] = useGlobalStore();
+
+  const [activeLink, setActiveLink] = useState("info");
 
   const displayNameInput = useRef();
   const descriptionInput = useRef();
@@ -48,10 +52,26 @@ const EditProfile = () => {
       <div className={styles.editProfileChild}>
         <div className={styles.left}>
           <Link to="/editProfile/info">
-            <p>Edit Profile</p>
+            <p
+              onClick={() => setActiveLink("info")}
+              style={{
+                color: activeLink === "info" ? "var(--black)" : "grey",
+                fontWeight: activeLink === "info" ? 800 : 500,
+              }}
+            >
+              Edit Profile
+            </p>
           </Link>
           <Link to="/editProfile/picture">
-            <p>Edit Profile Picture</p>
+            <p
+              onClick={() => setActiveLink("picture")}
+              style={{
+                color: activeLink === "picture" ? "var(--black)" : "grey",
+                fontWeight: activeLink === "picture" ? 800 : 500,
+              }}
+            >
+              Edit Profile Picture
+            </p>
           </Link>
           <button>View Profile</button>
         </div>
@@ -114,6 +134,7 @@ const EditProfile = () => {
           </Switch>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
