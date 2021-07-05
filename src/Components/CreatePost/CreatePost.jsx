@@ -7,7 +7,6 @@ import useGlobalStore from "../../store/GlobalStore";
 import styles from "./CreatePost.module.css";
 import CategorySelector from "../CategorySelector/CategorySelector";
 import AddPhotoIcon from "../../assets/AddPhotoIcon";
-import MiniFooter from "../MiniFooter/MiniFooter";
 
 const CreatePost = () => {
   const history = useHistory();
