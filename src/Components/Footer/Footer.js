@@ -39,7 +39,16 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.bottom}>
-        <div className={styles.container}></div>
+        <div className={styles.container}>
+          <div className={styles.bottomChild}>
+            <h4>Other Countries</h4>
+            <p>Pakistan - South Africa - Indonesia</p>
+          </div>
+          <div className={styles.bottomChild}>
+            <h4>Free Classifieds in India</h4>
+            <p>© 2006-2021</p>
+          </div>
+        </div>
       </div>
     </div>
   );
