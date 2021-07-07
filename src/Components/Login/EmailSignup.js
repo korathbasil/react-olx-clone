@@ -32,24 +32,28 @@ const EmailSignup = ({ pageHandler }) => {
       .createUserWithEmailAndPassword(signupInput.email, signupInput.password)
       .then((res) => {
         res.user
-          .updateProfile({ displayName: signupInput.name })
+          .updateProfile({
+            displayName: signupInput.name,
+            phone: signupInput.phone,
+          })
           .then(() => {
-            return db.collection("users").add({
-              uid: res.user.uid,
+            return db.collection("users").doc(res.user.uid).set({
+              displayName: res.user.displayName,
+              email: res.user.email,
               phone: signupInput.phone,
               description: "",
             });
           })
-          .then((result) => {
+          .then(() => {
             dispatch({
               type: "SET_USER",
               user: {
-                uid: res.user.uid,
-                userId: result.id,
+                id: res.user.uid,
                 displayName: res.user.displayName,
-                phone: result.phone,
-                email: result.email,
-                description: result.description,
+                phone: signupInput.phone,
+                email: res.user.email,
+                description: "",
+                profilePicture: res.user.photoURL,
               },
             });
             setSignupInput({
