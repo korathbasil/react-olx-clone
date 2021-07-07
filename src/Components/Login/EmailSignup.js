@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
+
 import styles from "./Login.module.css";
 import OlxLogo from "../../assets/OlxLogo";
 import BackArrowIcon from "../../assets/BackArrowIcon";
@@ -10,7 +11,7 @@ import BackArrowIcon from "../../assets/BackArrowIcon";
 const EmailSignup = ({ pageHandler }) => {
   const history = useHistory();
 
-  const [{ user }, dispatch] = useGlobalStore();
+  const [{}, dispatch] = useGlobalStore();
   const [signupInput, setSignupInput] = useState({
     name: "",
     email: "",
@@ -80,28 +81,28 @@ const EmailSignup = ({ pageHandler }) => {
           name="name"
           placeholder="Name"
           value={signupInput.name}
-          onChange={(e) => inputFieldModifier(e)}
+          onChange={inputFieldModifier}
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
           value={signupInput.email}
-          onChange={(e) => inputFieldModifier(e)}
+          onChange={inputFieldModifier}
         />
         <input
           type="tel"
           name="phone"
           placeholder="Phone number"
           value={signupInput.phone}
-          onChange={(e) => inputFieldModifier(e)}
+          onChange={inputFieldModifier}
         />
         <input
           type="Password"
           name="password"
           placeholder="Password"
           value={signupInput.password}
-          onChange={(e) => inputFieldModifier(e)}
+          onChange={inputFieldModifier}
         />
         <button type="submit">Signup</button>
       </form>
