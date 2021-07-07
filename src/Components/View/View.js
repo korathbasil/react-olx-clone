@@ -34,14 +34,6 @@ function View() {
             return false;
           }
         });
-        db.collection("users")
-          .doc(doc.data().userId)
-          .get()
-          .then((doc) => {
-            auth.getUser(doc.data().uid).then((user) => {
-              console.log(console.log(user));
-            });
-          });
         setAd(doc.data());
         setMoreDetails(filteredArray);
         setSelectedImage(doc.data().imageUrl[0]);

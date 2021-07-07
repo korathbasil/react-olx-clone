@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Route, Switch, Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
