@@ -19,7 +19,7 @@ const EmailSignup = ({ pageHandler }) => {
     password: "",
   });
 
-  const inputFieldModifier = (e) => {
+  const signupInputStateModifier = (e) => {
     setSignupInput({
       ...signupInput,
       [e.target.name]: e.target.value,
@@ -81,28 +81,28 @@ const EmailSignup = ({ pageHandler }) => {
           name="name"
           placeholder="Name"
           value={signupInput.name}
-          onChange={inputFieldModifier}
+          onChange={signupInputStateModifier}
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
           value={signupInput.email}
-          onChange={inputFieldModifier}
+          onChange={signupInputStateModifier}
         />
         <input
           type="tel"
           name="phone"
           placeholder="Phone number"
           value={signupInput.phone}
-          onChange={inputFieldModifier}
+          onChange={signupInputStateModifier}
         />
         <input
           type="Password"
           name="password"
           placeholder="Password"
           value={signupInput.password}
-          onChange={inputFieldModifier}
+          onChange={signupInputStateModifier}
         />
         <button type="submit">Signup</button>
       </form>
