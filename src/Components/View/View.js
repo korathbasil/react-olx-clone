@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { auth, db } from "../../firebase";
+import { db } from "../../firebase";
 
 import styles from "./View.module.css";
 import Arrow from "../../assets/Arrow";
