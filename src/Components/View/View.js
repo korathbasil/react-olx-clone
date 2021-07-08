@@ -14,7 +14,7 @@ function View() {
   const [userDetails, setUserDeatils] = useState({});
 
   useEffect(() => {
-    db.collection("products")
+    db.collection("posts")
       .doc(adId)
       .get()
       .then((doc) => {

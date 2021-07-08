@@ -17,7 +17,7 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
-.left > button {
+.left > a > button {
   color: var(--black);
   font-size: 15px;
   font-weight: 800;

@@ -98,7 +98,9 @@ const EditProfile = () => {
               Edit Profile Picture
             </p>
           </Link>
-          <button>View Profile</button>
+          <Link to="/profile">
+            <button>View Profile</button>
+          </Link>
         </div>
         <div className={styles.right}>
           <Switch>
