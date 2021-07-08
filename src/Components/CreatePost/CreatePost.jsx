@@ -59,7 +59,7 @@ const CreatePost = () => {
     Promise.all(images.map((image) => uploadImage(image)))
       .then((urls) => {
         console.log(user);
-        return db.collection("products").add({
+        return db.collection("posts").add({
           ...dynamicInputs,
           ...address,
           title: productdetails.title,
@@ -67,7 +67,7 @@ const CreatePost = () => {
           imageUrl: urls,
           price: parseInt(productdetails.price),
           createdAt: new Date().toDateString(),
-          // userId: user.id,
+          userId: user.id,
         });
       })
       .then(() => {

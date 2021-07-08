@@ -23,8 +23,8 @@ function App() {
     auth.onAuthStateChanged((user) => {
       if (user) {
         db.collection("users")
-          .doc()
-          .get(user.uid)
+          .doc(user.uid)
+          .get()
           .then((userDoc) => {
             dispatch({
               type: "SET_USER",
