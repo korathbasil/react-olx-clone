@@ -13,6 +13,7 @@ import Login from "./Components/Login/Login";
 import Signup from "./Pages/Signup";
 import Sell from "./Pages/Sell/Sell";
 import ViewPost from "./Pages/ViewPost";
+import MyProfile from "./Pages/MyProfile/MyProfile";
 import Profile from "./Pages/Profile/Profile";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 
@@ -51,7 +52,8 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/sell" component={Sell} />
         <Route path="/view/:adId" component={ViewPost} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile" component={MyProfile} />
+        <Route path="/others" component={Profile} />
         <Route path="/editProfile" component={EditProfile} />
         <Route path="/abc" component={CategorySelector} />
       </div>
