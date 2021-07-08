@@ -58,6 +58,7 @@ const CreatePost = () => {
     };
     Promise.all(images.map((image) => uploadImage(image)))
       .then((urls) => {
+        console.log(user);
         return db.collection("products").add({
           ...dynamicInputs,
           ...address,
@@ -66,13 +67,12 @@ const CreatePost = () => {
           imageUrl: urls,
           price: parseInt(productdetails.price),
           createdAt: new Date().toDateString(),
-          userId: user.userId,
+          // userId: user.id,
         });
       })
       .then(() => {
         history.push("/");
       });
-    // console.log(dynamicInputs);
   };
 
   const imagePickerHandler = (e) => {

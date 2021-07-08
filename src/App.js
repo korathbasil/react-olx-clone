@@ -20,32 +20,27 @@ function App() {
   const [{ showLoginOverlay }, dispatch] = useGlobalStore();
 
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
-        let phone, description, userId;
-        await db
-          .collection("users")
-          .where("uid", "==", user.uid)
-          .get()
-          .then((snapshot) => {
-            snapshot.forEach((doc) => {
-              phone = doc.data().phone;
-              description = doc.data().description;
-              userId = doc.id;
+        db.collection("users")
+          .doc()
+          .get(user.uid)
+          .then((userDoc) => {
+            phone = doc.data().phone;
+            description = doc.data().description;
+            userId = doc.id;
+            dispatch({
+              type: "SET_USER",
+              user: {
+                id: userDoc.id,
+                displayName: userDoc.data().displayName,
+                email: userDoc.data().email,
+                phone: userDoc.data().phone,
+                description: userDoc.data().description,
+                profilePicture: user.photoURL,
+              },
             });
           });
-        dispatch({
-          type: "SET_USER",
-          user: {
-            uid: user.uid,
-            displayName: user.displayName,
-            email: user.email,
-            phone: phone,
-            description: description,
-            userId: userId,
-            profilePicture: user.photoURL,
-          },
-        });
       }
     });
   }, []);
