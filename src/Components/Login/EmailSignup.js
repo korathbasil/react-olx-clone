@@ -34,7 +34,7 @@ const EmailSignup = ({ pageHandler }) => {
         res.user
           .updateProfile({
             displayName: signupInput.name,
-            phone: signupInput.phone,
+            phoneNumber: signupInput.phone,
           })
           .then(() => {
             return db.collection("users").doc(res.user.uid).set({

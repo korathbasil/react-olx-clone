@@ -25,42 +25,46 @@ const EmailLogin = ({ pageHandler }) => {
 
   const doLogin = (e) => {
     e.preventDefault();
+    console.log(loginInput);
     auth
       .signInWithEmailAndPassword(loginInput.email, loginInput.password)
       .then(async (result) => {
+        console.log(result.user);
         let phone, description, userId;
         await db
           .collection("users")
-          .where("uid", "==", result.user.uid)
+          .doc(result.user.uid)
           .get()
           .then((snapshot) => {
+            console.log(snapshot);
             snapshot.forEach((doc) => {
-              phone = doc.data().phone;
-              description = doc.data().description;
-              userId = doc.id;
+              // phone = doc.data().phone;
+              // description = doc.data().description;
+              // userId = doc.id;
+              console.log(doc.data());
             });
           });
-        dispatch({
-          type: "SET_USER",
-          user: {
-            uid: result.user.uid,
-            displayName: result.user.displayName,
-            email: result.user.email,
-            phone: phone,
-            description: description,
-            userId: userId,
-          },
-        });
-        dispatch({
-          type: "SET_LOGIN_OVERLAY",
-          status: false,
-        });
-        console.log(result.user);
-        setLoginInput({
-          email: "",
-          password: "",
-        });
-        history.push("/");
+        // dispatch({
+        //   type: "SET_USER",
+        //   user: {
+        //     uid: result.user.uid,
+        //     displayName: result.user.displayName,
+        //     email: result.user.email,
+        //     phone: phone,
+        //     description: description,
+        //     userId: userId,
+        //   },
+        // });
+        // dispatch({
+        //   type: "SET_LOGIN_OVERLAY",
+        //   status: false,
+        // });
+        // console.log(result.user);
+        // setLoginInput({
+        //   email: "",
+        //   password: "",
+        // });
+        // history.push("/");
       })
       .catch((e) => console.log(e));
   };
