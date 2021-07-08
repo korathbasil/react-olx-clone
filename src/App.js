@@ -26,9 +26,6 @@ function App() {
           .doc()
           .get(user.uid)
           .then((userDoc) => {
-            phone = doc.data().phone;
-            description = doc.data().description;
-            userId = doc.id;
             dispatch({
               type: "SET_USER",
               user: {
