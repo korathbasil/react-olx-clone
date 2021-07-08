@@ -9,7 +9,7 @@ const Feed = () => {
   const [ads, setAds] = useState([]);
 
   useEffect(() => {
-    db.collection("products")
+    db.collection("posts")
       .get()
       .then(({ docs }) => {
         const products = docs.map((doc) => {
