@@ -21,6 +21,19 @@ function View() {
         setAd(doc.data());
         setPostDetails(Object.entries(doc.data().attributes));
         setSelectedImage(doc.data().imageUrl[0]);
+        return doc.data().userId;
+      })
+      .then((id) => {
+        console.log(id);
+        db.collection("users")
+          .doc(id)
+          .get()
+          .then((doc) => {
+            setUserDeatils({
+              id: doc.id,
+              ...doc.data(),
+            });
+          });
       });
   }, []);
 
@@ -86,7 +99,7 @@ function View() {
                 alt=""
               />
               <div className={styles.sellerInfoContainer}>
-                <h3>MY AUTO DEPT</h3>
+                <h3>{userDetails?.displayName}</h3>
                 <p>Member since 2019</p>
               </div>
               <div className={styles.arrowContainer}>
