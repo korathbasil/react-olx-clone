@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-import MinimalHeader from "../../Components/MinimalHeader/MinimalHeader";
-import CreatePost from "../../Components/CreatePost/CreatePost";
-import MiniFooter from "../../Components/MiniFooter/MiniFooter";
+import MinimalHeader from "../../components/MinimalHeader/MinimalHeader";
+import CreatePost from "../../components/CreatePost/CreatePost";
+import MiniFooter from "../../components/MiniFooter/MiniFooter";
 
 import useGlobalStore from "../../store/GlobalStore";
 

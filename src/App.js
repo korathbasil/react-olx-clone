@@ -6,18 +6,16 @@ import useGlobalStore from "./store/GlobalStore";
 import PrivateRoute from "./utils/PrivateRoute";
 
 import "./App.css";
-import Home from "./Pages/Home";
-// import Login from "./Pages/Login";
+import Home from "./pages/Home";
 
-import CategorySelector from "./Components/CategorySelector/CategorySelector";
+import CategorySelector from "./components/CategorySelector/CategorySelector";
+import Login from "./components/Login/Login";
 
-import Login from "./Components/Login/Login";
-import Signup from "./Pages/Signup";
-import Sell from "./Pages/Sell/Sell";
-import ViewPost from "./Pages/ViewPost";
-import MyProfile from "./Pages/MyProfile/MyProfile";
-import Profile from "./Pages/Profile/Profile";
-import EditProfile from "./Pages/EditProfile/EditProfile";
+import Sell from "./pages/Sell/Sell";
+import ViewPost from "./pages/ViewPost";
+import MyProfile from "./pages/MyProfile/MyProfile";
+import Profile from "./pages/Profile/Profile";
+import EditProfile from "./pages/EditProfile/EditProfile";
 
 function App() {
   const [{ user, showLoginOverlay }, dispatch] = useGlobalStore();

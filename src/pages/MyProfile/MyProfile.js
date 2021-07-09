@@ -1,7 +1,7 @@
 import styles from "./MyProfile.module.css";
-import Header from "../../Components/Header/Header";
+import Header from "../../components/Header/Header";
 import EditIcon from "../../assets/EditIcon";
-import Footer from "../../Components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const MyProfile = () => {
   return (

@@ -5,9 +5,9 @@ import { auth, db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./EditProfile.module.css";
-import Header from "../../Components/Header/Header";
+import Header from "../../components/Header/Header";
 import ProfilePicture from "../../assets/ProfilePicture";
-import Footer from "../../Components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const EditProfile = () => {
   const [{ user }, dispatch] = useGlobalStore();
