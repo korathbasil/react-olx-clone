@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { db } from "../../firebase";
 
 import styles from "./Profile.module.css";
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 const Profile = () => {
   const { id } = useParams();
