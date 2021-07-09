@@ -60,6 +60,9 @@ const CreatePost = () => {
       .then((urls) => {
         console.log(user);
         return db.collection("posts").add({
+          category: selectedCategory.category,
+          subCategory: selectedCategory.subcategory,
+          featuredAttributes: selectedCategory.featuredAttributes,
           title: productdetails.title,
           description: productdetails.description,
           imageUrl: urls,
@@ -86,6 +89,8 @@ const CreatePost = () => {
     }
     imagePicker.current.value = null;
   };
+
+  console.log(selectedCategory);
 
   return (
     <div className={styles.createPost}>

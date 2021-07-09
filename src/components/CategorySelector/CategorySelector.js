@@ -44,6 +44,7 @@ const CategorySelector = ({ setSelectedCategory }) => {
                             category: name,
                             subcategory: item.name,
                             attributes: item.attributes,
+                            featuredAttributes: item.featuredAttributes,
                           })
                         }
                       >

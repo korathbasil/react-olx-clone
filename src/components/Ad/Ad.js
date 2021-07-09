@@ -1,6 +1,7 @@
 import styles from "./Ad.module.css";
 
 const Ad = ({ ad }) => {
+  // console.log(ad[ad.attributes.featuredAttributes[0]]);
   return (
     <div className={styles.ad}>
       <div className={styles.adTop}>
@@ -8,11 +9,14 @@ const Ad = ({ ad }) => {
       </div>
       <div className={styles.adBottom}>
         <h3>₹ {ad.price}</h3>
-        <p>2010 - 1000 KM</p>
+        <p>
+          {ad.attributes[ad.featuredAttributes[0]]} -{" "}
+          {ad.attributes[ad.featuredAttributes[1]]}
+        </p>
         <p>{ad.title}</p>
         <div>
           <p>
-            {ad.City} {ad.State}
+            {ad.address.City} {ad.address.State}
           </p>
           <p>$ days ago</p>
         </div>
