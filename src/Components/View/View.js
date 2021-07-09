@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { db } from "../../firebase";
 
@@ -99,7 +99,9 @@ function View() {
                 alt=""
               />
               <div className={styles.sellerInfoContainer}>
-                <h3>{userDetails?.displayName}</h3>
+                <Link to={`/profile/${userDetails?.id}`}>
+                  <h3>{userDetails?.displayName}</h3>
+                </Link>
                 <p>Member since 2019</p>
               </div>
               <div className={styles.arrowContainer}>
