@@ -1,66 +1,6 @@
-.profileParent {
-}
 .profileChild {
-  padding-top: 100px;
   width: 100%;
   max-width: 1300px;
+  padding-top: 100px;
   margin: 0 auto;
-  display: flex;
-}
-.left {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.iamgeContainer {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  border-radius: 999px;
-  overflow: hidden;
-}
-.iamgeContainer > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.iamgeContainer > div {
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(0, 128, 0, 0.672);
-  width: 100%;
-  display: grid;
-  place-items: center;
-  padding: 10px 0;
-}
-.right {
-  width: 75%;
-}
-.rightTop {
-  width: 100%;
-  display: flex;
-  padding: 10px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid lightgrey;
-}
-.rightTop > h1 {
-  font-size: 40px;
-  font-weight: 500;
-  color: var(--black);
-  margin-right: 20px;
-}
-.rightTop > button {
-  border: none;
-  border: 3px solid var(--black);
-  /* outline-offset: 3px; */
-  border-radius: 5px;
-  background-color: white;
-  color: var(--black);
-  width: 100px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.rightTop > button:hover {
-  border: 5px solid var(--black);
 }

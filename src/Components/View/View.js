@@ -9,7 +9,7 @@ import Arrow from "../../assets/Arrow";
 function View() {
   const { adId } = useParams();
   const [ad, setAd] = useState(null);
-  const [moreDetails, setMoreDetails] = useState();
+  const [postDetails, setPostDetails] = useState();
   const [selectedImage, setSelectedImage] = useState("");
   const [userDetails, setUserDeatils] = useState({});
 
@@ -18,24 +18,8 @@ function View() {
       .doc(adId)
       .get()
       .then((doc) => {
-        const data = doc.data();
-        const dataArray = Object.entries(data);
-        const filteredArray = dataArray.filter((data) => {
-          if (
-            data[0] !== "title" &&
-            data[0] !== "description" &&
-            data[0] !== "price" &&
-            data[0] !== "createdAt" &&
-            data[0] !== "imageUrl" &&
-            data[0] !== "userId"
-          ) {
-            return true;
-          } else {
-            return false;
-          }
-        });
         setAd(doc.data());
-        setMoreDetails(filteredArray);
+        setPostDetails(Object.entries(doc.data().attributes));
         setSelectedImage(doc.data().imageUrl[0]);
       });
   }, []);
@@ -67,7 +51,7 @@ function View() {
           <div className={styles.infoContainer}>
             <h3>Details</h3>
             <div className={styles.detailsContainer}>
-              {moreDetails?.map((attribute) => {
+              {postDetails?.map((attribute) => {
                 return (
                   <div className={styles.property}>
                     <p>{attribute[0]}</p>

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { auth, db } from "./firebase";
 import useGlobalStore from "./store/GlobalStore";
+import PrivateRoute from "./utils/PrivateRoute";
+
 import "./App.css";
 import Home from "./Pages/Home";
 // import Login from "./Pages/Login";
@@ -18,7 +20,7 @@ import Profile from "./Pages/Profile/Profile";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 
 function App() {
-  const [{ showLoginOverlay }, dispatch] = useGlobalStore();
+  const [{ user, showLoginOverlay }, dispatch] = useGlobalStore();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -48,14 +50,13 @@ function App() {
       <div className="app">
         {showLoginOverlay && <Login />}
         <Route path="/" component={Home} exact />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
         <Route path="/sell" component={Sell} />
         <Route path="/view/:adId" component={ViewPost} />
         <Route path="/profile" component={MyProfile} />
         <Route path="/others" component={Profile} />
-        <Route path="/editProfile" component={EditProfile} />
+        {user && <Route path="/editProfile" component={EditProfile} />}
         <Route path="/abc" component={CategorySelector} />
+        {/* <PrivateRoute path="/secret" component={Profile} /> */}
       </div>
     </Router>
   );

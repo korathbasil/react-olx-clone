@@ -60,14 +60,18 @@ const CreatePost = () => {
       .then((urls) => {
         console.log(user);
         return db.collection("posts").add({
-          ...dynamicInputs,
-          ...address,
           title: productdetails.title,
           description: productdetails.description,
           imageUrl: urls,
           price: parseInt(productdetails.price),
           createdAt: new Date().toDateString(),
           userId: user.id,
+          address: {
+            ...address,
+          },
+          attributes: {
+            ...dynamicInputs,
+          },
         });
       })
       .then(() => {
@@ -167,6 +171,7 @@ const CreatePost = () => {
                       </div>
                     </div>
                   );
+                else return;
               })}
               <div className={styles.formInputWrapper}>
                 <p>Ad title</p>
