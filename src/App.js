@@ -52,8 +52,8 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/sell" component={Sell} />
         <Route path="/view/:adId" component={ViewPost} />
-        <Route path="/profile" component={MyProfile} />
-        <Route path="/others" component={Profile} />
+        <Route path="/profile" component={MyProfile} exact />
+        <Route path="/profile/:id" component={Profile} />
         {user && <Route path="/editProfile" component={EditProfile} />}
         <Route path="/abc" component={CategorySelector} />
         {/* <PrivateRoute path="/secret" component={Profile} /> */}
