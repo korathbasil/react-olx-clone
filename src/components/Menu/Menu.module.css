@@ -1,0 +1,24 @@
+.menu {
+  padding-top: 78px;
+  background-color: white;
+}
+.menuChild {
+  width: 95%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.toggle {
+  margin-right: 30px;
+}
+.toggle > h4 {
+  /* font-size: 30px; */
+}
+.linksContainer {
+  display: flex;
+}
+.linksContainer > p {
+  margin-right: 20px;
+}

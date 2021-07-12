@@ -5,6 +5,7 @@ import { db } from "../../firebase";
 
 import styles from "./Profile.module.css";
 import Header from "../../components/Header/Header";
+import Menu from "../../components/Menu/Menu";
 import Ad from "../../components/Ad/Ad";
 import Footer from "../../components/Footer/Footer";
 
@@ -41,6 +42,7 @@ const Profile = () => {
   return (
     <div className={styles.profile}>
       <Header />
+      <Menu />
       <div className={styles.profileChild}>
         {/* <p>{user?.displayName}</p> */}
         <div className={styles.mainInfo}>
