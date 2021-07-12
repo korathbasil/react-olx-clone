@@ -44,11 +44,11 @@ const MyProfile = () => {
               src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
               alt=""
             />
-            <Link to="editProfile/picture">
-              <div>
+            <div>
+              <Link to="editProfile/picture">
                 <EditIcon />
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
           <div className={styles.leftChild}>
             <h4>FRIENDS</h4>
@@ -91,7 +91,9 @@ const MyProfile = () => {
               </div>
             )}
             {ads.map((ad) => (
-              <MiniAd />
+              <Link to={`/view/${ad.id}`}>
+                <MiniAd ad={ad} />
+              </Link>
             ))}
           </div>
         </div>
