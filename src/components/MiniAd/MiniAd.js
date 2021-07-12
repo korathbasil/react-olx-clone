@@ -8,10 +8,10 @@ const MiniAd = ({ ad }) => {
       </div>
 
       <div className={styles.title}>
-        <h2>{ad.title}</h2>
+        <h4>{ad.title}</h4>
       </div>
       <div className={styles.price}>
-        <h2>₹{ad.price}</h2>
+        <h4>₹{ad.price}</h4>
       </div>
       <div className={styles.date}>{ad.createdAt}</div>
     </div>

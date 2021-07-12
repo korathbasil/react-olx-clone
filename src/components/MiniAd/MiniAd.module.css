@@ -10,10 +10,10 @@
 }
 
 .image > img {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-right: 20px;
 }
 .title {
