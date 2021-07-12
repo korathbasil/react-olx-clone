@@ -44,11 +44,32 @@ const MyProfile = () => {
               src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
               alt=""
             />
+            <Link to="editProfile/picture">
+              <div>
+                <EditIcon />
+              </div>
+            </Link>
+          </div>
+          <div className={styles.leftChild}>
+            <h4>FRIENDS</h4>
             <div>
-              <EditIcon />
+              <p>FOLLOWERS</p>
+              <p>0</p>
+            </div>
+            <div>
+              <p>FOLLOWING</p>
+              <p>0</p>
             </div>
           </div>
-          .
+          <div className={styles.leftChild}>
+            <h4>Linked Accounts</h4>
+            <div>
+              <p>FOLLOWERS</p>
+            </div>
+            <div>
+              <p>FOLLOWING</p>
+            </div>
+          </div>
         </div>
         <div className={styles.right}>
           <div className={styles.rightTop}>

@@ -12,7 +12,7 @@ body {
   --light-bg: #f0f1f2;
   --light-border: lightgrey;
   --black: #002f34;
-  --blue: red;
+  --trasnparent-black: #002f3496;
   /* Border */
   --border: 1px solid lightgrey;
 }
