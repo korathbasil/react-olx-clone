@@ -1,6 +1,66 @@
+.profile {
+  background-color: whitesmoke;
+}
 .profileChild {
   width: 100%;
   max-width: 1300px;
   padding-top: 100px;
   margin: 0 auto;
+}
+.mainInfo {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+}
+.mainInfo > img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 30px;
+}
+.mainInfo > h1 {
+  font-weight: 1200;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.profileChild > h4 {
+  margin: 20px 0;
+  font-size: 18px;
+  color: var(--black);
+}
+.ads {
+  display: flex;
+}
+.left {
+  width: 907px;
+  display: grid;
+  grid-template-columns: repeat(3, 289px);
+}
+.right {
+  width: calc(100% - 907px);
+  /* background-color: violet; */
+  padding-left: 20px;
+}
+.rightChild {
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: white;
+}
+.rightChild > p {
+  padding: 15px;
+  font-weight: 600;
+  color: var(--black);
+}
+.rightChild > div {
+  padding: 15px;
+  border-top: 1px solid lightgray;
+}
+.rightChild > div > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
