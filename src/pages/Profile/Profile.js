@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import { db } from "../../firebase";
+import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./Profile.module.css";
 import Header from "../../components/Header/Header";
@@ -11,46 +12,51 @@ import Footer from "../../components/Footer/Footer";
 
 const Profile = () => {
   const { id } = useParams();
+  const history = useHistory();
 
-  const [user, setUser] = useState(null);
+  const [{ user }] = useGlobalStore();
+  const [newUser, setNewUser] = useState(null);
   const [ads, setAds] = useState([]);
 
   useEffect(() => {
-    db.collection("users")
-      .doc(id)
-      .get()
-      .then((doc) => {
-        setUser({
-          id: doc.id,
-          ...doc.data(),
-        });
-      });
-    db.collection("posts")
-      .where("userId", "==", id)
-      .get()
-      .then((snapshot) => {
-        let adsArray = [];
-        snapshot.forEach((doc) => {
-          adsArray.push({
+    if (user && user.id === id) {
+      history.push("/profile");
+    } else {
+      db.collection("users")
+        .doc(id)
+        .get()
+        .then((doc) => {
+          setNewUser({
             id: doc.id,
             ...doc.data(),
           });
         });
-        setAds(adsArray);
-      });
-  }, []);
+      db.collection("posts")
+        .where("userId", "==", id)
+        .get()
+        .then((snapshot) => {
+          let adsArray = [];
+          snapshot.forEach((doc) => {
+            adsArray.push({
+              id: doc.id,
+              ...doc.data(),
+            });
+          });
+          setAds(adsArray);
+        });
+    }
+  }, [user]);
   return (
     <div className={styles.profile}>
       <Header />
       <Menu />
       <div className={styles.profileChild}>
-        {/* <p>{user?.displayName}</p> */}
         <div className={styles.mainInfo}>
           <img
             src="https://statics.olx.in/external/base/img/avatar_4.png"
             alt=""
           />
-          <h1>{user?.displayName}</h1>
+          <h1>{newUser?.displayName}</h1>
         </div>
         <h4>Published Ads</h4>
         <div className={styles.ads}>
