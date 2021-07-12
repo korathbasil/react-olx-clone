@@ -1,0 +1,40 @@
+.myAdsChild {
+  width: 95%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.empty {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty > img {
+  width: 200px;
+}
+.empty > h4 {
+  margin: 15px 0;
+  color: grey;
+}
+.empty > span {
+  font-size: 14px;
+  color: grey;
+  margin-bottom: 4px;
+}
+.empty > a > button {
+  height: 50px;
+  width: 140px;
+  font-weight: 800;
+  color: var(--black);
+  background-color: white;
+  outline: none;
+  border: 2px solid var(--black);
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.empty > a > button:hover {
+  border: 5px solid var(--black);
+}
