@@ -16,6 +16,16 @@ import MyProfile from "./pages/MyProfile/MyProfile";
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/EditProfile/EditProfile";
 
+import Error from "./pages/Error";
+
+// const OpenLoginModal = () => {
+//   const [{}, dispatch] = useGlobalStore();
+//   return dispatch({
+//     type: "SET_LOGIN_OVERLAY",
+//     status: true,
+//   });
+// };
+
 function App() {
   const [{ user, showLoginOverlay }, dispatch] = useGlobalStore();
 
@@ -52,8 +62,11 @@ function App() {
         <Route path="/profile" component={MyProfile} exact />
         <Route path="/profile/:id" component={Profile} />
         <Route path="/myads" component={MyAds} />
-        {user && <Route path="/editProfile" component={EditProfile} />}
-        {/* <PrivateRoute path="/secret" component={Profile} /> */}
+        {user ? (
+          <Route path="/editProfile" component={EditProfile} />
+        ) : (
+          <Route path="/editProfile" component={Error} />
+        )}
       </div>
     </Router>
   );
