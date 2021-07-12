@@ -7,8 +7,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 import "./App.css";
 import Home from "./pages/Home";
-
-import CategorySelector from "./components/CategorySelector/CategorySelector";
+import MyAds from "./pages/MyAds/MyAds";
 import Login from "./components/Login/Login";
 
 import Sell from "./pages/Sell/Sell";
@@ -52,8 +51,8 @@ function App() {
         <Route path="/view/:adId" component={ViewPost} />
         <Route path="/profile" component={MyProfile} exact />
         <Route path="/profile/:id" component={Profile} />
+        <Route path="/myads" component={MyAds} />
         {user && <Route path="/editProfile" component={EditProfile} />}
-        <Route path="/abc" component={CategorySelector} />
         {/* <PrivateRoute path="/secret" component={Profile} /> */}
       </div>
     </Router>
