@@ -4,7 +4,7 @@ const EditIcon = () => (
     height="46px"
     viewBox="0 0 1024 1024"
     data-aut-id="icon"
-    fill-rule="evenodd"
+    fillRule="evenodd"
   >
     <path
       class="rui-1kebF"

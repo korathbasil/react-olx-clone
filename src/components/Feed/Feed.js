@@ -28,7 +28,7 @@ const Feed = () => {
         <div className={styles.adsContainer}>
           {ads?.map((ad) => (
             <Link to={`/view/${ad.id}`}>
-              <Ad key={ad.id} ad={ad} />
+              <Ad ad={ad} key={ad.id} />
             </Link>
           ))}
         </div>
