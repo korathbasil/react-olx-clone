@@ -10,7 +10,7 @@ import ProfilePicture from "../../assets/ProfilePicture";
 import Footer from "../../components/Footer/Footer";
 
 const EditProfile = () => {
-  const [{ user }, dispatch] = useGlobalStore();
+  const [{ user }] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("info");
   const [profilePicture, setProfilePicture] = useState(null);

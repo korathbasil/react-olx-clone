@@ -15,5 +15,7 @@ export const reducer = (state, action) => {
         ...state,
         showLoginOverlay: action.status,
       };
+    default:
+      return { ...state };
   }
 };

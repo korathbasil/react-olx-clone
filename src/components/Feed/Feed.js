@@ -14,7 +14,7 @@ const Feed = () => {
       .then(({ docs }) => {
         const products = docs.map((doc) => {
           return {
-            uid: doc.id,
+            id: doc.id,
             ...doc.data(),
           };
         });
@@ -27,8 +27,8 @@ const Feed = () => {
         <h2>Fresh Recommendations</h2>
         <div className={styles.adsContainer}>
           {ads?.map((ad) => (
-            <Link to={`/view/${ad.uid}`}>
-              <Ad ad={ad} />
+            <Link to={`/view/${ad.id}`}>
+              <Ad key={ad.id} ad={ad} />
             </Link>
           ))}
         </div>

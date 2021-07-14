@@ -11,7 +11,7 @@ import BackArrowIcon from "../../assets/BackArrowIcon";
 const EmailLogin = ({ pageHandler }) => {
   const history = useHistory();
 
-  const [{}, dispatch] = useGlobalStore();
+  const [, dispatch] = useGlobalStore();
   const [loginInput, setLoginInput] = useState({
     email: "",
     password: "",

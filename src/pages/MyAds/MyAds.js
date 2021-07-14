@@ -42,7 +42,7 @@ const MyAds = () => {
           <p>Favourites</p>
           <div className={styles.adsContainer}>
             <div className={styles.myAds}>
-              {ads.length == 0 && (
+              {ads.length === 0 && (
                 <div className={styles.empty}>
                   <img src={NoAdsImage} alt="" />
                   <h4>You haven't listed anything yet.</h4>

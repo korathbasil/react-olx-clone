@@ -10,7 +10,7 @@ import GoogleIcon from "../../assets/GoogleIcon";
 import FacebookIcon from "../../assets/FacebookIcon";
 
 const Login = () => {
-  const [{}, dispatch] = useGlobalStore();
+  const [, dispatch] = useGlobalStore();
   const [openedPage, setOpenedPage] = useState("");
 
   const openedPageHandler = (page) => {

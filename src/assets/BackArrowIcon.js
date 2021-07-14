@@ -4,7 +4,6 @@ const BackArrow = () => (
     height="20px"
     viewBox="0 0 1024 1024"
     data-aut-id="icon"
-    class=""
     fill-rule="evenodd"
   >
     <path

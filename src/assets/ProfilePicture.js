@@ -5,7 +5,6 @@ const ProfilePicture = ({ size }) => {
     <img
       src={ProfilePictureImage}
       style={{ width: size, height: size, objectFit: "cover" }}
-      alt="profile Picture"
     />
   );
 };

@@ -77,7 +77,7 @@ const MyProfile = () => {
             <button>Edit Profile</button>
           </div>
           <div className={styles.rightAds}>
-            {ads.length == 0 && (
+            {ads.length === 0 && (
               <div className={styles.empty}>
                 <img src={NoAdsImage} alt="" />
                 <h4>There is no ads</h4>

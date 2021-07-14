@@ -4,7 +4,6 @@ const GoogleIcon = () => (
     height="22px"
     viewBox="0 0 1024 1024"
     data-aut-id="icon"
-    class=""
     fill-rule="evenodd"
   >
     <path

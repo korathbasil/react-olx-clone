@@ -17,7 +17,7 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import MyAds from "./pages/MyAds/MyAds";
 
 function App() {
-  const [{ user, showLoginOverlay }, dispatch] = useGlobalStore();
+  const [{ showLoginOverlay }, dispatch] = useGlobalStore();
 
   const [showLoading, setShowLoading] = useState(true);
 

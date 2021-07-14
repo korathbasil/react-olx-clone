@@ -12,7 +12,7 @@ import BackArrowIcon from "../../assets/BackArrowIcon";
 const EmailSignup = ({ pageHandler }) => {
   const history = useHistory();
 
-  const [{}, dispatch] = useGlobalStore();
+  const [, dispatch] = useGlobalStore();
   const [signupInput, setSignupInput] = useState({
     name: "",
     email: "",
