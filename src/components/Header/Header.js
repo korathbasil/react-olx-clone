@@ -52,7 +52,7 @@ function Header() {
     <div className="headerParentDiv">
       <div className="headerChildDiv">
         <div className="brandName">
-          <OlxLogo></OlxLogo>
+          <OlxLogo size={48} />
         </div>
         <div className="placeSearch">
           <Search></Search>

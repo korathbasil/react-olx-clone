@@ -1,0 +1,24 @@
+.parent {
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+.parent > div {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  animation: fadeInFadeOut 1s infinite;
+}
+
+@keyframes fadeInFadeOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
