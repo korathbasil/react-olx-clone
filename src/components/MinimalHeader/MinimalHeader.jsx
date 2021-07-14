@@ -9,9 +9,9 @@ const MinimalHeader = () => (
     <div className={styles.minHeaderChild}>
       <Link to="/">
         <img className={styles.backArrow} src={LeftArrow} alt="" />
-    </Link>
-    <Link to="/">
-        <OlxLogo />
+      </Link>
+      <Link to="/">
+        <OlxLogo size={48} />
       </Link>
     </div>
   </header>

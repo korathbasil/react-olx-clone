@@ -54,7 +54,7 @@ const MyAds = () => {
                 </div>
               )}
               {ads.map((ad) => (
-                <MiniAd />
+                <MiniAd ad={ad} />
               ))}
             </div>
             <div className={styles.favouriteAds}></div>
