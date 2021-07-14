@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { auth, db } from "./firebase";
 import useGlobalStore from "./store/GlobalStore";
@@ -7,10 +7,9 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 import "./App.css";
 import LoadingLogo from "./components/LoadingLogo/LoadingLogo";
+import Login from "./components/Login/Login";
 import Home from "./pages/Home";
 import MyAds from "./pages/MyAds/MyAds";
-import Login from "./components/Login/Login";
-
 import Sell from "./pages/Sell/Sell";
 import ViewPost from "./pages/ViewPost";
 import MyProfile from "./pages/MyProfile/MyProfile";
@@ -31,7 +30,7 @@ function App() {
           .doc(user.uid)
           .get()
           .then((userDoc) => {
-            dispatch({
+            return dispatch({
               type: "SET_USER",
               user: {
                 id: userDoc.id,
@@ -42,8 +41,12 @@ function App() {
                 profilePicture: user.photoURL,
               },
             });
+          })
+          .then(() => {
+            if (user) setShowLoading(false);
           });
       }
+      setShowLoading(false);
     });
   }, []);
 
@@ -51,27 +54,20 @@ function App() {
     <Router>
       <div className="app">
         {showLoading && <LoadingLogo />}
-        {!showLoading && (
+        {
           <>
             {showLoginOverlay && <Login />}
-            <Route path="/" component={Home} exact />
-            {/* <Route path="/sell" component={Sell} /> */}
-            <Route path="/sell">
-              {user && <Sell />}
-              {/* {!user && <OpenLoginModal />} */}
-            </Route>
-            <Route path="/view/:adId" component={ViewPost} />
-            <Route path="/profile" component={MyProfile} exact />
-            <Route path="/profile/:id" component={Profile} />
-            <Route path="/myads" component={MyAds} />
-            {user ? (
-              <Route path="/editProfile" component={EditProfile} />
-            ) : (
-              <Route path="/editProfile" component={Error} />
-            )}
-            {/* {user ? () => console.log("Hello") : <OpenLoginModal />} */}
+            <Switch>
+              <PrivateRoute path="sell" component={Sell} />
+              <Route path="/view/:adId" component={ViewPost} />
+              <Route path="/profile/:id" component={Profile} />
+              <PrivateRoute path="/profile" component={MyProfile} />
+              <PrivateRoute path="/myads" component={MyAds} />
+              <PrivateRoute path="/editProfile" component={EditProfile} />
+              <Route path="/" component={Home} exact />
+            </Switch>
           </>
-        )}
+        }
       </div>
     </Router>
   );

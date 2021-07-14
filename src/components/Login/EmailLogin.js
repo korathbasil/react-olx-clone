@@ -58,7 +58,7 @@ const EmailLogin = ({ pageHandler }) => {
       <div className={styles.arrowContainer} onClick={() => pageHandler("")}>
         <BackArrowIcon />
       </div>
-      <OlxLogo />
+      <OlxLogo size={50} />
       <h3>Enter your Email and Password</h3>
       <form className={styles.emailLoginForm} onSubmit={doLogin}>
         <input

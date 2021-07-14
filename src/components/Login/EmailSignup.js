@@ -77,7 +77,7 @@ const EmailSignup = ({ pageHandler }) => {
       <div className={styles.arrowContainer} onClick={() => pageHandler("")}>
         <BackArrowIcon />
       </div>
-      <OlxLogo />
+      <OlxLogo size={50} />
       <h3>Enter your details</h3>
       <form className={styles.emailSignupForm} onSubmit={doSignup}>
         <input
