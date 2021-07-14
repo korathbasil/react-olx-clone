@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
+import { AVATAR_URL } from "../../config/constants";
 
 import styles from "./Login.module.css";
 import OlxLogo from "../../assets/OlxLogo";
@@ -35,6 +36,7 @@ const EmailSignup = ({ pageHandler }) => {
           .updateProfile({
             displayName: signupInput.name,
             phoneNumber: signupInput.phone,
+            photoURL: AVATAR_URL,
           })
           .then(() => {
             return db.collection("users").doc(res.user.uid).set({
@@ -42,6 +44,7 @@ const EmailSignup = ({ pageHandler }) => {
               email: res.user.email,
               phone: signupInput.phone,
               description: "",
+              photoURL: AVATAR_URL,
             });
           })
           .then(() => {
@@ -53,7 +56,7 @@ const EmailSignup = ({ pageHandler }) => {
                 phone: signupInput.phone,
                 email: res.user.email,
                 description: "",
-                profilePicture: res.user.photoURL,
+                profilePicture: AVATAR_URL,
               },
             });
             setSignupInput({

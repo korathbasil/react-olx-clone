@@ -36,7 +36,7 @@ function App() {
                 email: userDoc.data().email,
                 phone: userDoc.data().phone,
                 description: userDoc.data().description,
-                profilePicture: loggedInUser.photoURL,
+                profilePicture: userDoc.data().photoURL,
               },
             });
           })
