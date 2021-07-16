@@ -36,7 +36,6 @@ const EmailSignup = ({ pageHandler }) => {
           .updateProfile({
             displayName: signupInput.name,
             phoneNumber: signupInput.phone,
-            photoURL: AVATAR_URL,
           })
           .then(() => {
             return db.collection("users").doc(res.user.uid).set({
@@ -44,7 +43,7 @@ const EmailSignup = ({ pageHandler }) => {
               email: res.user.email,
               phone: signupInput.phone,
               description: "",
-              photoURL: AVATAR_URL,
+              photoURL: "",
             });
           })
           .then(() => {
@@ -56,7 +55,7 @@ const EmailSignup = ({ pageHandler }) => {
                 phone: signupInput.phone,
                 email: res.user.email,
                 description: "",
-                profilePicture: AVATAR_URL,
+                profilePicture: "",
               },
             });
             setSignupInput({
