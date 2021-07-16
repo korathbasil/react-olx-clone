@@ -121,12 +121,25 @@
   font-size: 12px;
   margin: 20px;
 }
+.emailSignupForm {
+  width: 100%;
+}
 .emailSignupForm > input {
   padding: 10px;
   border: 2px solid var(--black);
   font-size: 16px;
   width: 100%;
-  margin: 5px 0;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+.emailSignupForm > div {
+  height: 10px;
+  width: 100%;
+  /* background-color: lightgreen; */
+}
+.emailSignupForm > div > p {
+  font-size: 12px;
+  color: red;
 }
 .emailSignupForm > button {
   border: none;

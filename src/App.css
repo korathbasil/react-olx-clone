@@ -13,6 +13,7 @@ body {
   --light-border: lightgrey;
   --black: #002f34;
   --trasnparent-black: #002f3496;
+  --blue: blue;
   /* Border */
   --border: 1px solid lightgrey;
 }

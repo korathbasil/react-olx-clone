@@ -19,6 +19,7 @@ const EmailSignup = ({ pageHandler }) => {
     phone: "",
     password: "",
   });
+  const [errorMessages, setErrorMessages] = useState({});
 
   const signupInputStateModifier = (e) => {
     setSignupInput({
@@ -70,9 +71,22 @@ const EmailSignup = ({ pageHandler }) => {
             });
             history.push("/");
           })
-          .catch((e) => console.log(e));
+          .catch((e) => console.log(e.message));
       })
-      .catch((e) => console.log(e));
+      .catch((err) => {
+        console.log(err.message);
+        if (err.message.includes("email") || err.message.includes("Email"))
+          setErrorMessages({
+            email: err.message,
+          });
+        if (
+          err.message.includes("password") ||
+          err.message.includes("Password")
+        )
+          setErrorMessages({
+            password: err.message,
+          });
+      });
   };
   return (
     <div className={styles.emailSignupContainer}>
@@ -89,13 +103,23 @@ const EmailSignup = ({ pageHandler }) => {
           value={signupInput.name}
           onChange={signupInputStateModifier}
         />
+
+        <div>
+          <p></p>
+        </div>
         <input
+          style={{
+            border: errorMessages?.email
+              ? "2px solid red"
+              : "2px solid var(--black)",
+          }}
           type="email"
           name="email"
           placeholder="Email"
           value={signupInput.email}
           onChange={signupInputStateModifier}
         />
+        <div>{<p>{errorMessages.email}</p>}</div>
         <input
           type="tel"
           name="phone"
@@ -103,13 +127,22 @@ const EmailSignup = ({ pageHandler }) => {
           value={signupInput.phone}
           onChange={signupInputStateModifier}
         />
+        <div>
+          <p></p>
+        </div>
         <input
+          style={{
+            border: errorMessages?.password
+              ? "2px solid red"
+              : "2px solid var(--black)",
+          }}
           type="Password"
           name="password"
           placeholder="Password"
           value={signupInput.password}
           onChange={signupInputStateModifier}
         />
+        <div>{errorMessages?.password && <p>{errorMessages.password}</p>}</div>
         <button type="submit">Signup</button>
       </form>
       <p>
