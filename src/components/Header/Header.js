@@ -103,10 +103,12 @@ function Header() {
                   </div>
                 </div>
                 <div className="userMenuOptions">
-                  <div>
-                    <AdsIcon />
-                    <p>My Ads</p>
-                  </div>
+                  <Link to="/myads">
+                    <div>
+                      <AdsIcon />
+                      <p>My Ads</p>
+                    </div>
+                  </Link>
                   <div onClick={logoutHandler}>
                     <LogoutIcon />
                     <p>Logout</p>
