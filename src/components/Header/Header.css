@@ -92,9 +92,6 @@
   margin-right: 5px;
 }
 
-.language svg {
-}
-
 .span {
   text-decoration: none;
   font-size: 16px;
@@ -142,7 +139,7 @@
   position: absolute;
   top: 50px;
   transform: translateX(-70%);
-  box-shadow: 2px 2px 2px lightgrey, -2px -2px 2px lightgrey;
+  box-shadow: 2px 2px 30px #d3d3d3b1, -2px -2px 30px #d3d3d3b1;
 }
 .userMenuTop {
   display: flex;
@@ -156,7 +153,8 @@
   object-fit: cover;
   margin-right: 10px;
 }
-.userMenuTop > div > p {
+.userMenuTop > div > p,
+.userMenuTop > div > a > p {
   font-size: 14px;
   font-weight: 500;
   color: grey;
@@ -164,7 +162,8 @@
 .userMenuOptions {
   border-top: 1px solid lightgrey;
 }
-.userMenuOptions > div {
+.userMenuOptions > div,
+.userMenuOptions > a > div {
   width: 100%;
   padding: 10px;
   display: flex;
@@ -172,11 +171,13 @@
   cursor: pointer;
   transition: background-color 0.2s ease-in;
 }
-.userMenuOptions > div > p {
+.userMenuOptions > div > p,
+.userMenuOptions > a > div > p {
   margin-left: 10px;
   font-size: 14px;
 }
-.userMenuOptions > div:hover {
+.userMenuOptions > div:hover,
+.userMenuOptions > a > div:hover {
   background-color: rgba(211, 211, 211, 0.296);
 }
 .sellMenu {

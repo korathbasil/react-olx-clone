@@ -163,12 +163,11 @@ const EditProfile = () => {
                     defaultValue={user?.email}
                     ref={emailInput}
                     required
-                    // readOnly
                   />
                   <div>{errorMessage && <p>{errorMessage}</p>}</div>
                 </div>
                 <div className={styles.rightBottom}>
-                  <p>Discard</p>
+                  <p onClick={() => history.push("/")}>Discard</p>
                   <button type="submit">Save Changes</button>
                 </div>
               </form>
@@ -203,7 +202,7 @@ const EditProfile = () => {
                 </div>
               </div>
               <div className={styles.rightBottom}>
-                <p>Discard</p>
+                <p onClick={() => history.push("/")}>Discard</p>
                 <button type="submit" onClick={uploadNewProfilePicture}>
                   Upload
                 </button>
