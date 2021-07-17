@@ -1,0 +1,6 @@
+.homeParentDiv {
+  width: 100%;
+}
+.homeParentDiv > img {
+  width: 100%;
+}

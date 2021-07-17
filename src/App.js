@@ -8,7 +8,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import LoadingLogo from "./components/LoadingLogo/LoadingLogo";
 import Login from "./components/Login/Login";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Sell from "./pages/Sell/Sell";
 import ViewPost from "./pages/ViewPost";
 import Profile from "./pages/Profile/Profile";
