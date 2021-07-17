@@ -120,21 +120,38 @@ function Header() {
         )}
         {!user && (
           <div className="loginPage">
-            {/* <Link to="/login"> */}
             <span onClick={loginOverlayOpeningHandler}>Login</span>
-            {/* </Link> */}
             <hr />
           </div>
         )}
-        <Link to="/sell">
-          <div className="sellMenu">
-            <SellButton></SellButton>
+        {user && (
+          <Link to="/sell">
+            <div className="sellMenu">
+              <SellButton />
+              <div className="sellMenuContent">
+                <SellButtonPlus />
+                <span>SELL</span>
+              </div>
+            </div>
+          </Link>
+        )}
+        {!user && (
+          <div
+            className="sellMenu"
+            onClick={() => {
+              dispatch({
+                type: "SET_LOGIN_OVERLAY",
+                status: true,
+              });
+            }}
+          >
+            <SellButton />
             <div className="sellMenuContent">
-              <SellButtonPlus></SellButtonPlus>
+              <SellButtonPlus />
               <span>SELL</span>
             </div>
           </div>
-        </Link>
+        )}
       </div>
     </div>
   );
