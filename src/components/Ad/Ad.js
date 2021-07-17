@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import formatDistance from "date-fns/formatDistance";
 import format from "date-fns/format";
 
+import truncateString from "../../utils/truncateString";
+
 import styles from "./Ad.module.css";
 
 const Ad = ({ ad }) => {
@@ -34,7 +36,7 @@ const Ad = ({ ad }) => {
           {ad.attributes[ad.featuredAttributes[0]]} -{" "}
           {ad.attributes[ad.featuredAttributes[1]]}
         </p>
-        <p>{ad.title}</p>
+        <p>{truncateString(ad.title, 25)}</p>
         <div>
           <p>
             {ad.address.City} {ad.address.State}
