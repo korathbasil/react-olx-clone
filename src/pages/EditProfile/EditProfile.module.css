@@ -76,6 +76,14 @@
   border: none;
   height: 1px;
 }
+.rightMiddle > div {
+  min-height: 10px;
+  width: 100%;
+}
+.rightMiddle > div > p {
+  font-size: 10px;
+  color: red;
+}
 
 .rightBottom {
   padding: 20px;

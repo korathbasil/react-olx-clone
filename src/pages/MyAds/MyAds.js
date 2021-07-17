@@ -38,8 +38,8 @@ const MyAds = () => {
       <Menu />
       <div className={styles.myAdsChild}>
         <div className={styles.switcher}>
-          <p>Ads</p>
-          <p>Favourites</p>
+          {/* <p>Ads</p>
+          <p>Favourites</p> */}
           <div className={styles.adsContainer}>
             <div className={styles.myAds}>
               {ads.length === 0 && (

@@ -16,6 +16,8 @@ const EditProfile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const displayNameInput = useRef();
   const descriptionInput = useRef();
   const phoneInput = useRef();
@@ -29,19 +31,34 @@ const EditProfile = () => {
 
   const updateProfile = (e) => {
     e.preventDefault();
+    setErrorMessage(null);
 
     const displayName = displayNameInput.current.value;
     const description = descriptionInput.current.value;
     const phone = phoneInput.current.value;
     const email = emailInput.current.value;
 
+    if (user.email !== email) {
+      const user = auth.currentUser;
+
+      user
+        .updateEmail(email)
+        .then(() => {
+          // Update successful
+          // ...
+        })
+        .catch((err) => {
+          setErrorMessage(err.message);
+        });
+    }
+
     if (user.displayName !== displayName) {
       auth.currentUser
-        .updateProfile({ displayName: displayName })
+        .updateProfile({ displayName: displayName, phone: phone })
         .then(() => {
-          return db.collection("users").doc(user.userId).update({
+          return db.collection("users").doc(user.id).update({
+            displayName: displayName,
             phone: phone,
-            email: email,
             description: description,
           });
         })
@@ -49,7 +66,6 @@ const EditProfile = () => {
     } else {
       db.collection("users").doc(user.userId).update({
         phone: phone,
-        email: email,
         description: description,
       });
     }
@@ -144,8 +160,9 @@ const EditProfile = () => {
                     defaultValue={user?.email}
                     ref={emailInput}
                     required
-                    readOnly
+                    // readOnly
                   />
+                  <div>{errorMessage && <p>{errorMessage}</p>}</div>
                 </div>
                 <div className={styles.rightBottom}>
                   <p>Discard</p>
