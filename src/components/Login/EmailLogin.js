@@ -17,6 +17,8 @@ const EmailLogin = ({ pageHandler }) => {
     password: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState({});
+
   const inputFieldModifier = (e) => {
     setLoginInput({
       ...loginInput,
@@ -26,6 +28,7 @@ const EmailLogin = ({ pageHandler }) => {
 
   const doLogin = (e) => {
     e.preventDefault();
+    setErrorMessage({});
     auth
       .signInWithEmailAndPassword(loginInput.email, loginInput.password)
       .then((result) => {
@@ -52,7 +55,26 @@ const EmailLogin = ({ pageHandler }) => {
         });
         history.push("/");
       })
-      .catch((e) => console.log(e));
+      .catch((err) => {
+        console.log(err.message);
+        if (
+          err.message.includes("email") ||
+          err.message.includes("Email") ||
+          err.message.includes("user") ||
+          err.message.includes("User")
+        ) {
+          setErrorMessage({
+            email: err.message,
+          });
+        }
+        if (
+          err.message.includes("password") ||
+          err.message.includes("Password")
+        )
+          setErrorMessage({
+            password: err.message,
+          });
+      });
   };
   return (
     <div className={styles.emailLoginContainer}>
@@ -63,6 +85,11 @@ const EmailLogin = ({ pageHandler }) => {
       <h3>Enter your Email and Password</h3>
       <form className={styles.emailLoginForm} onSubmit={doLogin}>
         <input
+          style={{
+            border: errorMessage?.email
+              ? "2px solid red"
+              : "2px solid var(--black)",
+          }}
           type="email"
           name="email"
           placeholder="E-mail"
@@ -70,12 +97,21 @@ const EmailLogin = ({ pageHandler }) => {
           onChange={(e) => inputFieldModifier(e)}
         />
         <input
+          style={{
+            border: errorMessage?.password
+              ? "2px solid red"
+              : "2px solid var(--black)",
+          }}
           type="Password"
           name="password"
           placeholder="Password"
           value={loginInput.password}
           onChange={(e) => inputFieldModifier(e)}
         />
+        <div>
+          {errorMessage?.email && <p>{errorMessage.email}</p>}
+          {errorMessage?.password && <p>{errorMessage.password}</p>}
+        </div>
         <p>
           If you are a new user please select any other option from previous
           page
