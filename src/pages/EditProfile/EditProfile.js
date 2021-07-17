@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link, useHistory } from "react-router-dom";
 
 import { auth, db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -10,6 +10,7 @@ import ProfilePicture from "../../assets/ProfilePicture";
 import Footer from "../../components/Footer/Footer";
 
 const EditProfile = () => {
+  const history = useHistory();
   const [{ user }] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("info");
@@ -44,15 +45,22 @@ const EditProfile = () => {
       user
         .updateEmail(email)
         .then(() => {
-          // Update successful
-          // ...
+          auth.currentUser
+            .updateProfile({ displayName: displayName, phone: phone })
+            .then(() => {
+              return db.collection("users").doc(user.id).update({
+                displayName: displayName,
+                phone: phone,
+                description: description,
+                email: email,
+              });
+            })
+            .then(() => history.push("/"));
         })
         .catch((err) => {
           setErrorMessage(err.message);
         });
-    }
-
-    if (user.displayName !== displayName) {
+    } else {
       auth.currentUser
         .updateProfile({ displayName: displayName, phone: phone })
         .then(() => {
@@ -62,12 +70,7 @@ const EditProfile = () => {
             description: description,
           });
         })
-        .then(() => {});
-    } else {
-      db.collection("users").doc(user.userId).update({
-        phone: phone,
-        description: description,
-      });
+        .then(() => history.push("/"));
     }
   };
 
