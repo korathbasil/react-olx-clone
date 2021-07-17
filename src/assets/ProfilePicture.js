@@ -1,4 +1,4 @@
-import ProfilePictureImage from "./images/profile-picture.webp";
+import ProfilePictureImage from "./images/avatar.png";
 
 const ProfilePicture = ({ size }) => {
   return (
