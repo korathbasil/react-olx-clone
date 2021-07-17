@@ -75,10 +75,10 @@
   margin-right: 20px;
   text-transform: uppercase;
 }
-.rightTop > button {
+.rightTop > a > button {
+  height: 100%;
   border: none;
   border: 3px solid var(--black);
-  /* outline-offset: 3px; */
   border-radius: 5px;
   background-color: white;
   color: var(--black);
@@ -86,7 +86,7 @@
   font-weight: 700;
   cursor: pointer;
 }
-.rightTop > button:hover {
+.rightTop > a > button:hover {
   border: 5px solid var(--black);
 }
 

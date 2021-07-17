@@ -74,7 +74,9 @@ const MyProfile = () => {
         <div className={styles.right}>
           <div className={styles.rightTop}>
             <h1>{user?.displayName}</h1>
-            <button>Edit Profile</button>
+            <Link to="/editProfile/info">
+              <button>Edit Profile</button>
+            </Link>
           </div>
           <div className={styles.rightAds}>
             {ads.length === 0 && (
