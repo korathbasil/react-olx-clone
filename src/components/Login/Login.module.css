@@ -16,6 +16,21 @@
   padding: 20px;
   position: relative;
 }
+.imageContainer {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.imageContainer > img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+.imageContainer > h4 {
+  color: var(--black);
+}
 .linksContainer {
   display: flex;
   flex-direction: column;

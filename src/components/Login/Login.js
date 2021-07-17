@@ -1,8 +1,9 @@
 import { useState } from "react";
 
 import useGlobalStore from "../../store/GlobalStore";
+
+import LoginEntryPointImage from "../../assets/images/login-entry-point-image.png";
 import styles from "./Login.module.css";
-import BCarousel from "../BCarousel/BCarousel";
 import CloseIcon from "../../assets/CloseIcon";
 import EmailLogin from "./EmailLogin";
 import EmailSignup from "./EmailSignup";
@@ -32,19 +33,23 @@ const Login = () => {
         </div>
         {openedPage === "" && (
           <div className={styles.loginHome}>
-            <BCarousel />
+            {/* <BCarousel /> */}
+            <div className={styles.imageContainer}>
+              <img src={LoginEntryPointImage} alt="" />
+              <h4>Help make OLX safer place to buy and sell</h4>
+            </div>
             <div className={styles.linksContainer}>
               <button onClick={() => openedPageHandler("login")}>
                 Login with Email
               </button>
-              <button>
+              {/* <button>
                 <GoogleIcon />
                 Continue with Google
               </button>
               <button>
                 <FacebookIcon />
                 Continue with facebook
-              </button>
+              </button> */}
               <h4>OR</h4>
               <button onClick={() => openedPageHandler("signup")}>
                 Signup with Email
