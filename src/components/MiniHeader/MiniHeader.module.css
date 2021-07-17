@@ -14,7 +14,6 @@
   display: flex;
   align-items: center;
 }
-.backArrow {
-  height: 25px;
-  margin-right: 30px;
+.minHeaderChild > div {
+  margin-right: 20px;
 }
