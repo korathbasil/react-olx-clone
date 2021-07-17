@@ -5,8 +5,10 @@ import { db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 
 import NoAdsImage from "../../assets/images/no-ads-image.png";
+import DummyProfileImage from "../../assets/images/dummy-profile.png";
 import styles from "./MyProfile.module.css";
 import Header from "../../components/Header/Header";
+import ProfilePicture from "../../assets/ProfilePicture";
 import EditIcon from "../../assets/EditIcon";
 import MiniAd from "../../components/MiniAd/MiniAd";
 import Footer from "../../components/Footer/Footer";
@@ -40,10 +42,10 @@ const MyProfile = () => {
       <div className={styles.profileChild}>
         <div className={styles.left}>
           <div className={styles.iamgeContainer}>
-            <img
-              src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
-              alt=""
-            />
+            {(user?.profilePicture === "" || user?.profilePicture == null) && (
+              <img src={DummyProfileImage} alt="" />
+            )}
+            {user?.profilePicture && <img src={user?.profilePicture} alt="" />}
             <div>
               <Link to="editProfile/picture">
                 <EditIcon />

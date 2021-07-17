@@ -74,9 +74,7 @@ function Header() {
           <div className="userProfile">
             <div className="userProfileBubble" onClick={menuOpeningHandler}>
               {(user?.profilePicture === "" ||
-                user?.profilePicture == null) && (
-                <ProfilePicture size={"30px"} />
-              )}
+                user?.profilePicture == null) && <ProfilePicture size={30} />}
               {user?.profilePicture && (
                 <img src={user?.profilePicture} alt="" />
               )}
@@ -89,7 +87,7 @@ function Header() {
                 <div className="userMenuTop">
                   {(user?.profilePicture === "" ||
                     user?.profilePicture == null) && (
-                    <ProfilePicture size={"100px"} />
+                    <ProfilePicture size={100} />
                   )}
                   {user?.profilePicture && (
                     <img src={user?.profilePicture} alt="" />

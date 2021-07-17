@@ -180,7 +180,7 @@ const EditProfile = () => {
                 <div className={styles.pictureDisplay}>
                   {(user?.profilePicture === "" ||
                     user?.profilePicture == null) && (
-                    <ProfilePicture size={"200px"} />
+                    <ProfilePicture size={200} />
                   )}
                   {profilePictureUrl && <img src={profilePictureUrl} alt="" />}
                 </div>

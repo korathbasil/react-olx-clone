@@ -4,7 +4,11 @@ const ProfilePicture = ({ size }) => {
   return (
     <img
       src={ProfilePictureImage}
-      style={{ width: size, height: size, objectFit: "cover" }}
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        objectFit: "cover",
+      }}
     />
   );
 };
