@@ -25,10 +25,12 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((loggedInUser) => {
       if (loggedInUser) {
+        console.log(loggedInUser);
         db.collection("users")
           .doc(loggedInUser.uid)
           .get()
           .then((userDoc) => {
+            console.log(userDoc.data());
             return dispatch({
               type: "SET_USER",
               user: {

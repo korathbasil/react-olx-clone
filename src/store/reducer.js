@@ -18,6 +18,14 @@ export const reducer = (state, action) => {
           profilePicture: action.profilePicture,
         },
       };
+    case "UPDATE_USER":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...action.user,
+        },
+      };
     case "SET_LOGIN_OVERLAY":
       return {
         ...state,

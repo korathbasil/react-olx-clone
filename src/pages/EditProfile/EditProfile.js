@@ -52,7 +52,7 @@ const EditProfile = () => {
         .updateEmail(email)
         .then(() => {
           auth.currentUser
-            .updateProfile({ displayName: displayName, phone: phone })
+            .updateProfile({ displayName: displayName, phoneNumber: phone })
             .then(() => {
               return db.collection("users").doc(user.id).update({
                 displayName: displayName,
@@ -61,7 +61,18 @@ const EditProfile = () => {
                 email: email,
               });
             })
-            .then(() => history.push("/"));
+            .then(() => {
+              dispatch({
+                type: "UPDATE_USER",
+                user: {
+                  displayName: displayName,
+                  phone: phone,
+                  description: description,
+                  email: email,
+                },
+              });
+              history.push("/");
+            });
         })
         .catch((err) => {
           setErrorMessage(err.message);
@@ -76,7 +87,18 @@ const EditProfile = () => {
             description: description,
           });
         })
-        .then(() => history.push("/"));
+        .then(() => {
+          dispatch({
+            type: "UPDATE_USER",
+            user: {
+              displayName: displayName,
+              phone: phone,
+              description: description,
+              email: email,
+            },
+          });
+          history.push("/");
+        });
     }
   };
 
@@ -99,12 +121,14 @@ const EditProfile = () => {
           auth.currentUser
             .updateProfile({ photoURL: url })
             .then(() => {
-              db.collection("users").doc(user?.id).set({ photoUrl: url });
+              db.collection("users").doc(user?.id).update({ photoUrl: url });
             })
             .then(() => {
               dispatch({
-                type: "UPDATE_USER_PROFILE_PICTURE",
-                profilePicture: url,
+                type: "UPDATE_USER",
+                user: {
+                  profilePicture: url,
+                },
               });
               history.push("/");
             });
