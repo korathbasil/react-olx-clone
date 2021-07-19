@@ -114,6 +114,7 @@
 .productInfoBottom > p {
   font-size: 12px;
   color: grey;
+  text-transform: uppercase;
 }
 
 .sellerInfo {

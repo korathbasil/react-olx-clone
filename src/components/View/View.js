@@ -26,10 +26,11 @@ function View() {
         setAd(doc.data());
         setPostDetails(Object.entries(doc.data().attributes));
         setSelectedImage(doc.data().imageUrl[0]);
+        getFeaturedAttributes(doc.data());
+        formatDate(doc.data());
         return doc.data().userId;
       })
       .then((id) => {
-        console.log(id);
         db.collection("users")
           .doc(id)
           .get()
@@ -39,18 +40,18 @@ function View() {
               ...doc.data(),
             });
           });
-        formatDate();
-        getFeaturedAttributes();
       });
   }, []);
 
-  function formatDate() {
-    const dateDistance = formatDistance(new Date(ad?.createdAt), new Date(), {
+  function formatDate(ad) {
+    const dateDistance = formatDistance(new Date(ad.createdAt), new Date(), {
       addSuffix: true,
     });
+    console.log(dateDistance);
     if (
-      parseInt(dateDistance.split(" ")[0]) < 10 &&
-      dateDistance.split(" ")[1] === "days"
+      (parseInt(dateDistance.split(" ")[0]) < 10 &&
+        dateDistance.split(" ")[1] === "days") ||
+      dateDistance.split(" ")[0] === "about"
     )
       setDate(dateDistance);
     else if (dateDistance.split(" ")[1] === "years") {
@@ -60,7 +61,7 @@ function View() {
     }
   }
 
-  function getFeaturedAttributes() {
+  function getFeaturedAttributes(ad) {
     if (ad.featuredAttributes) {
       const attributes = ad.featuredAttributes.map((attribute) => {
         const value = ad.attributes[attribute.name];
