@@ -11,6 +11,11 @@ const Ad = ({ ad }) => {
   const [date, setDate] = useState();
   const [featuredAttributes, setFeaturedAttributes] = useState(null);
   useEffect(() => {
+    formatDate();
+    getFeaturedAttributes();
+  }, []);
+
+  function formatDate() {
     const dateDistance = formatDistance(new Date(ad.createdAt), new Date(), {
       addSuffix: true,
     });
@@ -24,8 +29,7 @@ const Ad = ({ ad }) => {
     } else {
       setDate(format(new Date(ad.createdAt), "MMMM dd"));
     }
-    getFeaturedAttributes();
-  }, []);
+  }
 
   function getFeaturedAttributes() {
     if (ad.featuredAttributes) {

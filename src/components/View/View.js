@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import formatDistance from "date-fns/formatDistance";
+import format from "date-fns/format";
 
 import { db } from "../../firebase";
 
@@ -12,6 +14,9 @@ function View() {
   const [postDetails, setPostDetails] = useState();
   const [selectedImage, setSelectedImage] = useState("");
   const [userDetails, setUserDeatils] = useState({});
+
+  const [featuredAttributes, setFeaturedAttributes] = useState(null);
+  const [date, setDate] = useState();
 
   useEffect(() => {
     db.collection("posts")
@@ -34,8 +39,36 @@ function View() {
               ...doc.data(),
             });
           });
+        formatDate();
+        getFeaturedAttributes();
       });
   }, []);
+
+  function formatDate() {
+    const dateDistance = formatDistance(new Date(ad?.createdAt), new Date(), {
+      addSuffix: true,
+    });
+    if (
+      parseInt(dateDistance.split(" ")[0]) < 10 &&
+      dateDistance.split(" ")[1] === "days"
+    )
+      setDate(dateDistance);
+    else if (dateDistance.split(" ")[1] === "years") {
+      setDate(format(new Date(ad.createdAt), "MMMM dd yy"));
+    } else {
+      setDate(format(new Date(ad.createdAt), "MMMM dd"));
+    }
+  }
+
+  function getFeaturedAttributes() {
+    if (ad.featuredAttributes) {
+      const attributes = ad.featuredAttributes.map((attribute) => {
+        const value = ad.attributes[attribute.name];
+        return value + " " + attribute.unit;
+      });
+      setFeaturedAttributes(attributes.join(" - "));
+    }
+  }
 
   return (
     <div className={styles.viewParentDiv}>
@@ -84,11 +117,13 @@ function View() {
               <h3>₹ {ad?.price}</h3>
               <div></div>
             </div>
-            <p>2016 - 96 KM</p>
+            {featuredAttributes && <p>{featuredAttributes}</p>}
             <p>{ad?.title}</p>
             <div className={styles.productInfoBottom}>
-              <p>India</p>
-              <p>Jun 11</p>
+              <p>
+                {ad?.address.City} {ad?.address.State}
+              </p>
+              <p>{date}</p>
             </div>
           </div>
           <div className={styles.sellerInfo}>
