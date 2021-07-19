@@ -9,7 +9,7 @@ function Home(props) {
   return (
     <div className="homeParentDiv">
       <Header />
-      <Menu />
+      <Menu home={true} />
       <img src={BannerImage} alt="" />
       <Feed />
       <Footer />

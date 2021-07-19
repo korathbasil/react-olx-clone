@@ -1,8 +1,8 @@
 import styles from "./Menu.module.css";
 
-const Menu = () => {
+const Menu = ({ home = false }) => {
   return (
-    <div className={styles.menu}>
+    <div className={styles.menu} style={{ marginBottom: home ? "" : "20px" }}>
       <div className={styles.menuChild}>
         <div className={styles.toggle}>
           <h4>ALL CATEGORIES</h4>

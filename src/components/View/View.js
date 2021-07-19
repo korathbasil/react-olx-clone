@@ -7,6 +7,7 @@ import { db } from "../../firebase";
 
 import styles from "./View.module.css";
 import Menu from "../../components/Menu/Menu";
+import ProfilePicture from "../../assets/ProfilePicture";
 import Arrow from "../../assets/Arrow";
 
 function View() {
@@ -132,10 +133,13 @@ function View() {
           <div className={styles.sellerInfo}>
             <p>Seller description</p>
             <div>
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprestigeportraits.com%2Fwp-content%2Fthemes%2Fprestige%2Fassets%2Fbuild%2Fimages%2Fgalleries%2Fgallery-2%2Fgallery-image-3.jpg&f=1&nofb=1"
-                alt=""
-              />
+              {(userDetails?.profilePicture === "" ||
+                userDetails?.profilePicture == null) && (
+                <ProfilePicture size={60} />
+              )}
+              {userDetails?.profilePicture && (
+                <img src={userDetails?.profilePicture} alt="" />
+              )}
               <div className={styles.sellerInfoContainer}>
                 <Link to={`/profile/${userDetails?.id}`}>
                   <h3>{userDetails?.displayName}</h3>
