@@ -19,7 +19,7 @@ const EmailSignup = ({ pageHandler }) => {
     phone: "",
     password: "",
   });
-  const [errorMessages, setErrorMessages] = useState({});
+  const [errorMessage, setErrorMessage] = useState({});
 
   const signupInputStateModifier = (e) => {
     setSignupInput({
@@ -74,16 +74,21 @@ const EmailSignup = ({ pageHandler }) => {
           .catch((e) => console.log(e.message));
       })
       .catch((err) => {
-        console.log(err.message);
-        if (err.message.includes("email") || err.message.includes("Email"))
-          setErrorMessages({
+        if (
+          err.message.includes("email") ||
+          err.message.includes("Email") ||
+          err.message.includes("user") ||
+          err.message.includes("User")
+        ) {
+          setErrorMessage({
             email: err.message,
           });
+        }
         if (
           err.message.includes("password") ||
           err.message.includes("Password")
         )
-          setErrorMessages({
+          setErrorMessage({
             password: err.message,
           });
       });
@@ -103,13 +108,9 @@ const EmailSignup = ({ pageHandler }) => {
           value={signupInput.name}
           onChange={signupInputStateModifier}
         />
-
-        <div>
-          <p></p>
-        </div>
         <input
           style={{
-            border: errorMessages?.email
+            border: errorMessage?.email
               ? "2px solid red"
               : "2px solid var(--black)",
           }}
@@ -119,7 +120,6 @@ const EmailSignup = ({ pageHandler }) => {
           value={signupInput.email}
           onChange={signupInputStateModifier}
         />
-        <div>{<p>{errorMessages.email}</p>}</div>
         <input
           type="tel"
           name="phone"
@@ -127,12 +127,9 @@ const EmailSignup = ({ pageHandler }) => {
           value={signupInput.phone}
           onChange={signupInputStateModifier}
         />
-        <div>
-          <p></p>
-        </div>
         <input
           style={{
-            border: errorMessages?.password
+            border: errorMessage?.password
               ? "2px solid red"
               : "2px solid var(--black)",
           }}
@@ -142,7 +139,10 @@ const EmailSignup = ({ pageHandler }) => {
           value={signupInput.password}
           onChange={signupInputStateModifier}
         />
-        <div>{errorMessages?.password && <p>{errorMessages.password}</p>}</div>
+        <div>
+          {errorMessage?.email && <p>{errorMessage.email}</p>}
+          {errorMessage?.password && <p>{errorMessage.password}</p>}
+        </div>
         <button type="submit">Signup</button>
       </form>
       <p>
