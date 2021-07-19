@@ -24,6 +24,7 @@
   height: 40%;
   padding: 10px;
   padding-bottom: 0;
+  position: relative;
 }
 .adBottom > h3 {
   color: var(--black);
@@ -46,8 +47,11 @@
   /* max-height: 16px; */
 }
 .adBottom > div {
+  width: calc(100% - 20px);
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  bottom: 5px;
 }
 .adBottom > div > p {
   font-size: 10px;

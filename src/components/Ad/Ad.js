@@ -31,7 +31,7 @@ const Ad = ({ ad }) => {
     if (ad.featuredAttributes) {
       const attributes = ad.featuredAttributes.map((attribute) => {
         const value = ad.attributes[attribute.name];
-        return value + attribute.unit;
+        return value + " " + attribute.unit;
       });
       setFeaturedAttributes(attributes.join(" - "));
     }

@@ -72,6 +72,11 @@ export const categories = [
     subs: [
       {
         name: "For Sale: Houses & Appartments",
+        featuredAttributes: [
+          { name: "Bedrooms", unit: "Bds" },
+          { name: "Bathrooms", unit: "Ba" },
+          { name: "Super Builtup Area (ft²)", unit: "ft²" },
+        ],
         attributes: [
           {
             name: "Type",
@@ -104,11 +109,11 @@ export const categories = [
             options: ["Builder", "Dealer", "Owner"],
           },
           {
-            name: "Super Builtup Area (ft)",
+            name: "Super Builtup Area (ft²)",
             type: "input",
           },
           {
-            name: "Carpet Area (ft)",
+            name: "Carpet Area (ft²)",
             type: "input",
           },
           {
@@ -150,6 +155,11 @@ export const categories = [
       },
       {
         name: "For Rent: Houses & Appartments",
+        featuredAttributes: [
+          { name: "Bedrooms", unit: "Bds" },
+          { name: "Bathrooms", unit: "Ba" },
+          { name: "Super Builtup Area (ft²)", unit: "ft²" },
+        ],
         attributes: [
           {
             name: "Type",
@@ -182,11 +192,11 @@ export const categories = [
             options: ["Builder", "Dealer", "Owner"],
           },
           {
-            name: "Super Builtup Area (ft)",
+            name: "Super Builtup Area (ft²)",
             type: "input",
           },
           {
-            name: "Carpet Area (ft)",
+            name: "Carpet Area (ft²)",
             type: "input",
           },
           {
@@ -290,11 +300,11 @@ export const categories = [
             options: ["Builder", "Dealer", "Owner"],
           },
           {
-            name: "Super Builtup Area (ft)",
+            name: "Super Builtup Area (ft²)",
             type: "input",
           },
           {
-            name: "Carpet Area (ft)",
+            name: "Carpet Area (ft²)",
             type: "input",
           },
           {
@@ -335,11 +345,11 @@ export const categories = [
             options: ["Builder", "Dealer", "Owner"],
           },
           {
-            name: "Super Builtup Area (ft)",
+            name: "Super Builtup Area (ft²)",
             type: "input",
           },
           {
-            name: "Carpet Area (ft)",
+            name: "Carpet Area (ft²)",
             type: "input",
           },
           {
