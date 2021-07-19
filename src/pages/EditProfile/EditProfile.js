@@ -11,7 +11,7 @@ import Footer from "../../components/Footer/Footer";
 
 const EditProfile = () => {
   const history = useHistory();
-  const [{ user }] = useGlobalStore();
+  const [{ user }, dispatch] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("");
 
@@ -88,8 +88,7 @@ const EditProfile = () => {
   }
 
   const uploadNewProfilePicture = () => {
-    if (user.profilePicture !== profilePicture) {
-      // Upload new Profile Picture
+    if (profilePictureChanged)
       storage
         .ref(`/profiles/${profilePicture.name}`)
         .put(profilePicture)
@@ -97,10 +96,19 @@ const EditProfile = () => {
           return snapshot.ref.getDownloadURL();
         })
         .then((url) => {
-          auth.currentUser.updateProfile({ photoURL: url }).then(() => {});
+          auth.currentUser
+            .updateProfile({ photoURL: url })
+            .then(() => {
+              db.collection("users").doc(user?.id).set({ photoUrl: url });
+            })
+            .then(() => {
+              dispatch({
+                type: "UPDATE_USER_PROFILE_PICTURE",
+                profilePicture: url,
+              });
+              history.push("/");
+            });
         });
-    } else {
-    }
   };
 
   return (
