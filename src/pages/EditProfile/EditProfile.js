@@ -14,11 +14,14 @@ const EditProfile = () => {
   const [{ user }] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("");
+
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const [profilePicture, setProfilePicture] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
   const [profilePictureChanged, setProfilePictureChanged] = useState(false);
 
-  const [errorMessage, setErrorMessage] = useState(null);
+  const imagePicker = useRef();
 
   const displayNameInput = useRef();
   const descriptionInput = useRef();
@@ -205,7 +208,15 @@ const EditProfile = () => {
                       );
                       setProfilePictureChanged(true);
                     }}
+                    hidden
+                    ref={imagePicker}
                   />
+                  <button
+                    onClick={() => imagePicker.current.click()}
+                    className={styles.imagePickerButton}
+                  >
+                    Choose Image
+                  </button>
                 </div>
               </div>
               <div className={styles.rightBottom}>
