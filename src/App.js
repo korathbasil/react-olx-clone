@@ -25,23 +25,19 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((loggedInUser) => {
       if (loggedInUser) {
-        console.log(loggedInUser);
         db.collection("users")
           .doc(loggedInUser.uid)
           .get()
           .then((userDoc) => {
-            console.log(userDoc.data());
-            return dispatch({
-              type: "SET_USER",
-              user: {
-                id: userDoc.id,
-                displayName: userDoc.data().displayName,
-                email: userDoc.data().email,
-                phone: userDoc.data().phone,
-                description: userDoc.data().description,
-                profilePicture: userDoc.data().photoURL,
-              },
-            });
+            if (userDoc)
+              return dispatch({
+                type: "SET_USER",
+                user: {
+                  id: userDoc.id,
+                  ...userDoc.data(),
+                },
+              });
+            return;
           })
           .then(() => {
             setShowLoading(false);

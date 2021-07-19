@@ -121,7 +121,7 @@ const EditProfile = () => {
           auth.currentUser
             .updateProfile({ photoURL: url })
             .then(() => {
-              db.collection("users").doc(user?.id).update({ photoUrl: url });
+              db.collection("users").doc(user?.id).update({ photoURL: url });
             })
             .then(() => {
               dispatch({
