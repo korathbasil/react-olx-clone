@@ -16,6 +16,7 @@ const EditProfile = () => {
   const [activeLink, setActiveLink] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
+  const [profilePictureChanged, setProfilePictureChanged] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -25,9 +26,6 @@ const EditProfile = () => {
   const emailInput = useRef();
 
   useEffect(() => {
-    if (user) {
-      setProfilePictureUrl(user.profilePicture);
-    }
     const activeLink =
       history.location.pathname.split("/")[
         history.location.pathname.split("/").length - 1
@@ -78,6 +76,13 @@ const EditProfile = () => {
         .then(() => history.push("/"));
     }
   };
+
+  function renderProfliePicture() {
+    if (profilePictureChanged) return <img src={profilePictureUrl} alt="" />;
+    if (user?.profilePicture === "" || user?.profilePicture == null)
+      return <ProfilePicture size={200} />;
+    return <img src={user?.renderProfliePicture} alt="" />;
+  }
 
   const uploadNewProfilePicture = () => {
     if (user.profilePicture !== profilePicture) {
@@ -183,11 +188,7 @@ const EditProfile = () => {
               </div>
               <div className={styles.pictureRightMiddle}>
                 <div className={styles.pictureDisplay}>
-                  {(user?.profilePicture === "" ||
-                    user?.profilePicture == null) && (
-                    <ProfilePicture size={200} />
-                  )}
-                  {profilePictureUrl && <img src={profilePictureUrl} alt="" />}
+                  {renderProfliePicture()}
                 </div>
                 <div>
                   <p>
@@ -202,6 +203,7 @@ const EditProfile = () => {
                       setProfilePictureUrl(
                         URL.createObjectURL(e.target.files[0])
                       );
+                      setProfilePictureChanged(true);
                     }}
                   />
                 </div>
