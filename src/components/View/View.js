@@ -77,81 +77,95 @@ function View() {
     <div className={styles.viewParentDiv}>
       <Menu />
       <div className={styles.viewChildDiv}>
-        <div className={styles.left}>
-          <div className={styles.imageView}>
-            <div className={styles.imageViewTop}>
-              {selectedImage && <img src={selectedImage} alt="" />}
+        <p>
+          Home / {ad?.category} / {ad?.subCategory}
+        </p>
+        <div>
+          <div className={styles.left}>
+            <div className={styles.imageView}>
+              <div className={styles.imageViewTop}>
+                {selectedImage && <img src={selectedImage} alt="" />}
+              </div>
+              <div className={styles.imageSelector}>
+                {ad?.imageUrl.map((image) => (
+                  <img
+                    src={image}
+                    style={{
+                      border:
+                        selectedImage === image
+                          ? "2px solid var(--black)"
+                          : "none",
+                    }}
+                    onClick={() => setSelectedImage(image)}
+                  />
+                ))}
+              </div>
             </div>
-            <div className={styles.imageSelector}>
-              {ad?.imageUrl.map((image) => (
-                <img
-                  src={image}
-                  style={{
-                    border:
-                      selectedImage === image
-                        ? "2px solid var(--black)"
-                        : "none",
-                  }}
-                  onClick={() => setSelectedImage(image)}
-                />
-              ))}
-            </div>
-          </div>
 
-          <div className={styles.infoContainer}>
-            <h3>Details</h3>
-            <div className={styles.detailsContainer}>
-              {postDetails?.map((attribute) => {
-                return (
-                  <div className={styles.property}>
-                    <p>{attribute[0]}</p>
-                    <p>{attribute[1]}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <hr />
-            <h3>Description</h3>
-            <p>{ad?.description}</p>
-          </div>
-        </div>
-        <div className={styles.right}>
-          <div className={styles.productInfo}>
-            <div className={styles.productInfoTop}>
-              <h3>₹ {ad?.price}</h3>
-              <div></div>
-            </div>
-            {featuredAttributes && <p>{featuredAttributes}</p>}
-            <p>{ad?.title}</p>
-            <div className={styles.productInfoBottom}>
-              <p>
-                {ad?.address.City} {ad?.address.State}
-              </p>
-              <p>{date}</p>
+            <div className={styles.infoContainer}>
+              <h3>Details</h3>
+              <div className={styles.detailsContainer}>
+                {postDetails?.map((attribute) => {
+                  return (
+                    <div className={styles.property}>
+                      <p>{attribute[0]}</p>
+                      <p>{attribute[1]}</p>
+                    </div>
+                  );
+                })}
+              </div>
+              <hr />
+              <h3>Description</h3>
+              <p>{ad?.description}</p>
             </div>
           </div>
-          <div className={styles.sellerInfo}>
-            <p>Seller description</p>
-            <div>
-              {(userDetails?.profilePicture === "" ||
-                userDetails?.profilePicture == null) && (
-                <ProfilePicture size={60} />
-              )}
-              {userDetails?.profilePicture && (
-                <img src={userDetails?.profilePicture} alt="" />
-              )}
-              <div className={styles.sellerInfoContainer}>
+          <div className={styles.right}>
+            <div className={styles.productInfo}>
+              <div className={styles.productInfoTop}>
+                <h3>₹ {ad?.price}</h3>
+                <div></div>
+              </div>
+              {featuredAttributes && <p>{featuredAttributes}</p>}
+              <p>{ad?.title}</p>
+              <div className={styles.productInfoBottom}>
+                <p>
+                  {ad?.address.City} {ad?.address.State}
+                </p>
+                <p>{date}</p>
+              </div>
+            </div>
+            <div className={styles.sellerInfo}>
+              <p>Seller description</p>
+              <div>
                 <Link to={`/profile/${userDetails?.id}`}>
-                  <h3>{userDetails?.displayName}</h3>
+                  {(userDetails?.profilePicture === "" ||
+                    userDetails?.profilePicture == null) && (
+                    <ProfilePicture size={60} />
+                  )}
+                  {userDetails?.profilePicture && (
+                    <img src={userDetails?.profilePicture} alt="" />
+                  )}
                 </Link>
-                <p>Member since 2019</p>
+                <div className={styles.sellerInfoContainer}>
+                  <Link to={`/profile/${userDetails?.id}`}>
+                    <h3>{userDetails?.displayName}</h3>
+                  </Link>
+                  <p>
+                    Member since{" "}
+                    {userDetails && (
+                      <span>{format(new Date(), "MMMM dd yyyy")}</span>
+                    )}
+                  </p>
+                </div>
+                <Link to={`/profile/${userDetails?.id}`}></Link>
+                <div className={styles.arrowContainer}>
+                  <Arrow />
+                </div>
+                <Link to={`/profile/${userDetails?.id}`}></Link>
               </div>
-              <div className={styles.arrowContainer}>
-                <Arrow />
-              </div>
+              <button>Chat with Seller</button>
+              <button>Make an Offer</button>
             </div>
-            <button>Chat with Seller</button>
-            <button>Make an Offer</button>
           </div>
         </div>
       </div>

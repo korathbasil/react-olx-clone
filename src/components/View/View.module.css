@@ -7,8 +7,16 @@
   /* width: 95%; */
   width: 100%;
   max-width: 1300px;
-  display: flex;
   margin: 0 auto;
+}
+.viewChildDiv > p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.viewChildDiv > div {
+  display: flex;
 }
 .left {
   width: 68%;
@@ -129,7 +137,7 @@
   padding: 10px 0;
   align-items: center;
 }
-.sellerInfo > div > img {
+.sellerInfo > div > a > img {
   width: 60px;
   height: 60px;
   border-radius: 999px;
@@ -141,7 +149,7 @@
   flex: 1;
   cursor: pointer;
 }
-.sellerInfoContainer > h3 {
+.sellerInfoContainer > a > h3 {
   font-size: 16px;
   font-weight: 1200 !important;
   color: var(--black);
