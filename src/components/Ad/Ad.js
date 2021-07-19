@@ -49,7 +49,7 @@ const Ad = ({ ad }) => {
       <div className={styles.adBottom}>
         <h3>₹ {ad.price}</h3>
         {featuredAttributes && <p>{featuredAttributes}</p>}
-        <p>{truncateString(ad.title, 25)}</p>
+        <p>{truncateString(ad.title, 35)}</p>
         <div>
           <p>
             {ad.address.City} {ad.address.State}

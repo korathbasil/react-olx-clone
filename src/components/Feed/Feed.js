@@ -10,6 +10,7 @@ const Feed = () => {
 
   useEffect(() => {
     db.collection("posts")
+      .orderBy("createdAt", "desc")
       .get()
       .then(({ docs }) => {
         const products = docs.map((doc) => {
