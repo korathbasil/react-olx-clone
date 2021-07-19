@@ -15,6 +15,7 @@ import Profile from "./pages/Profile/Profile";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import MyAds from "./pages/MyAds/MyAds";
+import Error from "./pages/Error";
 
 function App() {
   const [{ showLoginOverlay }, dispatch] = useGlobalStore();
@@ -64,6 +65,7 @@ function App() {
               <PrivateRoute path="/myads" component={MyAds} />
               <PrivateRoute path="/editProfile" component={EditProfile} />
               <Route path="/" component={Home} exact />
+              <Route path="*" component={Error} />
             </Switch>
           </>
         )}
