@@ -6,6 +6,7 @@ import format from "date-fns/format";
 import { db } from "../../firebase";
 
 import styles from "./View.module.css";
+import Menu from "../../components/Menu/Menu";
 import Arrow from "../../assets/Arrow";
 
 function View() {
@@ -73,6 +74,7 @@ function View() {
 
   return (
     <div className={styles.viewParentDiv}>
+      <Menu />
       <div className={styles.viewChildDiv}>
         <div className={styles.left}>
           <div className={styles.imageView}>
