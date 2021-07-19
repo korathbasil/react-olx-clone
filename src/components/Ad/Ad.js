@@ -9,6 +9,7 @@ import styles from "./Ad.module.css";
 const Ad = ({ ad }) => {
   // console.log(ad[ad.attributes.featuredAttributes[0]]);
   const [date, setDate] = useState();
+  const [featuredAttributes, setFeaturedAttributes] = useState(null);
   useEffect(() => {
     const dateDistance = formatDistance(new Date(ad.createdAt), new Date(), {
       addSuffix: true,
@@ -23,7 +24,18 @@ const Ad = ({ ad }) => {
     } else {
       setDate(format(new Date(ad.createdAt), "MMMM dd"));
     }
+    getFeaturedAttributes();
   }, []);
+
+  function getFeaturedAttributes() {
+    if (ad.featuredAttributes) {
+      const attributes = ad.featuredAttributes.map((attribute) => {
+        const value = ad.attributes[attribute.name];
+        return value + attribute.unit;
+      });
+      setFeaturedAttributes(attributes.join(" - "));
+    }
+  }
 
   return (
     <div className={styles.ad}>
@@ -32,10 +44,7 @@ const Ad = ({ ad }) => {
       </div>
       <div className={styles.adBottom}>
         <h3>₹ {ad.price}</h3>
-        <p>
-          {ad.attributes[ad.featuredAttributes[0]]} -{" "}
-          {ad.attributes[ad.featuredAttributes[1]]}
-        </p>
+        {featuredAttributes && <p>{featuredAttributes}</p>}
         <p>{truncateString(ad.title, 25)}</p>
         <div>
           <p>

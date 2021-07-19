@@ -18,7 +18,10 @@ export const categories = [
     subs: [
       {
         name: "Cars",
-        featuredAttributes: ["Year", "KM Driven"],
+        featuredAttributes: [
+          { name: "Year", unit: "" },
+          { name: "KM Driven", unit: "km" },
+        ],
         attributes: [
           {
             name: "Brand",
