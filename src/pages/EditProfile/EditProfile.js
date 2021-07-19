@@ -13,7 +13,7 @@ const EditProfile = () => {
   const history = useHistory();
   const [{ user }] = useGlobalStore();
 
-  const [activeLink, setActiveLink] = useState("info");
+  const [activeLink, setActiveLink] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
 
@@ -28,6 +28,11 @@ const EditProfile = () => {
     if (user) {
       setProfilePictureUrl(user.profilePicture);
     }
+    const activeLink =
+      history.location.pathname.split("/")[
+        history.location.pathname.split("/").length - 1
+      ];
+    setActiveLink(activeLink);
   }, [user]);
 
   const updateProfile = (e) => {
