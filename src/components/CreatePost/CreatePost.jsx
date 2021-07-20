@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
-import { db, storage } from "../../firebase";
+import { db, storage, fieldValue } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./CreatePost.module.css";
@@ -67,7 +67,8 @@ const CreatePost = () => {
           description: productdetails.description,
           imageUrl: urls,
           price: parseInt(productdetails.price),
-          createdAt: new Date().toDateString(),
+          // createdAt: new Date().toDateString(),
+          createdAt: fieldValue.serverTimestamp(),
           userId: user.id,
           address: {
             ...address,

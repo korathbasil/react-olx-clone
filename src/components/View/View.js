@@ -46,20 +46,19 @@ function View() {
   }, []);
 
   function formatDate(ad) {
-    const dateDistance = formatDistance(new Date(ad.createdAt), new Date(), {
+    const createdAt = new Date(ad.createdAt.seconds * 1000);
+    const dateDistance = formatDistance(createdAt, new Date(), {
       addSuffix: true,
     });
-    console.log(dateDistance);
     if (
-      (parseInt(dateDistance.split(" ")[0]) < 10 &&
-        dateDistance.split(" ")[1] === "days") ||
-      dateDistance.split(" ")[0] === "about"
+      parseInt(dateDistance.split(" ")[0]) < 10 &&
+      dateDistance.split(" ")[1] === "days"
     )
       setDate(dateDistance);
     else if (dateDistance.split(" ")[1] === "years") {
-      setDate(format(new Date(ad.createdAt), "MMMM dd yy"));
+      setDate(format(createdAt, "MMMM dd yy"));
     } else {
-      setDate(format(new Date(ad.createdAt), "MMMM dd"));
+      setDate(format(createdAt, "MMMM dd"));
     }
   }
 

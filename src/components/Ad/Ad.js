@@ -11,12 +11,14 @@ const Ad = ({ ad }) => {
   const [date, setDate] = useState();
   const [featuredAttributes, setFeaturedAttributes] = useState(null);
   useEffect(() => {
-    formatDate();
     getFeaturedAttributes();
+    formatDate();
+    console.log(ad);
   }, []);
 
   function formatDate() {
-    const dateDistance = formatDistance(new Date(ad.createdAt), new Date(), {
+    const createdAt = new Date(ad.createdAt.seconds * 1000);
+    const dateDistance = formatDistance(createdAt, new Date(), {
       addSuffix: true,
     });
     if (
@@ -25,9 +27,9 @@ const Ad = ({ ad }) => {
     )
       setDate(dateDistance);
     else if (dateDistance.split(" ")[1] === "years") {
-      setDate(format(new Date(ad.createdAt), "MMMM dd yy"));
+      setDate(format(createdAt, "MMMM dd yy"));
     } else {
-      setDate(format(new Date(ad.createdAt), "MMMM dd"));
+      setDate(format(createdAt, "MMMM dd"));
     }
   }
 
