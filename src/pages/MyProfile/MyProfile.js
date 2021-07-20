@@ -25,7 +25,6 @@ const MyProfile = () => {
         .then((snapshot) => {
           let adsArray = [];
           snapshot.forEach((doc) => {
-            console.log(doc.data());
             adsArray.push({
               id: doc.id,
               ...doc.data(),

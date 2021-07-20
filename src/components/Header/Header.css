@@ -110,6 +110,9 @@
 .loginPage a {
   text-decoration: none;
 }
+.loginPage > span {
+  cursor: pointer;
+}
 /* User Accout */
 .userProfile {
   background-color: white;

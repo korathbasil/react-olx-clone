@@ -56,7 +56,6 @@ const EmailLogin = ({ pageHandler }) => {
         history.push("/");
       })
       .catch((err) => {
-        console.log(err.message);
         if (
           err.message.includes("email") ||
           err.message.includes("Email") ||

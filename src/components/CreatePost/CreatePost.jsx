@@ -58,7 +58,6 @@ const CreatePost = () => {
     };
     Promise.all(images.map((image) => uploadImage(image)))
       .then((urls) => {
-        console.log(user);
         return db.collection("posts").add({
           category: selectedCategory.category,
           subCategory: selectedCategory.subcategory,
@@ -67,7 +66,6 @@ const CreatePost = () => {
           description: productdetails.description,
           imageUrl: urls,
           price: parseInt(productdetails.price),
-          // createdAt: new Date().toDateString(),
           createdAt: fieldValue.serverTimestamp(),
           userId: user.id,
           address: {
@@ -90,8 +88,6 @@ const CreatePost = () => {
     }
     imagePicker.current.value = null;
   };
-
-  console.log(selectedCategory);
 
   return (
     <div className={styles.createPost}>

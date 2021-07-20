@@ -7,13 +7,11 @@ import truncateString from "../../utils/truncateString";
 import styles from "./Ad.module.css";
 
 const Ad = ({ ad }) => {
-  // console.log(ad[ad.attributes.featuredAttributes[0]]);
   const [date, setDate] = useState();
   const [featuredAttributes, setFeaturedAttributes] = useState(null);
   useEffect(() => {
     getFeaturedAttributes();
     formatDate();
-    console.log(ad);
   }, []);
 
   function formatDate() {

@@ -29,7 +29,6 @@ const Profile = () => {
       });
     db.collection("posts")
       .where("userId", "==", id)
-      .orderBy("createdAt", "desc")
       .get()
       .then((snapshot) => {
         let adsArray = [];

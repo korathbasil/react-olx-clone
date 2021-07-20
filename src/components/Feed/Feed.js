@@ -13,13 +13,13 @@ const Feed = () => {
       .orderBy("createdAt", "desc")
       .get()
       .then(({ docs }) => {
-        const products = docs.map((doc) => {
+        const ads = docs.map((doc) => {
           return {
             id: doc.id,
             ...doc.data(),
           };
         });
-        setAds(products);
+        setAds(ads);
       });
   }, []);
   return (

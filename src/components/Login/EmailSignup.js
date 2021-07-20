@@ -71,7 +71,7 @@ const EmailSignup = ({ pageHandler }) => {
             });
             history.push("/");
           })
-          .catch((e) => console.log(e.message));
+          .catch((e) => console.error(e.message));
       })
       .catch((err) => {
         if (
