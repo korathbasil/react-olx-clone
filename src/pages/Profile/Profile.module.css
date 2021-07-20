@@ -41,7 +41,6 @@
 }
 .right {
   width: calc(100% - 907px);
-  /* background-color: violet; */
   padding-left: 20px;
 }
 .rightChild {

@@ -33,7 +33,6 @@ const Login = () => {
         </div>
         {openedPage === "" && (
           <div className={styles.loginHome}>
-            {/* <BCarousel /> */}
             <div className={styles.imageContainer}>
               <img src={LoginEntryPointImage} alt="" />
               <h4>Help make OLX safer place to buy and sell</h4>

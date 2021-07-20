@@ -1,10 +1,8 @@
 .viewParentDiv {
   width: 100%;
-  /* padding-top: 20px; */
   margin-bottom: 20px;
 }
 .viewChildDiv {
-  /* width: 95%; */
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
@@ -84,7 +82,6 @@
   width: 32%;
   display: flex;
   flex-direction: column;
-  /* background-color: lightpink; */
   margin-left: 20px;
 }
 .right > div {

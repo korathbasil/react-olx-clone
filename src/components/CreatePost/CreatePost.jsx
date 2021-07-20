@@ -104,7 +104,6 @@ const CreatePost = () => {
             className={styles.createPostForm}
             onSubmit={uploadImagesAndPostDetails}
           >
-            {/* <div className={styles.formHeader}></div> */}
             <div className={styles.formDetailsInput}>
               <h2>INCLUDE SOME DETAILS</h2>
               {selectedCategory.attributes.map((item) => {

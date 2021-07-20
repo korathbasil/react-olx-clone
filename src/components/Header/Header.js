@@ -30,10 +30,8 @@ function Header() {
   const menuOpeningHandler = () => {
     if (showMenu) {
       accountArrow.current.style.transform = "rotateZ(0deg)";
-      // accountArrow.current.style.transform = "translateY(-5px)";
     } else {
       accountArrow.current.style.transform = "rotateZ(180deg)";
-      // accountArrow.current.style.transform = "translateY(0px)";
     }
     setShowMenu(!showMenu);
   };

@@ -44,7 +44,6 @@
   width: 100%;
   color: var(--black);
   background-color: rgba(211, 211, 211, 0.618);
-  /* background-color: whitesmoke; */
 }
 .leftChild > div {
   display: flex;

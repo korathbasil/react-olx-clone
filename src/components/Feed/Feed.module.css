@@ -6,7 +6,6 @@
   width: 90%;
   margin: 0 auto;
   max-width: 1220px;
-  /* background-color: aqua; */
 }
 .feedChild > h2 {
   color: var(--black);
@@ -16,5 +15,4 @@
   display: grid;
   grid-template-columns: repeat(4, 289px);
   grid-gap: 20px;
-  /* background-color: blueviolet; */
 }

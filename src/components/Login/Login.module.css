@@ -55,9 +55,7 @@
 .linksContainer > h4 {
   margin: 10px auto;
   display: inline;
-  /* width: 100%; */
   text-align: center;
-  /* background-color: blue; */
 }
 .linksContainer > p {
   margin-top: 10px;
@@ -153,8 +151,6 @@
   border: 2px solid var(--black);
   font-size: 16px;
   width: 100%;
-  /* margin-top: 10px;
-  margin-bottom: 3px; */
   margin: 5px 0;
 }
 .emailSignupForm > div {
