@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -12,40 +12,35 @@ import Footer from "../../components/Footer/Footer";
 
 const Profile = () => {
   const { id } = useParams();
-  const history = useHistory();
 
   const [{ user }] = useGlobalStore();
   const [newUser, setNewUser] = useState(null);
   const [ads, setAds] = useState([]);
 
   useEffect(() => {
-    if (user && user.id === id) {
-      history.push("/profile");
-    } else {
-      db.collection("users")
-        .doc(id)
-        .get()
-        .then((doc) => {
-          setNewUser({
+    db.collection("users")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        setNewUser({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+    db.collection("posts")
+      .where("userId", "==", id)
+      .orderBy("createdAt", "desc")
+      .get()
+      .then((snapshot) => {
+        let adsArray = [];
+        snapshot.forEach((doc) => {
+          adsArray.push({
             id: doc.id,
             ...doc.data(),
           });
         });
-      db.collection("posts")
-        .where("userId", "==", id)
-        .orderBy("createdAt", "desc")
-        .get()
-        .then((snapshot) => {
-          let adsArray = [];
-          snapshot.forEach((doc) => {
-            adsArray.push({
-              id: doc.id,
-              ...doc.data(),
-            });
-          });
-          setAds(adsArray);
-        });
-    }
+        setAds(adsArray);
+      });
   }, [user]);
   return (
     <div className={styles.profile}>

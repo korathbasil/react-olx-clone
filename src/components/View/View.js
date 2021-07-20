@@ -4,6 +4,7 @@ import formatDistance from "date-fns/formatDistance";
 import format from "date-fns/format";
 
 import { db } from "../../firebase";
+import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./View.module.css";
 import Menu from "../../components/Menu/Menu";
@@ -11,6 +12,7 @@ import ProfilePicture from "../../assets/ProfilePicture";
 import Arrow from "../../assets/Arrow";
 
 function View() {
+  const [{ user }] = useGlobalStore();
   const { adId } = useParams();
   const [ad, setAd] = useState(null);
   const [postDetails, setPostDetails] = useState();
@@ -136,7 +138,13 @@ function View() {
             <div className={styles.sellerInfo}>
               <p>Seller description</p>
               <div>
-                <Link to={`/profile/${userDetails?.id}`}>
+                <Link
+                  to={
+                    user?.id === userDetails.id
+                      ? "/profile"
+                      : `/profile/${userDetails?.id}`
+                  }
+                >
                   {(userDetails?.profilePicture === "" ||
                     userDetails?.profilePicture == null) && (
                     <ProfilePicture size={60} />
@@ -146,7 +154,13 @@ function View() {
                   )}
                 </Link>
                 <div className={styles.sellerInfoContainer}>
-                  <Link to={`/profile/${userDetails?.id}`}>
+                  <Link
+                    to={
+                      user?.id === userDetails.id
+                        ? "/profile"
+                        : `/profile/${userDetails?.id}`
+                    }
+                  >
                     <h3>{userDetails?.displayName}</h3>
                   </Link>
                   <p>
@@ -156,11 +170,17 @@ function View() {
                     )}
                   </p>
                 </div>
-                <Link to={`/profile/${userDetails?.id}`}></Link>
-                <div className={styles.arrowContainer}>
-                  <Arrow />
-                </div>
-                <Link to={`/profile/${userDetails?.id}`}></Link>
+                <Link
+                  to={
+                    user?.id === userDetails.id
+                      ? "/profile"
+                      : `/profile/${userDetails?.id}`
+                  }
+                >
+                  <div className={styles.arrowContainer}>
+                    <Arrow />
+                  </div>
+                </Link>
               </div>
               <button>Chat with Seller</button>
               <button>Make an Offer</button>
