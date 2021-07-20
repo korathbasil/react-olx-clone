@@ -8,7 +8,6 @@ import NoAdsImage from "../../assets/images/no-ads-image.png";
 import DummyProfileImage from "../../assets/images/dummy-profile.png";
 import styles from "./MyProfile.module.css";
 import Header from "../../components/Header/Header";
-import ProfilePicture from "../../assets/ProfilePicture";
 import EditIcon from "../../assets/EditIcon";
 import MiniAd from "../../components/MiniAd/MiniAd";
 import Footer from "../../components/Footer/Footer";

@@ -45,7 +45,7 @@ function View() {
             });
           });
       });
-  }, []);
+  }, [adId]);
 
   function formatDate(ad) {
     const createdAt = new Date(ad.createdAt.seconds * 1000);
@@ -97,6 +97,7 @@ function View() {
                           ? "2px solid var(--black)"
                           : "none",
                     }}
+                    alt=""
                     onClick={() => setSelectedImage(image)}
                   />
                 ))}

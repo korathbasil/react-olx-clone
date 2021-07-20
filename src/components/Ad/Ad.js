@@ -12,7 +12,7 @@ const Ad = ({ ad }) => {
   useEffect(() => {
     getFeaturedAttributes();
     formatDate();
-  }, []);
+  });
 
   function formatDate() {
     const createdAt = new Date(ad.createdAt.seconds * 1000);

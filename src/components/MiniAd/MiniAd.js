@@ -8,7 +8,7 @@ const MiniAd = ({ ad }) => {
 
   useEffect(() => {
     formatDate();
-  }, []);
+  });
 
   function formatDate() {
     const createdAt = new Date(ad.createdAt.seconds * 1000);

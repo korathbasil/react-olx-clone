@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
-import { AVATAR_URL } from "../../config/constants";
 
 import styles from "./Login.module.css";
 import OlxLogo from "../../assets/OlxLogo";

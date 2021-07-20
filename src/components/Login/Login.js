@@ -7,8 +7,6 @@ import styles from "./Login.module.css";
 import CloseIcon from "../../assets/CloseIcon";
 import EmailLogin from "./EmailLogin";
 import EmailSignup from "./EmailSignup";
-import GoogleIcon from "../../assets/GoogleIcon";
-import FacebookIcon from "../../assets/FacebookIcon";
 
 const Login = () => {
   const [, dispatch] = useGlobalStore();

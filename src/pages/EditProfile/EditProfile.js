@@ -34,7 +34,7 @@ const EditProfile = () => {
         history.location.pathname.split("/").length - 1
       ];
     setActiveLink(activeLink);
-  }, [user]);
+  }, [user, history.location.pathname]);
 
   const updateProfile = (e) => {
     e.preventDefault();

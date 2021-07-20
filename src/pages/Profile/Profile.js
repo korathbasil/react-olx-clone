@@ -40,7 +40,7 @@ const Profile = () => {
         });
         setAds(adsArray);
       });
-  }, [user]);
+  }, [user, id]);
   return (
     <div className={styles.profile}>
       <Header />

@@ -9,6 +9,7 @@ const ProfilePicture = ({ size }) => {
         height: `${size}px`,
         objectFit: "cover",
       }}
+      alt=""
     />
   );
 };
