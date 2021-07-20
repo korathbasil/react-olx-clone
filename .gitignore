@@ -25,3 +25,11 @@ yarn-error.log*
 
 # Firebase conbfig
 /src/firebase.js
+.firebase
+.firebaserc
+firebase.json
+
+# VS Code
+.vscode
+
+.new
