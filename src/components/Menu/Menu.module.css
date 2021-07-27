@@ -19,3 +19,9 @@
 .linksContainer > p {
   margin-right: 20px;
 }
+
+@media (max-width: 700px) {
+  .linksContainer {
+    display: none;
+  }
+}
