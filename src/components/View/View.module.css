@@ -176,3 +176,24 @@
   background-color: white;
   color: var(--black);
 }
+
+@media (max-width: 700px) {
+  .viewChildDiv > p {
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+  .viewChildDiv > div {
+    flex-direction: column;
+  }
+  .imageViewTop {
+    height: 350px;
+  }
+  .imageViewTop > img {
+    height: 350px;
+  }
+  .left,
+  .right {
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
+}

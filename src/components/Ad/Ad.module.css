@@ -6,6 +6,7 @@
   padding: 7px;
   border-radius: 5px;
   border: var(--border);
+  position: relative;
 }
 .adTop {
   width: 100%;
@@ -22,7 +23,6 @@
   height: 40%;
   padding: 10px;
   padding-bottom: 0;
-  position: relative;
 }
 .adBottom > h3 {
   color: var(--black);
@@ -40,11 +40,11 @@
   overflow-x: hidden;
 }
 .adBottom > div {
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   display: flex;
   justify-content: space-between;
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
 }
 .adBottom > div > p {
   font-size: 10px;
@@ -55,5 +55,16 @@
 @media (max-width: 700px) {
   .ad {
     max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .ad {
+    height: 400px;
+  }
+  .adTop {
+    height: 75%;
+  }
+  .adBottom {
+    height: 25%;
   }
 }
