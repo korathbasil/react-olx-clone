@@ -125,3 +125,15 @@
   border: none;
   border-radius: 3px;
 }
+
+@media (max-width: 700px) {
+  .createPostChild {
+    width: calc(100% - 20px);
+  }
+  .formInputWrapper > input {
+    width: 100%;
+  }
+  .formInputWrapper > select {
+    width: 100%;
+  }
+}
