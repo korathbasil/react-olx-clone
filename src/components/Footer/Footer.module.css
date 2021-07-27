@@ -24,6 +24,7 @@
 }
 .linkCoumns {
   width: 20%;
+  min-height: 160px;
 }
 .linkCoumns > h4 {
   font-size: 14px;
@@ -44,4 +45,27 @@
 }
 .bottomChild > p {
   font-size: 12px;
+}
+
+@media (max-width: 950px) {
+  .container {
+    flex-wrap: wrap;
+  }
+  .linkCoumns {
+    width: 30%;
+  }
+}
+
+@media (max-width: 650px) {
+  .linkCoumns {
+    width: 50%;
+  }
+}
+
+@media (max-width: 350px) {
+  .linkCoumns {
+    width: 100%;
+    min-height: fit-content;
+    margin-bottom: 20px;
+  }
 }
