@@ -4,7 +4,5 @@ export * from "./my-profile/MyProfile";
 export * from "./my-ads/MyAds";
 export * from "./sell/Sell";
 export * from "./edit-profile/EditProfile";
-export * from "./login/Login";
-export * from "./signup/Signup";
 export * from "./view-post/ViewPost";
-export * from "./Error";
+export * from "./error/Error";
