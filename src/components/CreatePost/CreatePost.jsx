@@ -66,7 +66,7 @@ const CreatePost = () => {
           description: productdetails.description,
           imageUrl: urls,
           price: parseInt(productdetails.price),
-          createdAt: fieldValue.serverTimestamp(),
+          createdAt: Date.now(),
           userId: user.id,
           address: {
             ...address,

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import NoAdsImage from "../assets/images/no-ads-image.png";
+import NoAdsImage from "../../assets/images/no-ads-image.png";
 import MiniHeader from "../../components/MiniHeader/MiniHeader";
 import Footer from "../../components/Footer/Footer";
 
