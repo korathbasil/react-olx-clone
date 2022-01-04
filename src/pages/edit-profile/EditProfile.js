@@ -9,7 +9,7 @@ import Header from "../../components/Header/Header";
 import ProfilePicture from "../../assets/ProfilePicture";
 import Footer from "../../components/Footer/Footer";
 
-const EditProfile = () => {
+export const EditProfile = () => {
   const history = useHistory();
   const [{ user }, dispatch] = useGlobalStore();
 
@@ -266,4 +266,3 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;

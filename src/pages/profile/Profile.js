@@ -10,7 +10,7 @@ import Menu from "../../components/Menu/Menu";
 import Ad from "../../components/Ad/Ad";
 import Footer from "../../components/Footer/Footer";
 
-const Profile = () => {
+export const Profile = () => {
   const { id } = useParams();
 
   const [{ user }] = useGlobalStore();
@@ -94,5 +94,3 @@ const Profile = () => {
     </div>
   );
 };
-
-export default Profile;

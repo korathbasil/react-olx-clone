@@ -10,7 +10,7 @@ import Header from "../../components/Header/Header";
 import Menu from "../../components/Menu/Menu";
 import MiniAd from "../../components/MiniAd/MiniAd";
 
-const MyAds = () => {
+export const MyAds = () => {
   const [{ user }] = useGlobalStore();
   const [ads, setAds] = useState([]);
 
@@ -61,5 +61,3 @@ const MyAds = () => {
     </div>
   );
 };
-
-export default MyAds;

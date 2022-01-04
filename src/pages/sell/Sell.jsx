@@ -2,7 +2,7 @@ import MiniHeader from "../../components/MiniHeader/MiniHeader";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import MiniFooter from "../../components/MiniFooter/MiniFooter";
 
-const Sell = () => {
+export const Sell = () => {
   return (
     <>
       <MiniHeader />
@@ -11,5 +11,3 @@ const Sell = () => {
     </>
   );
 };
-
-export default Sell;

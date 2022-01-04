@@ -4,7 +4,7 @@ import NoAdsImage from "../assets/images/no-ads-image.png";
 import MiniHeader from "../components/MiniHeader/MiniHeader";
 import Footer from "../components/Footer/Footer";
 
-const Error = () => {
+export const Error = () => {
   return (
     <>
       <MiniHeader />
@@ -54,6 +54,4 @@ const Error = () => {
       `}</style>
     </>
   );
-};
-
-export default Error;
+}

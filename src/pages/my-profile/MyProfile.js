@@ -12,7 +12,7 @@ import EditIcon from "../../assets/EditIcon";
 import MiniAd from "../../components/MiniAd/MiniAd";
 import Footer from "../../components/Footer/Footer";
 
-const MyProfile = () => {
+export const MyProfile = () => {
   const [{ user }] = useGlobalStore();
   const [ads, setAds] = useState([]);
 
@@ -104,5 +104,3 @@ const MyProfile = () => {
     </div>
   );
 };
-
-export default MyProfile;

@@ -5,7 +5,7 @@ import Menu from "../../components/Menu/Menu";
 import Feed from "../../components/Feed/Feed";
 import Footer from "../../components/Footer/Footer";
 
-function Home(props) {
+export const Home = () => {
   return (
     <div className="homeParentDiv">
       <Header />
@@ -16,5 +16,3 @@ function Home(props) {
     </div>
   );
 }
-
-export default Home;

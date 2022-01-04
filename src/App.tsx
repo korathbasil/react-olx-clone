@@ -8,14 +8,17 @@ import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import LoadingLogo from "./components/LoadingLogo/LoadingLogo";
 import Login from "./components/Login/Login";
-import Home from "./pages/Home/Home";
-import Sell from "./pages/Sell/Sell";
-import ViewPost from "./pages/ViewPost";
-import Profile from "./pages/Profile/Profile";
-import MyProfile from "./pages/MyProfile/MyProfile";
-import EditProfile from "./pages/EditProfile/EditProfile";
-import MyAds from "./pages/MyAds/MyAds";
-import Error from "./pages/Error";
+
+import {
+  Home,
+  Sell,
+  ViewPost,
+  Profile,
+  MyProfile,
+  EditProfile,
+  MyAds,
+  Error,
+} from "pages";
 
 function App() {
   const [{ showLoginOverlay }, dispatch] = useGlobalStore();
