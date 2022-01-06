@@ -59,12 +59,24 @@ function App() {
           <>
             {showLoginOverlay && <Login />}
             <Routes>
-              <PrivateRoute path="/sell" component={Sell} />
+              <Route
+                path="/profile/:id"
+                element={<PrivateRoute component={Sell} />}
+              />
               <Route path="/view/:adId" element={<ViewPost />} />
               <Route path="/profile/:id" element={Profile} />
-              <PrivateRoute path="/profile" component={MyProfile} />
-              <PrivateRoute path="/myads" component={MyAds} />
-              <PrivateRoute path="/editProfile" component={EditProfile} />
+              <Route
+                path="/profile/:id"
+                element={<PrivateRoute component={MyProfile} />}
+              />
+              <Route
+                path="/myads"
+                element={<PrivateRoute component={MyAds} />}
+              />
+              <Route
+                path="/editprofile"
+                element={<PrivateRoute component={EditProfile} />}
+              />
               <Route path="/" element={Home} />
               <Route path="*" element={Error} />
             </Routes>
