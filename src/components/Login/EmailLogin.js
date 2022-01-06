@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -9,7 +9,7 @@ import OlxLogo from "../../assets/OlxLogo";
 import BackArrowIcon from "../../assets/BackArrowIcon";
 
 const EmailLogin = ({ pageHandler }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [, dispatch] = useGlobalStore();
   const [loginInput, setLoginInput] = useState({
@@ -53,7 +53,7 @@ const EmailLogin = ({ pageHandler }) => {
           email: "",
           password: "",
         });
-        history.push("/");
+        navigate("/");
       })
       .catch((err) => {
         if (

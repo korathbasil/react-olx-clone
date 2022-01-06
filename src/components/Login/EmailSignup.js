@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { auth, db } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -9,7 +9,7 @@ import OlxLogo from "../../assets/OlxLogo";
 import BackArrowIcon from "../../assets/BackArrowIcon";
 
 const EmailSignup = ({ pageHandler }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [, dispatch] = useGlobalStore();
   const [signupInput, setSignupInput] = useState({
@@ -68,7 +68,7 @@ const EmailSignup = ({ pageHandler }) => {
               type: "SET_LOGIN_OVERLAY",
               status: false,
             });
-            history.push("/");
+            navigate("/");
           })
           .catch((e) => console.error(e.message));
       })

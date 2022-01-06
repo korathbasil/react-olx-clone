@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { auth, db } from "./firebase";
 import useGlobalStore from "./store/GlobalStore";
@@ -58,16 +58,16 @@ function App() {
         {!showLoading && (
           <>
             {showLoginOverlay && <Login />}
-            <Switch>
+            <Routes>
               <PrivateRoute path="/sell" component={Sell} />
-              <Route path="/view/:adId" component={ViewPost} />
-              <Route path="/profile/:id" component={Profile} />
+              <Route path="/view/:adId" element={<ViewPost />} />
+              <Route path="/profile/:id" element={Profile} />
               <PrivateRoute path="/profile" component={MyProfile} />
               <PrivateRoute path="/myads" component={MyAds} />
               <PrivateRoute path="/editProfile" component={EditProfile} />
-              <Route path="/" component={Home} exact />
-              <Route path="*" component={Error} />
-            </Switch>
+              <Route path="/" element={Home} />
+              <Route path="*" element={Error} />
+            </Routes>
           </>
         )}
       </div>

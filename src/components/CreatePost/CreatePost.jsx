@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { db, storage, fieldValue } from "../../firebase";
+import { db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
 
 import styles from "./CreatePost.module.css";
@@ -9,7 +9,7 @@ import CategorySelector from "../CategorySelector/CategorySelector";
 import AddPhotoIcon from "../../assets/AddPhotoIcon";
 
 const CreatePost = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const imagePicker = useRef();
 
   const [{ user }] = useGlobalStore();
@@ -77,7 +77,7 @@ const CreatePost = () => {
         });
       })
       .then(() => {
-        history.push("/");
+        navigate("/");
       });
   };
 

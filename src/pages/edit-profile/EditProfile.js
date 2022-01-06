@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Route, Switch, Link, useHistory } from "react-router-dom";
+import { Route, Link, useNavigate, Routes } from "react-router-dom";
 
 import { auth, db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -10,7 +10,7 @@ import ProfilePicture from "../../assets/ProfilePicture";
 import Footer from "../../components/Footer/Footer";
 
 export const EditProfile = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [{ user }, dispatch] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("");
@@ -30,11 +30,11 @@ export const EditProfile = () => {
 
   useEffect(() => {
     const activeLink =
-      history.location.pathname.split("/")[
-        history.location.pathname.split("/").length - 1
+      navigate.location.pathname.split("/")[
+        navigate.location.pathname.split("/").length - 1
       ];
     setActiveLink(activeLink);
-  }, [user, history.location.pathname]);
+  }, [user, navigate.location.pathname]);
 
   const updateProfile = (e) => {
     e.preventDefault();
@@ -71,7 +71,7 @@ export const EditProfile = () => {
                   email: email,
                 },
               });
-              history.push("/");
+              navigate('/');
             });
         })
         .catch((err) => {
@@ -97,7 +97,7 @@ export const EditProfile = () => {
               email: email,
             },
           });
-          history.push("/");
+          navigate('/');
         });
     }
   };
@@ -130,7 +130,7 @@ export const EditProfile = () => {
                   profilePicture: url,
                 },
               });
-              history.push("/");
+              navigate("/");
             });
         });
   };
@@ -167,7 +167,7 @@ export const EditProfile = () => {
           </Link>
         </div>
         <div className={styles.right}>
-          <Switch>
+          <Routes>
             <Route path="/editProfile/info">
               <div className={styles.rightTop}>
                 <h3>Edit Profile</h3>
@@ -212,7 +212,7 @@ export const EditProfile = () => {
                   <div>{errorMessage && <p>{errorMessage}</p>}</div>
                 </div>
                 <div className={styles.rightBottom}>
-                  <p onClick={() => history.push("/")}>Discard</p>
+                  <p onClick={() => navigate("/")}>Discard</p>
                   <button type="submit">Save Changes</button>
                 </div>
               </form>
@@ -252,13 +252,13 @@ export const EditProfile = () => {
                 </div>
               </div>
               <div className={styles.rightBottom}>
-                <p onClick={() => history.push("/")}>Discard</p>
+                <p onClick={() => navigate("/")}>Discard</p>
                 <button type="submit" onClick={uploadNewProfilePicture}>
                   Upload
                 </button>
               </div>
             </Route>
-          </Switch>
+          </Routes>
         </div>
       </div>
       <Footer />
