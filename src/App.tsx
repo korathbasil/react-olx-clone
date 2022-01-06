@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { auth, db } from "./firebase";
 import useGlobalStore from "./store/GlobalStore";
-import PrivateRoute from "./utils/PrivateRoute";
 import { RequireAuth } from "utils/RequireAuth";
 
 import "./App.css";
