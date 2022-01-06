@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { auth, db } from "./firebase";
 import useGlobalStore from "./store/GlobalStore";
-import { RequireAuth } from "utils/RequireAuth";
+import { RequireAuth } from "./utils/RequireAuth";
 
 import "./App.css";
 import LoadingLogo from "./components/LoadingLogo/LoadingLogo";
@@ -18,7 +18,7 @@ import {
   EditProfile,
   MyAds,
   Error,
-} from "pages";
+} from "./pages";
 
 function App() {
   const [{ showLoginOverlay }, dispatch] = useGlobalStore();
