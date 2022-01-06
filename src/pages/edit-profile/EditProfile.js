@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Route, Link, useNavigate, Routes } from "react-router-dom";
+import { Route, Link, useNavigate, Routes, useLocation } from "react-router-dom";
 
 import { auth, db, storage } from "../../firebase";
 import useGlobalStore from "../../store/GlobalStore";
@@ -11,6 +11,8 @@ import Footer from "../../components/Footer/Footer";
 
 export const EditProfile = () => {
   const navigate = useNavigate();
+  const location = useLocation()
+  
   const [{ user }, dispatch] = useGlobalStore();
 
   const [activeLink, setActiveLink] = useState("");
@@ -30,11 +32,13 @@ export const EditProfile = () => {
 
   useEffect(() => {
     const activeLink =
-      navigate.location.pathname.split("/")[
-        navigate.location.pathname.split("/").length - 1
+      location.pathname.split("/")[
+        location.pathname.split("/").length - 1
       ];
+      console.log(location.pathname)
+
     setActiveLink(activeLink);
-  }, [user, navigate.location.pathname]);
+  }, [user, location.pathname]);
 
   const updateProfile = (e) => {
     e.preventDefault();

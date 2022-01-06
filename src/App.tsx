@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth, db } from "./firebase";
 import useGlobalStore from "./store/GlobalStore";
 import PrivateRoute from "./utils/PrivateRoute";
+import { RequireAuth } from "utils/RequireAuth";
 
 import "./App.css";
 import LoadingLogo from "./components/LoadingLogo/LoadingLogo";
@@ -60,25 +61,41 @@ function App() {
             {showLoginOverlay && <Login />}
             <Routes>
               <Route
-                path="/profile/:id"
-                element={<PrivateRoute component={Sell} />}
+                path="/sell"
+                element={
+                  <RequireAuth>
+                    <Sell />
+                  </RequireAuth>
+                }
               />
               <Route path="/view/:adId" element={<ViewPost />} />
-              <Route path="/profile/:id" element={Profile} />
+              <Route path="/profile/:id" element={<Profile />} />
               <Route
-                path="/profile/:id"
-                element={<PrivateRoute component={MyProfile} />}
+                path="/profile"
+                element={
+                  <RequireAuth>
+                    <MyProfile />
+                  </RequireAuth>
+                }
               />
               <Route
                 path="/myads"
-                element={<PrivateRoute component={MyAds} />}
+                element={
+                  <RequireAuth>
+                    <MyAds />
+                  </RequireAuth>
+                }
               />
               <Route
                 path="/editprofile"
-                element={<PrivateRoute component={EditProfile} />}
+                element={
+                  <RequireAuth>
+                    <EditProfile />
+                  </RequireAuth>
+                }
               />
-              <Route path="/" element={Home} />
-              <Route path="*" element={Error} />
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<Error />} />
             </Routes>
           </>
         )}
